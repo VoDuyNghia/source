@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+route::pattern('name' ,'(.*)');
+route::pattern('id', '([0-9]*)');
+
 
 Route::namespace('House')->group( function() {
     Route::get('',  [
@@ -23,6 +26,8 @@ Route::namespace('Admin')->prefix('admin')->group( function() {
 		'uses' => 'DashboardController@index',
 		'as'   => 'admin.index.index'
 	]);
+
+	//// Quản lý Category
 
 	Route::get('category' , [
 		'uses' => 'CatController@index',
@@ -41,4 +46,39 @@ Route::namespace('Admin')->prefix('admin')->group( function() {
 		'as'   => 'admin.cat.add'
 	]);
 
+
+	Route::get('category/edit/{id}' , [
+		'uses' => 'CatController@get_Edit',
+		'as'   => 'admin.cat.edit'
+	]);
+
+	Route::post('category/edit/{id}' , [
+		'uses' => 'CatController@post_Edit',
+		'as'   => 'admin.cat.edit'
+	]);
+
+	Route::get('delete_category', 'CatController@post_Delete')->name('delete_category');
+
+
+	//// Quản lý Users
+
+	Route::get('user', 'UserController@index')->name('admin.users.index');
+	Route::get('user/add', 'UserController@get_Add')->name('admin.users.add');
+	Route::post('user/add', 'UserController@post_Add')->name('admin.users.add');
+	Route::post('user/change_pass', 'UserController@post_ChangePass')->name('change_pass');
+	Route::post('user/active_user', 'UserController@active_User')->name('active_user');
+
+
+	// Quản lý Products
+
+	Route::get('product', 'ProductController@index')->name('admin.product.index');
+	Route::get('product/add', 'ProductController@get_Add')->name('admin.product.add');
+	Route::post('product/add', 'ProductController@post_Add')->name('admin.product.add');
+	Route::post('product/delete', 'ProductController@post_Delete')->name('delete_product');
+	Route::get('product/edit/{id}', 'ProductController@get_Edit')->name('admin.product.edit');
+	Route::post('product/edit/{id}', 'ProductController@post_Edit')->name('admin.product.edit');
+
+
 });
+
+

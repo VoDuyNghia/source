@@ -4,35 +4,40 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Thêm danh mục
+            Thêm tài khoản
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{ route('admin.index.index') }}"><i class="fa fa-dashboard"></i>Admin</a></li>
-            <li class="active">Thêm danh mục</li>
+            <li class="active">Thêm tài khoản</li>
         </ol>
     </section>
     <div class="container" style="padding-top: 30px">
             <section class="content container-fluid">
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Thêm danh mục</h3>
+            <h3 class="box-title">Thêm tài khoản</h3>
         </div>
         <div class="box-header">
            <div class="col-lg-12" style="padding-bottom:50px">
-              <form action="{{ route('admin.cat.add') }}" method="POST" enctype="multipart/form-data">
+              <form action="{{ route('admin.users.add') }}" method="POST">
                 {{ csrf_field() }}
                  <div class="row">
                     <div class="col-md-4">
                        <div class="form-group">
-                          <label>Tên danh mục</label>
-                          <input class="form-control" type="text" value="{{ old('name_category') }}" name="name_category" placeholder="Nhập tên danh mục">
+                          <label>Họ và tên</label>
+                          <input class="form-control" type="text" value="{{ old('username') }}" name="username" placeholder="Nhập họ và tên">
                        </div>
                        <div class="form-group">
-                          <label>Vị trí</label>
-                          <input class="form-control" type="number" value="{{ old('position') }}" min="1" name="position" placeholder="Nhập vị trí">
+                          <label>Email</label>
+                          <input class="form-control" type="email" value="{{ old('email') }}" name="email" placeholder="Nhập email">
+                       </div>
+
+                      <div class="form-group">
+                          <label>Password</label>
+                          <input class="form-control" type="password" value="{{ old('password') }}" min="1" name="password" placeholder="Nhập mật khẩu">
                        </div>
                     </div>
-                    <div style='text-align: center;font-size: 30px;text-transform: uppercase;color: red;font-weight: bold;' class="col-md-8">
+                    <div style='font-size: 20px;text-transform: uppercase;color: red;font-weight: bold;' class="col-md-8">
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>

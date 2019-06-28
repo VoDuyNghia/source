@@ -8,7 +8,7 @@
         Danh Mục
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Trang Chủ</a></li>
+        <li><a href="{{ route('admin.index.index') }}"><i class="fa fa-dashboard"></i> Trang Chủ</a></li>
         <li class="active">Danh Mục</li>
       </ol>
     </section>
@@ -24,45 +24,45 @@
               <h3 class="box-title">Danh Sách Mục Lục</h3>
             </div>
   
-
-            @if (Session::has('msg'))
             <div id="notify_success" class=" notify success">
+              @if (Session::has('msg'))
                 <div class="alert alert-success">{{ Session::get('msg') }}</div>
+              @endif
             </div>
-            @endif
 
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Tên Danh Mục</th>
-                  <th>Vị Trí</th>
-                  <th>Chức Năng</th>
-                  <th>
-                      <a href="{{ route('admin.cat.add') }}" class="btn btn-primary btn-xs">Thêm</a>
-        				  </th>
+                  <th class="text-center"> ID</th>
+                  <th class="text-center"> Tên Danh Mục</th>
+                  <th class="text-center"> Vị Trí</th>
+                  <th class="text-center">
+                      <a href="{{ route('admin.cat.add') }}" class="btn btn-primary btn-xs">Thêm Danh Mục</a>
+                  </th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td></td>
-                </tr>
+                  @foreach ($objCollection as $value)
+                    <tr id="delete-coloum-{{$value->id}}">
+                      <td class="text-center">{{ $value->id }}</td>
+                      <td class="text-center">{{ $value->name}}</td>
+                      <td class="text-center">{{ $value->position}}</td>
+                      <td class="text-center">
+                          <a href="{{ route('admin.cat.edit',[$value->id ]) }}" class="btn btn-warning btn-xs edit-category">Sửa</a> || 
+                          <button class="btn btn-danger btn-xs" id="delete-category" value="{{$value->id}}">Xóa</button>
+                      </td>
+                    </tr>
+                  @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
+                  <th class="text-center"> ID</th>
+                  <th class="text-center"> Tên Danh Mục</th>
+                  <th class="text-center"> Vị Trí</th>
+                  <th class="text-center"> Chức Năng</th>
+                  <th></th>
                 </tr>
                 </tfoot>
               </table>
@@ -72,28 +72,63 @@
         </div>
         <!-- /.col -->
       </div>
+
+    <div class="modal modal-danger fade" id="modal-danger">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Bạn có muốn xóa Danh mục này không ? </h4>
+                </div>
+                <div class="modal-footer" id="add-body">
+                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-outline" id="delete-save" data-id="">Xóa</button>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
       <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
   <script>
-    $(function () {
-      $('#example1').DataTable()
-      $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-      })
+    $("body").on('click','#delete-category',function(){
+        var value = $(this).val();
+        $('#modal-danger').modal('show');
+        $('#delete-save').attr('data-id',value);
+    });
+
+    $('#delete-save').on('click',function(){
+        $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+        });
+
+        var id = $(this).attr('data-id');
+        var state = $(this).val();
+        
+        $.ajax({
+            url : '{{route('delete_category')}}',
+            type : 'GET',
+            data : {
+                id : id
+        },
+        success:function(data){
+            $("#delete-coloum-"+id).replaceWith();
+            $('#modal-danger').modal('hide');
+            
+            if(data.success){
+                $('#notify_success').html('<div class=" notify success"><div class="alert alert-success">' + data.success + '</div></div>');
+            }else{
+                $('#notify_success').html('<div class=" notify error"><div class="alert alert-danger">' + data.error + '</div></div>');
+            }
+        }
+        });
     })
-
-    setTimeout(function() {
-      $('#notify_success').remove();
-    }, 5000);
   </script>
-
  
   <!-- /.content-wrapper -
 @endsection
