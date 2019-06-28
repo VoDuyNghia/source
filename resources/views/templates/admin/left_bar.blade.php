@@ -28,6 +28,7 @@
       <li><a href="{{ Route('admin.cat.index') }}"><i class="fa fa-book"></i> <span>Quản Lý Danh Mục</span></a></li>
       <li><a href="{{ Route('admin.users.index') }}"><i class="fa fa-user"></i> <span>Quản Lý Thành viên</span></a></li>
       <li><a href="{{ Route('admin.product.index') }}"><i class="fa fa-product-hunt"></i> <span>Quản Lý Sản phẩm</span></a></li>
+      <li><a href="{{ Route('admin.news.index') }}"><i class="fa fa-th"></i> <span>Quản Lý Blogs</span></a></li>
       <li class="treeview">
         <a href="#">
           <i class="fa fa-files-o"></i>

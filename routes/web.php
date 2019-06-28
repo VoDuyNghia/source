@@ -79,6 +79,15 @@ Route::namespace('Admin')->prefix('admin')->group( function() {
 	Route::post('product/edit/{id}', 'ProductController@post_Edit')->name('admin.product.edit');
 
 
+	// Quản lý Blogs
+
+	Route::get('news', 'NewsController@index')->name('admin.news.index');
+	// Route::get('product/add', 'ProductController@get_Add')->name('admin.product.add');
+	// Route::post('product/add', 'ProductController@post_Add')->name('admin.product.add');
+	// Route::post('product/delete', 'ProductController@post_Delete')->name('delete_product');
+	// Route::get('product/edit/{id}', 'ProductController@get_Edit')->name('admin.product.edit');
+	// Route::post('product/edit/{id}', 'ProductController@post_Edit')->name('admin.product.edit');
+
 });
 
 
