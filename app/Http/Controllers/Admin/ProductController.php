@@ -9,7 +9,8 @@ use App\Models\Collection;
 use App\Models\Product;
 use App\Models\Choose;
 use App\Models\District;
-use App\Models\Image;
+use App\Models\ImageDetail;
+use Intervention\Image\Facades\Image;
 use App\Models\Active;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProductRequest;
 use Validator,Redirect,Response,File;
+use Helpers;
 
 class ProductController extends Controller
 {   
@@ -42,31 +44,68 @@ class ProductController extends Controller
         return view('admin.product.add',compact('objCollection','objChoose','objDistrict','objActive'));
     }
 
-    public function post_Add(ProductRequest $request) {
+    public function post_Add(Request $request) {
+
         $file = $request->file('image_detail123');
         if(!is_null($file)){
-            // upload file lên
-            if($request->hasFile('image_detail123')){
-                $fileName = $this->image_detail123 = time() . "_" . rand(5, 5000000).'_'. $request->image_detail123->getClientOriginalName();// lấy tên hình ra
+            $fileName = $this->image_detail123 = time() . "_" . rand(5, 5000000).'_'. $request->image_detail123->getClientOriginalName();
+            $request->fileName = $fileName;
+        } else {
+            $request->fileName = '';
+        }
+
+        try {
+            if($this->objProduct->add_Items($request)) {
                 $file->move('storage/app/public/files/show_image',$fileName);
-                $request->fileName = $fileName;
-            } else {
-                $request->fileName = '';
+                $images = $request->file('image_detail');
+            if($images){
+                $id =DB::getPdo()->lastInsertId();
+                foreach ($images as $image){
+                    $name = time() . "_" . rand(5, 5000000).'_'. $image->getClientOriginalName();  
+                    $url = "storage/app/public/files/detail_image";
+                    $image->move('storage/app/public/files/detail_image',$name);
+                    Helpers::watermark_detail($image,$name,$url);
+                    ImageDetail::create([
+                        'image_detail'  => $name,
+                        'product_id'    => $id,
+                    ]);
+                   
+                }
             }
-        } 
+                DB::commit();
+                $request->session()->flash('msg','Thêm thành công');
+                return redirect()->route('admin.product.index');
+            }
+        } catch(\Exception $e) {
+            $request->session()->flash('msg','Thêm thất bại');
+            return redirect()->route('admin.product.add');
+        }
+
+
         if($this->objProduct->add_Items($request)) {
+            $file->move('storage/app/public/files/show_image',$fileName);
             $images = $request->file('image_detail');
             if($images){
                 $id =DB::getPdo()->lastInsertId();
                 foreach ($images as $image){
-                    $name = time() . "_" . rand(5, 5000000).'_'. $image->getClientOriginalName();
-                    Image::create([
+                    $name = time() . "_" . rand(5, 5000000).'_'. $image->getClientOriginalName();  
+                    $url = "storage/app/public/files/detail_image";
+                    $image->move('storage/app/public/files/detail_image',$name);
+                    Helpers::watermark_detail($image,$name,$url);
+                    ImageDetail::create([
                         'image_detail'  => $name,
                         'product_id'    => $id,
                     ]);
-                    $image->move('storage/app/public/files/detail_image',$name);
+                   
                 }
             }
+
+            DB::commit();
+            $request->session()->flash('msg','Thêm thành công');
+            return redirect()->route('admin.product.index');
+        } else {
+            $request->session()->flash('msg','Thêm thất bại');
+            return redirect()->route('admin.product.add');
         }
     }
 
@@ -77,13 +116,13 @@ class ProductController extends Controller
             $patch_name   = 'storage/app/public/files/show_image/'.$Image['image'];
             File::delete($patch_name);
 
-            $Image_name_  = Image::where('product_id', $request->input('id'))->get();
+            $Image_name_  = ImageDetail::where('product_id', $request->input('id'))->get();
             foreach ($Image_name_ as $value) {
                 $patch = 'storage/app/public/files/detail_image/'.$value->image_detail;
                 File::delete($patch);
             } 
             $Product        = Product::where('id', $request->input('id'))->delete();
-            $Image_Product  = Image::where('product_id', $request->input('id'))->delete();
+            $Image_Product  = ImageDetail::where('product_id', $request->input('id'))->delete();
             return response()->json(['success'=> 'Xóa thành công!']);
         } catch(\Exception $e) {
             DB::rollBack();
@@ -98,7 +137,7 @@ class ProductController extends Controller
         $objActive          = $this->objActive ->get_Active();
 
         $objProduct         = Product::findOrfail($id);
-        $ImageProduct       = Image::where('product_id',$id)->get();
+        $ImageProduct       = ImageDetail::where('product_id',$id)->get();
         return view("admin.product.edit",compact('objCollection','objChoose','objDistrict','objActive','objProduct','ImageProduct'));
     }
 
@@ -116,7 +155,7 @@ class ProductController extends Controller
             if(!empty($images_del)){
                 $array_img = explode(',',$images_del);
                 foreach($array_img as $id_del){
-                    $img = Image::find($id_del);
+                    $img  = ImageDetail::find($id_del);
                     $path = $_SERVER["DOCUMENT_ROOT"].'/storage/app/public/files/detail_image/'.$img->image_detail;
                     if(file_exists($path)){
                         unlink($path);
@@ -128,13 +167,8 @@ class ProductController extends Controller
             // Ảnh đại điện
             $images123 = $request->file('image_detail123');
             if($images123) {
-                $request->fileName  = 'avatar_'.time() . "_" .rand(5, 5000000).'_'. $images123->getClientOriginalName();
-                $images123->move('storage/app/public/files/show_image',$name123);
+                $name123 = $request->fileName  = 'avatar_'.time() . "_" .rand(5, 5000000).'_'. $images123->getClientOriginalName();
 
-                $oldimage123 = $_SERVER["DOCUMENT_ROOT"]. '/storage/app/public/files/show_image/'.$product['image'];
-                if(file_exists($oldimage123)) {
-                    unlink($oldimage123);
-                }
             } else {
                 $request->fileName = $product['image'];
             }
@@ -144,15 +178,18 @@ class ProductController extends Controller
             if($images){
                 foreach ($images as $image){
                     $name = time() . "_" . rand(5, 5000000).'_'. $image->getClientOriginalName();
-                    Image::create([
+                    $url = "storage/app/public/files/detail_image";
+
+                    $image->move('storage/app/public/files/detail_image',$name);
+                    Helpers::watermark_detail($image,$name,$url);
+
+                    ImageDetail::create([
                         'image_detail'  => $name,
                         'product_id'    => $id,
                     ]);
-
-                    $image->move('storage/app/public/files/detail_image',$name);
                 }
             }   
-            $objProduct = new Product();
+            $objProduct                    = new Product();
             $objItem                       = $objProduct->findOrfail($id);
             $objItem->name                 = $data['name'];
             $objItem->detail               = $data['detail'];
@@ -166,12 +203,19 @@ class ProductController extends Controller
             $objItem->configuration        = $configuration;
             $objItem->active_id            = $data['active'];
             $objItem->image                = $request->fileName;
-            $objItem->save();
-            DB::commit();
+            
+            if($objItem->save()){
+                $images123->move('storage/app/public/files/show_image',$name123);
+                $oldimage123 = $_SERVER["DOCUMENT_ROOT"]. '/storage/app/public/files/show_image/'.$product['image'];
+                if(file_exists($oldimage123)) {
+                    unlink($oldimage123);
+                }
 
-            $request->session()->flash('msg','Sửa thành công');
-            return redirect()->route('admin.product.index');
-
+                DB::commit();
+                $request->session()->flash('msg','Sửa thành công');
+                return redirect()->route('admin.product.index');
+            };
+            
         } catch(\Exception $e) {
             DB::rollback();
             $request->session()->flash('msg','Sửa thất bại');

@@ -82,11 +82,11 @@ Route::namespace('Admin')->prefix('admin')->group( function() {
 	// Quản lý Blogs
 
 	Route::get('news', 'NewsController@index')->name('admin.news.index');
-	// Route::get('product/add', 'ProductController@get_Add')->name('admin.product.add');
-	// Route::post('product/add', 'ProductController@post_Add')->name('admin.product.add');
-	// Route::post('product/delete', 'ProductController@post_Delete')->name('delete_product');
-	// Route::get('product/edit/{id}', 'ProductController@get_Edit')->name('admin.product.edit');
-	// Route::post('product/edit/{id}', 'ProductController@post_Edit')->name('admin.product.edit');
+	Route::get('news/add', 'NewsController@get_Add')->name('admin.news.add');
+	Route::post('news/add', 'NewsController@post_Add')->name('admin.news.add');
+	Route::get('delete_news', 'NewsController@post_Delete')->name('delete_news');
+	Route::get('news/edit/{id}', 'NewsController@get_Edit')->name('admin.news.edit');
+	Route::post('news/edit/{id}', 'NewsController@post_Edit')->name('admin.news.edit');
 
 });
 

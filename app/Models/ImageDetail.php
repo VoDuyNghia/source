@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Image extends Model
+class ImageDetail extends Model
 {
     protected $table = "image_detail";
     protected $primaryKey = 'id';

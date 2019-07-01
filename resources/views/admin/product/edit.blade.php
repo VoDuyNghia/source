@@ -84,20 +84,6 @@
                                         </tr>
                                     @empty
                                     @endforelse
-                                   {{--  <tr>        
-                                        <td width="120px"><input disabled=""value="Số phòng tắm" class="form-control" name="type='text'"></td>
-                                        <td><input class="form-control" name="configuration[]" type="text"></td>
-                                    </tr>
-
-                                    <tr>        
-                                        <td width="120px"><input disabled=""value="Số phòng ngủ" class="form-control" name="type='text'"></td>
-                                        <td><input class="form-control" name="configuration[]" type="text"></td>
-                                    </tr>
-
-                                    <tr>        
-                                        <td width="120px"><input disabled=""value="Diện tích" class="form-control" name="type='text'"></td>
-                                        <td><input class="form-control" name="configuration[]" type="text"></td>
-                                    </tr> --}}
                                 </table>
                                 <button id="btn-add" type="button" class="btn btn-sm btn-primary pull-left">
                                     <span class="glyphicon glyphicon-plus"></span>&nbsp;Thêm

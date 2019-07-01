@@ -5,15 +5,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Danh Mục
+        Blogs
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ route('admin.index.index') }}"><i class="fa fa-dashboard"></i> Trang Chủ</a></li>
-        <li class="active">Danh Mục</li>
+        <li class="active">Blogs</li>
       </ol>
     </section>
-
-
 
     <!-- Main content -->
     <section class="content">
@@ -21,7 +19,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Danh Sách Mục Lục</h3>
+              <h3 class="box-title">Danh Sách Blogs</h3>
             </div>
   
             <div id="notify_success" class=" notify success">
@@ -41,7 +39,7 @@
                   <th class="text-center"> Ngày Đăng</th>
                   <th class="text-center"> Trạng Thái</th>
                   <th class="text-center">
-                      <a href="{{ route('admin.cat.add') }}" class="btn btn-primary btn-xs">Thêm Bài Viết</a>
+                      <a href="{{ route('admin.news.add') }}" class="btn btn-primary btn-xs">Thêm Bài Viết</a>
                   </th>
                 </tr>
                 </thead>
@@ -50,19 +48,20 @@
                     <tr id="delete-coloum-{{$value->id}}">
                       <td class="text-center">{{ $value->id }}</td>
                       <td class="text-center">{{ $value->name}}</td>
-                      <td class="text-center"><img width="100px" height="100px" class="img img-thumbnail" src="{{ asset('storage/app/public/files/news/'.$value->image)}}"></td>
+                      <td class="text-center"><img width="100px" height="100px" class="img img-thumbnail" src="{{ asset('storage/app/public/files/show_news/'.$value->image)}}"></td>
+                      <td class="text-center">{{ $value->created_at }}</td>
                       <td class="text-center">
-                          <a href="{{ route('admin.cat.edit',[$value->id ]) }}" class="btn btn-warning btn-xs edit-category">Sửa</a> || 
+                          <a href="{{ route('admin.news.edit',[$value->id ]) }}" class="btn btn-warning btn-xs edit-category">Sửa</a> || 
                           <button class="btn btn-danger btn-xs" id="delete-category" value="{{$value->id}}">Xóa</button>
                       </td>
                       <td  id="trangthai_{{$value->id}}" class="text-center">
                           <div class="row">
-                              @if ($value->active == 0)
-                                <a onclick="chuyenTrangThai({{$value->id}},{{ $value->active }})" href="javascript:void()">
+                              @if ($value->active_id == 0)
+                                <a href="javascript:void()">
                                   <img src="http://event.titans.mu/event/image/deactive.gif">
                                 </a>
                               @else
-                                <a onclick="chuyenTrangThai({{$value->id}},{{ $value->active }})" href="javascript:void()">
+                                <a href="javascript:void()">
                                   <img src="http://event.titans.mu/event/image/active.gif">
                                 </a>
                               @endif
@@ -94,7 +93,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Bạn có muốn xóa Danh mục này không ? </h4>
+                    <h4 class="modal-title">Bạn có muốn xóa Blogs này không ? </h4>
                 </div>
                 <div class="modal-footer" id="add-body">
                     <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Đóng</button>
@@ -126,7 +125,7 @@
         var state = $(this).val();
         
         $.ajax({
-            url : '{{route('delete_category')}}',
+            url : '{{route('delete_news')}}',
             type : 'GET',
             data : {
                 id : id

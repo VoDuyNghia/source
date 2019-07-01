@@ -4,6 +4,8 @@ namespace App\Http\Controllers\House;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
+
 
 class IndexController extends Controller
 {

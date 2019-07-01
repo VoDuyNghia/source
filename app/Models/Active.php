@@ -15,6 +15,11 @@ class Active extends Model
         return $this->hasMany('App\Models\Product');
     }
 
+
+    public function news() {
+        return $this->hasMany('App\Models\News');
+    }
+
     public function get_Active() {
     	return $this->all();
     }

@@ -25,6 +25,18 @@ class News extends Model
     }
 
 
+    public function add_Items($request){
+        $data = $request->all();
+        
+        $this->name                 = $data['name'];
+        $this->detail               = $data['detail'];
+        $this->content              = $data['description'];
+        // $this->users_id             = Auth::user()->id;
+        $this->user_id              = 1;
+        $this->active_id            = $data['active'];
+        $this->image                = $request->fileName;
 
+        return $this->save();
+    }
 }
 
