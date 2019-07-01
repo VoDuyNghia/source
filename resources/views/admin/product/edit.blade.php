@@ -73,6 +73,7 @@
                                             if($key == 0) $properties = "Số phòng tắm";
                                                 else if($key == 1) $properties = "Số phòng ngủ";
                                                     else if($key == 2) $properties = "Diện tích";
+                                                        else $properties = "";
                                         @endphp
                                         <tr>
                                             <td width="120px">

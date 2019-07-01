@@ -1,9 +1,8 @@
 @extends('templates.house.master')
 @section('content')
 
-@include('templates.house.banner')
 <!-- ##### Hero Area End ##### -->
-
+@include('templates.house.banner')
 <!-- ##### Advance Search Area Start ##### -->
 <div class="south-search-area">
     <div class="container">
@@ -231,84 +230,114 @@
 <!-- ##### Advance Search Area End ##### -->
 
 <!-- ##### Featured Properties Area Start ##### -->
-<section class="featured-properties-area section-padding-100-50">
+<section class="listings-content-wrapper section-padding-100">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="section-heading wow fadeInUp">
-                    <h2>Featured Properties</h2>
-                    <p>Suspendisse dictum enim sit amet libero malesuada feugiat.</p>
+                <!-- Single Listings Slides -->
+                <div class="single-listings-sliders owl-carousel">
+                    @foreach ($objImage as $value)
+                    	<img src="{{asset('storage/app/public/files/detail_image/'.$value->image_detail)}}" alt="{{ $objProducts['name'] }}">
+                    @endforeach
                 </div>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="listings-content">
+                    <!-- Price -->
+                    <div class="list-price">
+                        <p>${{ $objProducts['price'] }}</p>
+                    </div>
+                    <h5>{{ $objProducts['name'] }}</h5>
+                    <p class="location"><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt="">{{ $objProducts['address'] }}</p>
+                    <p style="word-break: break-all;">{!! $objProducts['content'] !!}</p>
+                    <!-- Meta -->
 
-            <!-- Single Featured Property -->
-            @forelse ($objProducts as $value)
-            @php
-                $arr = [
-                    'name' => str_slug($value->name),
-                    'id'   => $value->id,
-                ]
-            @endphp
-                <div class="col-12 col-md-6 col-xl-4">
-                    <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Property Thumbnail -->
-                        <div class="property-thumb">
-                            <a href="{{ route('house.product.index',$arr) }}">
-                                <img src="{{asset('storage/app/public/files/show_image/'.$value->image)}}" alt="{{ $value->name }}">
-                            </a>
-                            <div class="tag">
-                                <span>For Sale</span>
-                            </div>
-                            <div class="list-price">
-                                <p>${{$value->price}}</p>
-                            </div>
+                    <div class="property-meta-data d-flex align-items-end">
+                        @if(json_decode($objProducts['configuration'], true))
+                        <?php
+                          $configurations = json_decode($objProducts['configuration'], true);
+                          ?>
+                        @endif
+
+                        @forelse($configurations as $key=>$value)
+                            @if ($key == 0)
+                                <div class="bathroom">
+                                    <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/bathtub.png" alt="">
+                                    <span>{{ $key }}</span>
+                                </div>
+                            @elseif($key ==1)
+                                <div class="garage">
+                                    <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/garage.png" alt="">
+                                    <span>{{ $key }}</span>
+                                </div>
+                            @elseif($key==2)
+                                <div class="space">
+                                    <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/space.png" alt="">
+                                    <span>{{ $key }} sq ft</span>
+                                </div> 
+                            @endif
+                        @empty
+                        @endforelse
+                    </div>
+                    <!-- Core Features -->
+                    <ul class="listings-core-features d-flex align-items-center">
+                    	@forelse($configurations as $key => $value)
+                        	@if ($key>2) 
+                    			<li><i class="fa fa-check" aria-hidden="true"></i> {{ $value }}</li>
+                        	@endif
+                        	
+                       	@empty
+                        @endforelse
+                    </ul>
+                    <!-- Listings Btn Groups -->
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="contact-realtor-wrapper">
+                    <div class="realtor-info">
+                        <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/bg-img/listing.jpg" alt="">
+                        <div class="realtor---info">
+                            <h2>Jeremy Scott</h2>
+                            <p>Realtor</p>
+                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt=""> +45 677 8993000 223</h6>
+                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/envelope.png" alt=""> office@template.com</h6>
                         </div>
-                        <!-- Property Content -->
-                        <div class="property-content">
-                            <a href="{{ route('house.product.index',$arr) }}"><h5>{{ $value->name }}</h5></a>
-                            <p class="location"><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt="">{{ $value->address}}</p>
-                            <p>{{  $value->detail }}</p>
-                            <div class="property-meta-data d-flex align-items-end justify-content-between">
-                                @if(json_decode($value->configuration, true))
-                                <?php
-                                  $configurations = json_decode($value->configuration, true);
-                                  ?>
-                                @endif
-
-                                @forelse($configurations as $key=>$value)
-                                    @if ($key == 0)
-                                        <div class="bathroom">
-                                            <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/bathtub.png" alt="">
-                                            <span>{{ $key }}</span>
-                                        </div>
-                                    @elseif($key ==1)
-                                        <div class="garage">
-                                            <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/garage.png" alt="">
-                                            <span>{{ $key }}</span>
-                                        </div>
-                                    @elseif($key==2)
-                                        <div class="space">
-                                            <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/space.png" alt="">
-                                            <span>{{ $key }} sq ft</span>
-                                        </div> 
-                                    @endif
-                                @empty
-                                @endforelse
-                            </div>
+                        <div class="realtor--contact-form">
+                            <form action="#" method="post">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="realtor-name" placeholder="Your Name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" class="form-control" id="realtor-number" placeholder="Your Number">
+                                </div>
+                                <div class="form-group">
+                                    <input type="enumber" class="form-control" id="realtor-email" placeholder="Your Mail">
+                                </div>
+                                <div class="form-group">
+                                    <textarea name="message" class="form-control" id="realtor-message" cols="30" rows="10" placeholder="Your Message"></textarea>
+                                </div>
+                                <button type="submit" class="btn south-btn">Send Message</button>
+                            </form>
                         </div>
                     </div>
                 </div>
-            @empty
-                <div class="col-12 col-md-6 col-xl-4">
-                    Không có sản phẩm
+            </div>
+        </div>
+        <!-- Listing Maps -->
+        <div class="row">
+            <div class="col-12">
+                <div class="listings-maps mt-100">
+                    <div id="googleMap"></div>
                 </div>
-            @endforelse
+            </div>
         </div>
     </div>
 </section>
+
+
 <!-- ##### Featured Properties Area End ##### -->
 
 <!-- ##### Call To Action Area Start ##### -->

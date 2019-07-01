@@ -54,12 +54,12 @@
                       <td class="text-center">{{$value->collection->name}}</td>
                       <td  id="trangthai_{{$value->id}}" class="text-center">
                           <div class="row">
-                              @if ($value->active == 0)
-                                <a onclick="chuyenTrangThai({{$value->id}},{{ $value->active }})" href="javascript:void()">
+                              @if ($value->active_id == 0)
+                                <a href="javascript:void()">
                                   <img src="http://event.titans.mu/event/image/deactive.gif">
                                 </a>
                               @else
-                                <a onclick="chuyenTrangThai({{$value->id}},{{ $value->active }})" href="javascript:void()">
+                                <a href="javascript:void()">
                                   <img src="http://event.titans.mu/event/image/active.gif">
                                 </a>
                               @endif

@@ -19,6 +19,12 @@ Route::namespace('House')->group( function() {
         'uses' => 'IndexController@index',
         'as'   => 'house.index.index'
     ]);
+
+
+    Route::get('product/{name}-{id}.html', 'ProductController@index')->name('house.product.index');
+    Route::get('collection/{name}', 'CatController@index')->name('house.cat.index');
+
+
 });
 
 Route::namespace('Admin')->prefix('admin')->group( function() {
@@ -87,6 +93,17 @@ Route::namespace('Admin')->prefix('admin')->group( function() {
 	Route::get('delete_news', 'NewsController@post_Delete')->name('delete_news');
 	Route::get('news/edit/{id}', 'NewsController@get_Edit')->name('admin.news.edit');
 	Route::post('news/edit/{id}', 'NewsController@post_Edit')->name('admin.news.edit');
+
+
+
+	// Quản lý pages
+
+	Route::get('pages', 'PageController@index')->name('admin.pages.index');
+	Route::get('pages/add', 'PageController@get_Add')->name('admin.pages.add');
+	Route::post('pages/add', 'PageController@post_Add')->name('admin.pages.add');
+	// Route::get('delete_pages', 'PageController@post_Delete')->name('delete_news');
+	Route::get('pages/edit/{id}', 'PageController@get_Edit')->name('admin.pages.edit');
+	Route::post('pages/edit/{id}', 'PageController@post_Edit')->name('admin.pages.edit');
 
 });
 

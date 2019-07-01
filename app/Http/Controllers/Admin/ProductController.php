@@ -168,7 +168,7 @@ class ProductController extends Controller
             $images123 = $request->file('image_detail123');
             if($images123) {
                 $name123 = $request->fileName  = 'avatar_'.time() . "_" .rand(5, 5000000).'_'. $images123->getClientOriginalName();
-
+                $images123->move('storage/app/public/files/show_image',$name123);
             } else {
                 $request->fileName = $product['image'];
             }
@@ -205,7 +205,6 @@ class ProductController extends Controller
             $objItem->image                = $request->fileName;
             
             if($objItem->save()){
-                $images123->move('storage/app/public/files/show_image',$name123);
                 $oldimage123 = $_SERVER["DOCUMENT_ROOT"]. '/storage/app/public/files/show_image/'.$product['image'];
                 if(file_exists($oldimage123)) {
                     unlink($oldimage123);
