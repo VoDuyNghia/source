@@ -15,14 +15,19 @@ route::pattern('id', '([0-9]*)');
 
 
 Route::namespace('House')->group( function() {
-    Route::get('',  [
-        'uses' => 'IndexController@index',
-        'as'   => 'house.index.index'
-    ]);
+
+	//Trang chủ
+    Route::get('', 'IndexController@index')->name('house.index.index');
+    Route::get('search', 'IndexController@search')->name('house.index.search');
 
 
+    // Danh mục
     Route::get('product/{name}-{id}.html', 'ProductController@index')->name('house.product.index');
-    Route::get('collection/{name}', 'CatController@index')->name('house.cat.index');
+
+
+    // Sản phẩm
+    Route::get('{name}.html', 'CatController@index')->name('house.cat.index');
+    Route::get('ajax_product', 'CatController@Ajax_Product')->name('ajax_product');
 
 
 });

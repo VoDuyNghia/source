@@ -109,7 +109,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!-- ##### Footer Area End ##### -->
 
 <!-- jQuery (Necessary for All JavaScript Plugins) -->
-<script src="{{getenv('URL_TEMPLATES_HOUSE')}}/js/jquery/jquery-2.2.4.min.js"></script>
+
 <!-- Popper js -->
 <script src="{{getenv('URL_TEMPLATES_HOUSE')}}/js/popper.min.js"></script>
 <!-- Bootstrap js -->
