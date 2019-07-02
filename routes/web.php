@@ -19,17 +19,29 @@ Route::namespace('House')->group( function() {
 	//Trang chủ
     Route::get('', 'IndexController@index')->name('house.index.index');
     Route::get('search', 'IndexController@search')->name('house.index.search');
+    Route::get('search_product', 'IndexController@search_product')->name('house.index.search_product');
 
 
     // Danh mục
     Route::get('product/{name}-{id}.html', 'ProductController@index')->name('house.product.index');
+    Route::post('product/{name}-{id}.html', 'ProductController@post_ContactPR')->name('contact');
 
 
     // Sản phẩm
     Route::get('{name}.html', 'CatController@index')->name('house.cat.index');
     Route::get('ajax_product', 'CatController@Ajax_Product')->name('ajax_product');
 
+    // Liên hệ
+ 	Route::get('info/contact', 'ContactController@index')->name('house.contact.index');
+ 	Route::post('info/contact', 'ContactController@post_Contact')->name('house.contact.index');
 
+
+ 	// Blog
+
+ 	Route::get('blog', 'BlogController@index')->name('house.blog.index');
+ 	Route::get('blog/{name}-{id}.htm', 'BlogController@detail_news')->name('house.blog.detail');
+ 	Route::get('blog/{name}-{id}.htm', 'BlogController@detail_news')->name('house.blog.detail');
+ 	Route::get('search_blog', 'BlogController@search_blogs')->name('house.blog.search');
 });
 
 Route::namespace('Admin')->prefix('admin')->group( function() {

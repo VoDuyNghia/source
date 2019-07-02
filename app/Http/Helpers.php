@@ -2,18 +2,6 @@
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-use App\Models\Collection;
-use App\Models\Product;
-use App\Models\Choose;
-use App\Models\District;
-use App\Models\ImageDetail;
-use Intervention\Image\Facades\Image;
-use App\Models\Active;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\ProductRequest;
 
 class Helpers {
 	public static function watermark_detail($image,$name,$url){

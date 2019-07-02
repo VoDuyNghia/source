@@ -43,35 +43,13 @@ class Product extends Model
         $this->users_id             = 1;
         $this->address              = $data['address'];
         $this->configuration        = $configuration;
+        $this->bedrooms             = $data['bedrooms'];
+        $this->bathrooms            = $data['bathrooms'];
+        $this->sqrt                 = $data['sqrt'];
         $this->active_id            = $data['active'];
         $this->image                = $request->fileName;
 
         return $this->save();
-    }
-
-
-    public function edit_Items($request, $id) {
-        $data = $request->all();
-        $value                         = $data['configuration'];
-        $configuration                 = json_encode($value);
-        $data['configuration']         = $configuration;
-
-
-        $objItem                       = $this->findOrfail($id);
-        $objItem->name                 = $data['name'];
-        $objItem->detail               = $data['detail'];
-        $objItem->content              = $data['description'];
-        $objItem->price                = $data['price'];
-        $objItem->choose_id            = $data['choose_id'];
-        $objItem->collection_id        = $data['collection_id'];
-        $objItem->district_id          = $data['district_id'];
-        $objItem->users_id             = 1;
-        $objItem->address              = $data['address'];
-        $objItem->configuration        = $configuration;
-        $objItem->active               = $data['active'];
-        $objItem->image                = $request->fileName;
-
-        return $objItem->save();
     }
 }
 

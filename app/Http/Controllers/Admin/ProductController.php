@@ -44,7 +44,7 @@ class ProductController extends Controller
         return view('admin.product.add',compact('objCollection','objChoose','objDistrict','objActive'));
     }
 
-    public function post_Add(Request $request) {
+    public function post_Add(ProductRequest $request) {
 
         $file = $request->file('image_detail123');
         if(!is_null($file)){
@@ -141,7 +141,7 @@ class ProductController extends Controller
         return view("admin.product.edit",compact('objCollection','objChoose','objDistrict','objActive','objProduct','ImageProduct'));
     }
 
-    public function post_Edit($id, Request $request) {
+    public function post_Edit($id, ProductRequest $request) {
         $data = $request->all();
         $value                         = $data['configuration'];
         $configuration                 = json_encode($value);
@@ -188,7 +188,7 @@ class ProductController extends Controller
                         'product_id'    => $id,
                     ]);
                 }
-            }   
+            }
             $objProduct                    = new Product();
             $objItem                       = $objProduct->findOrfail($id);
             $objItem->name                 = $data['name'];
@@ -201,26 +201,28 @@ class ProductController extends Controller
             $objItem->users_id             = 1;
             $objItem->address              = $data['address'];
             $objItem->configuration        = $configuration;
+            $objItem->bedrooms             = $data['bedrooms'];
+            $objItem->bathrooms            = $data['bathrooms'];
+            $objItem->sqrt                 = $data['sqrt'];
             $objItem->active_id            = $data['active'];
             $objItem->image                = $request->fileName;
             
             if($objItem->save()){
-                $oldimage123 = $_SERVER["DOCUMENT_ROOT"]. '/storage/app/public/files/show_image/'.$product['image'];
-                if(file_exists($oldimage123)) {
-                    unlink($oldimage123);
+                if($images123){
+                    $oldimage123 = $_SERVER["DOCUMENT_ROOT"]. '/storage/app/public/files/show_image/'.$product['image'];
+                    if(file_exists($oldimage123)) {
+                        unlink($oldimage123);
+                    }
                 }
-
                 DB::commit();
                 $request->session()->flash('msg','Sửa thành công');
                 return redirect()->route('admin.product.index');
-            };
-            
+            }
         } catch(\Exception $e) {
             DB::rollback();
             $request->session()->flash('msg','Sửa thất bại');
-            return redirect()->route('admin.product.index',$id);
+            return redirect()->route('admin.product.edit',$id);
         }
-
     }
 
 }

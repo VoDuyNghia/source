@@ -13,8 +13,8 @@ class CatController extends Controller
     public function index($name){
         $collection = Collection::where('name_ascii',$name)->first();
     	$objProduct = Product::select('product.*','collection.*','product.name as title','product.id as id_title')->join('collection','collection.id','=','product.collection_id')->where('active_id',2)->where('name_ascii', $name)->paginate(1);
-    	$title 		= $collection['name']; 
-    	return view('house.cat.index',compact('title','objProduct'));
+    	$title 		= $collection['name'];
+    	return view('house.cat.index',compact('title','objProduct','collection','choose'))->with('key_word', '')->with('district','')->with('collection','')->with('choose','');
     }
 
     public function Ajax_Product(Request $request) {

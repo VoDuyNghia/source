@@ -28,6 +28,15 @@
                         </ul>
                     </div>
                 @endif
+                @if (Session::has('msg'))
+                        <div class="alert alert-danger">
+                            <ul>
+                                <li>{{ Session::get('msg') }}</li>
+                            </ul>
+                        </div>
+                @endif
+
+
                 <form action="{{ route('admin.product.edit',[$objProduct['id']]) }}" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">  
                     {{ csrf_field() }}          
@@ -60,6 +69,25 @@
                                 <label>Chi tiết</label>
                                 <textarea class="form-control" name="detail" id="detail">{{ $objProduct['detail'] }}</textarea>
                             </div>
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label>Phòng tắm</label>
+                                    <input class="form-control" type="number" name="bedrooms" value="{{ $objProduct['bedrooms'] }}"  id="bedrooms" placeholder="Số lượng phòng tắm" min="0" max="999999999999">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label>Phòng ngủ</label>
+                                    <input class="form-control" type="number" value="{{ $objProduct['bathrooms'] }}" name="bathrooms" id="bathrooms" placeholder="Số lượng phòng ngủ" min="0" max="999999999999">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label>Diện tích</label>
+                                    <input class="form-control" type="text" name="sqrt" value="{{ $objProduct['sqrt'] }}" id="sqrt" placeholder="Diện tích" min="0" max="999999999999">
+                                </div>
+                            </div>
+
+
                             <div class="form-group" style="margin-bottom: 5em;">
                                 <label>Thông số kỹ thuật</label>
                                 <table class="table configuration">
@@ -69,16 +97,7 @@
                                       ?>
                                     @endif
                                     @forelse($configurations as $key=>$value)
-                                        @php
-                                            if($key == 0) $properties = "Số phòng tắm";
-                                                else if($key == 1) $properties = "Số phòng ngủ";
-                                                    else if($key == 2) $properties = "Diện tích";
-                                                        else $properties = "";
-                                        @endphp
                                         <tr>
-                                            <td width="120px">
-                                                <input class="form-control" disabled="" value="{{ $properties }}"/>
-                                            </td>
                                             <td>    
                                                 <input class="form-control" name='configuration[]' type='text' value="{{ $value }}"/>
                                             </td>

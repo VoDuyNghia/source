@@ -18,31 +18,19 @@
 	        <p class="location"><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt="">{{ $value->address }}</p>
 	        <p>{{ $value->detail }}</p>
 	        <div class="property-meta-data d-flex align-items-end justify-content-between">
-	            @if(json_decode($value->configuration, true))
-	            <?php
-	              $configurations = json_decode($value->configuration, true);
-	              ?>
-	            @endif
+				<div class="bathroom">
+				    <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/bathtub.png" alt="">
+				    <span>{{ $value->bathrooms}}</span>
+				</div>
+				<div class="garage">
+				    <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/garage.png" alt="">
+				    <span>{{ $value->bedrooms}}</span>
+				</div>
 
-	            @forelse($configurations as $key=>$value)
-	                @if ($key == 0)
-	                    <div class="bathroom">
-	                        <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/bathtub.png" alt="">
-	                        <span>{{ $key }}</span>
-	                    </div>
-	                @elseif($key ==1)
-	                    <div class="garage">
-	                        <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/garage.png" alt="">
-	                        <span>{{ $key }}</span>
-	                    </div>
-	                @elseif($key==2)
-	                    <div class="space">
-	                        <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/space.png" alt="">
-	                        <span>{{ $key }} sq ft</span>
-	                    </div> 
-	                @endif
-	            @empty
-	            @endforelse
+				<div class="space">
+				    <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/space.png" alt="">
+				    <span>{{ $value->sqrt}} sq ft</span>
+				</div> 
 	        </div>
 	    </div>
 	</div>

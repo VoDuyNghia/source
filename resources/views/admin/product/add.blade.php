@@ -46,7 +46,7 @@
                                 </select>
                             </div>
 
-						   <div class="form-group">
+				            <div class="form-group">
 						      <label>Danh Mục</label>
 						        <select class="form-control" name="collection_id" id="collection">
 						        <option value="">Xin chọn danh mục..</option>
@@ -57,31 +57,35 @@
 						            @endforeach
 						        </select>
 						   	</div>
-						   <div class="form-group">
+				            <div class="form-group">
 						      <label>Tiêu đề</label>
 						      <input class="form-control" type="text" name="name" placeholder="Xin nhập tên sản phẩm" value="{{ old('name') }}">
-						   </div>
-						   <div class="form-group">
+				            </div>
+				            <div class="form-group">
 					            <label>Chi tiết</label>
 					            <textarea class="form-control" name="detail" id="detail">{{ old('detail')}}</textarea>
 					        </div>
-						    <div class="form-group" style="margin-bottom: 5em;">
-						        <label>Thông số kỹ thuật</label>
+                   
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label>Phòng tắm</label>
+                                    <input class="form-control" type="number" name="bedrooms" value="{{ old('bedrooms') }}"  id="bedrooms" placeholder="Số lượng phòng tắm" min="0" max="999999999999">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label>Phòng ngủ</label>
+                                    <input class="form-control" type="number" value="{{ old('bathrooms') }}" name="bathrooms" id="bathrooms" placeholder="Số lượng phòng ngủ" min="0" max="999999999999">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label>Diện tích</label>
+                                    <input class="form-control" type="text" name="sqrt" value="{{ old('sqrt') }}" id="sqrt" placeholder="Diện tích" min="0" max="999999999999">
+                                </div>
+                            </div>
+
+						    <div class="form-group">
+						        <label>Thông số</label>
 						        <table class="table configuration">
-                                    <tr>        
-                                        <td width="120px"><input disabled=""value="Số phòng tắm" class="form-control" name="type='text'"></td>
-                                        <td><input class="form-control" name="configuration[]" type="text"></td>
-                                    </tr>
-
-                                    <tr>        
-                                        <td width="120px"><input disabled=""value="Số phòng ngủ" class="form-control" name="type='text'"></td>
-                                        <td><input class="form-control" name="configuration[]" type="text"></td>
-                                    </tr>
-
-						            <tr>        
-                                        <td width="120px"><input disabled=""value="Diện tích" class="form-control" name="type='text'"></td>
-                                        <td><input class="form-control" name="configuration[]" type="text"></td>
-                                    </tr>
 						        </table>
 						        <button id="btn-add" type="button" class="btn btn-sm btn-primary pull-left">
 						            <span class="glyphicon glyphicon-plus"></span>&nbsp;Thêm
@@ -169,7 +173,6 @@
     $('#btn-add').on('click',function(){
         $('table.configuration').append(
             '    <tr>' +
-            '        <td width="120px"><input class="form-control" name=\ type=\'text\' /></td>\n' +
             '        <td><input class="form-control" name=\'configuration[]\' type=\'text\' /></td>\n' +
             '    </tr>'
         );

@@ -54,7 +54,7 @@
                 <nav class="classy-navbar justify-content-between" id="southNav">
 
                     <!-- Logo -->
-                    <a class="nav-brand" href="index.html"><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/core-img/logo.png" alt=""></a>
+                    <a class="nav-brand" href="{{ route('house.index.index') }}"><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/core-img/logo.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -72,10 +72,10 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="{{ route('house.index.index') }}">Home</a></li>
                                 <li><a href="#">Pages</a>
                                     <ul class="dropdown">
-                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="{{ route('house.index.index') }}">Home</a></li>
                                         <li><a href="about-us.html">About Us</a></li>
                                         <li><a href="#">Listings</a>
                                             <ul class="dropdown">
@@ -89,13 +89,13 @@
                                                 <li><a href="single-blog.html">Single Blog</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="{{ route('house.contact.index') }}">Contact</a></li>
                                         <li><a href="elements.html">Elements</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="about-us.html">About Us</a></li>
                                 <li><a href="listings.html">Properties</a></li>
-                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="{{ route('house.blog.index') }}">Blog</a></li>
                                 <li><a href="#">Mega Menu</a>
                                     <div class="megamenu">
                                         @foreach ($objCollection->chunk(3) as $chunk)
@@ -112,13 +112,13 @@
                                         @endforeach
                                     </div>
                                 </li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="{{ route('house.contact.index') }}">Contact</a></li>
                             </ul>
 
                             <!-- Search Form -->
                             <div class="south-search-form">
                                 <form action="{{ route('house.index.search')}}" method="get">
-                                    <input type="search" name="search" id="search" placeholder="Search Anything ...">
+                                    <input type="search" required="" name="search" id="search" placeholder="Search Anything ...">
                                     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                 </form>
                             </div>

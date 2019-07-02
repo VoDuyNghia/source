@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\Collection;
+use App\Models\District;
+use App\Models\Choose;
 use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('objCollection', Collection::all());
+        View::share('objCollection', Collection::orderbyDESC("position")->get());
+        View::share('objDistrict', District::all());
+        View::share('objChoose', Choose::all());
     }
 }
