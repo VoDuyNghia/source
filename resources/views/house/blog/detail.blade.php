@@ -40,62 +40,27 @@
                     </div>
 
                     <div class="comments-area">
-                        <h5>4 Comments</h5>
+                        <h5>Comments</h5>
                         <ol>
-                            <!-- Single Comment Area -->
-                            <li class="single_comment_area">
-                                <div class="comment-wrapper d-flex">
-                                    <!-- Comment Meta -->
-                                    <div class="comment-author">
-                                        <img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/blog-img/c-1.jpg" alt="">
-                                    </div>
-                                    <!-- Comment Content -->
-                                    <div class="comment-content">
-                                        <div class="comment-meta">
-                                            <a href="#" class="comment-author-name">Maria Williams</a> |
-                                            <a href="#" class="comment-date">Jan 29, 2018</a> |
-                                            <a href="#" class="comment-reply">Reply</a>
-                                        </div>
-                                        <p>Consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Su spendisse sit amet laoreet neque. Fusce sagittis suscipit sem a consequat.</p>
-                                    </div>
-                                </div>
-                                <ol class="children">
-                                    <li class="single_comment_area">
-                                        <div class="comment-wrapper d-flex">
-                                            <!-- Comment Meta -->
-                                            <div class="comment-author">
-                                                <img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/blog-img/c-2.jpg" alt="">
-                                            </div>
-                                            <!-- Comment Content -->
-                                            <div class="comment-content">
-                                                <div class="comment-meta">
-                                                    <a href="#" class="comment-author-name">Maria Williams</a> |
-                                                    <a href="#" class="comment-date">Jan 29, 2018</a> |
-                                                    <a href="#" class="comment-reply">Reply</a>
-                                                </div>
-                                                <p>Consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Su spendisse sit amet laoreet neque. Fusce sagittis suscipit sem a consequat.</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </li>
-                            <li class="single_comment_area">
-                                <div class="comment-wrapper d-flex">
-                                    <!-- Comment Meta -->
-                                    <div class="comment-author">
-                                        <img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/blog-img/c-3.jpg" alt="">
-                                    </div>
-                                    <!-- Comment Content -->
-                                    <div class="comment-content">
-                                        <div class="comment-meta">
-                                            <a href="#" class="comment-author-name">Maria Williams</a> |
-                                            <a href="#" class="comment-date">Jan 29, 2018</a> |
-                                            <a href="#" class="comment-reply">Reply</a>
-                                        </div>
-                                        <p>Consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Su spendisse sit amet laoreet neque. Fusce sagittis suscipit sem a consequat.</p>
-                                    </div>
-                                </div>
-                            </li>
+                            <div id="fb-root"></div>
+                            <div id='fb-comments' class="fb-comments"
+                                 data-href="https://developers.facebook.com/docs/plugins/comments#configurator"
+                                 data-width="100%" data-numposts="5"></div>
+                            <script>
+                                (function (d, s, id) {
+                                    var js, fjs = d.getElementsByTagName(s)[0];
+                                    if (d.getElementById(id)) return;
+                                    js = d.createElement(s);
+                                    js.id = id;
+                                    js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.0';
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                            </script>
+                            <script>
+                                $(document).ready(function () {
+                                    document.getElementById("fb-comments").setAttribute("data-href", window.location.href);
+                                });
+                            </script>
                         </ol>
                     </div>
 

@@ -15,7 +15,7 @@ class IndexController extends Controller
         $title 	     = "Trang Chủ";
         $objProducts = Product::where('active_id',2)->orderbyDESC('id')->take(9)->get();
 
-        return view("house.index.index",compact('title','objProducts'))->with('key_word', '')->with('district','')->with('collection','')->with('choose','');
+        return view("house.index.index",compact('title','objProducts'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','');;
     }
 
     public function search(Request $request) {
@@ -39,6 +39,9 @@ class IndexController extends Controller
             'bedrooms'   => Input::get('bedrooms'),
             'bathrooms'  => Input::get('bathrooms'),
             'min_price'  => Input::get('min_price'),
+            'max_price'  => Input::get('max_price'),
+            'min_sqrt'  => Input::get('min_sqrt'),
+            'max_sqrt'  => Input::get('max_sqrt'),
         ];
 
         $key_word       = $filters["key_word"];
@@ -79,11 +82,18 @@ class IndexController extends Controller
                  $query->where('bathrooms', '=', $filters['bathrooms']);
             }
 
-            dd($filters['min_price']);
+            if (!empty($filters['min_price']) && !empty($filters['max_price'])) {
+                $query->whereBetween('price',[$filters['min_price'],$filters['max_price']]);
+            }
+
+            if (!empty($filters['min_sqrt']) && !empty($filters['max_sqrt'])) {
+                $query->whereBetween('sqrt',[$filters['min_sqrt'],$filters['max_sqrt']]);
+            }
+
 
 
         })->get();
         
-        return view('house.index.search_product',compact('objProducts','title','key_word','district','collection','choose'));
+        return view('house.index.search_product',compact('objProducts','title','key_word','district','collection','choose','bedrooms','bathrooms'));
     }
 }

@@ -120,7 +120,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="{{getenv('URL_TEMPLATES_HOUSE')}}/js/jquery-ui.min.js"></script>
 <!-- Active js -->
 <script src="{{getenv('URL_TEMPLATES_HOUSE')}}/js/active.js"></script>
-
+<script src="{{getenv('URL_TEMPLATES_HOUSE')}}/js/map-active.js"></script>
 </body>
 
 </html>

@@ -92,10 +92,12 @@ class NewsController extends Controller
             $objItem->active_id     = $data['active'];
             $objItem->image         = $request->fileName;
             if($objItem->save()){
-                $images123->move('storage/app/public/files/show_news',$name123);
-                $oldimage123 = $_SERVER["DOCUMENT_ROOT"]. '/storage/app/public/files/show_news/'.$News['image'];
-                if(file_exists($oldimage123)) {
-                    unlink($oldimage123);
+                if($images123){
+                    $images123->move('storage/app/public/files/show_news',$name123);
+                    $oldimage123 = $_SERVER["DOCUMENT_ROOT"]. '/storage/app/public/files/show_news/'.$News['image'];
+                    if(file_exists($oldimage123)) {
+                        unlink($oldimage123);
+                    }
                 }
                 DB::commit();
                 $request->session()->flash('msg','Sửa thành công');

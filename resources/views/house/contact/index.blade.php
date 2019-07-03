@@ -107,9 +107,9 @@
     <div class="map-area mb-100">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div id="googleMap" class="googleMap"></div>
-                </div>
+                <address>
+                    89B Tôn Đản, Phường Hòa An, Quận Cẩm Lệ, Thành Phố Đà Nẵng
+                </address>
             </div>
         </div>
 	</div>

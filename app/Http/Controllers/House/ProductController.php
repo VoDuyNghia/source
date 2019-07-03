@@ -18,7 +18,7 @@ class ProductController extends Controller
     	$objImage	 = ImageDetail::where('product_id',$id)->get();
     	$title		 = $objProducts['name'].' - '.$objProducts->collection->name;
         
-        return view("house.product.index",compact('title','objImage','title','objProducts'))->with('key_word', '')->with('district','')->with('collection','')->with('choose','');
+        return view("house.product.index",compact('title','objImage','title','objProducts'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','');;
     }
 
     public function post_ContactPR($name, $id, ContactRequest $request) {

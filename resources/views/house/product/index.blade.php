@@ -67,7 +67,7 @@
                     
                         <div class="space">
                             <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/space.png" alt="">
-                            <span>{{ $objProducts['sqrt ']}} sq ft</span>
+                            <span>{{ $objProducts['sqrt']}} sq ft</span>
                         </div> 
                     </div>
                     <!-- Core Features -->
@@ -128,25 +128,26 @@
         <div class="row">
             <div class="col-12">
                 <div class="listings-maps mt-100">
-                    <div id="googleMap"></div>
+                    <address>
+                        {{ $objProducts['address']}} , {{ $objProducts->district->name }}, Thành Phố Đà Nẵng
+                    </address>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ##### Testimonials Area Start ##### -->
+<script>
+    $(document).ready(function(){
+      $("address").each(function(){                         
+        var embed ="<iframe id='google_map'frameborder='0' scrolling='no'  marginheight='0' marginwidth='0'   src='https://maps.google.com/maps?&amp;q="+ encodeURIComponent( $(this).text() ) +"&amp;output=embed'></iframe>";
+        $(this).html(embed);
+       });
+    });
+</script>
+
 <section class="south-testimonials-area section-padding-100">
     <div class="container">
-{{--         <div class="row">
-            <div class="col-12">
-                <div class="section-heading wow fadeInUp" data-wow-delay="250ms">
-                    <h2>Client testimonials</h2>
-                    <p>Suspendisse dictum enim sit amet libero malesuada feugiat.</p>
-                </div>
-            </div>
-        </div> --}}
-
         <div class="row">
             <div class="col-12">
                 <div class="testimonials-slides owl-carousel wow fadeInUp" data-wow-delay="500ms">

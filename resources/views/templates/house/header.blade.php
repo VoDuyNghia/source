@@ -73,28 +73,7 @@
                         <div class="classynav">
                             <ul>
                                 <li><a href="{{ route('house.index.index') }}">Home</a></li>
-                                <li><a href="#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="{{ route('house.index.index') }}">Home</a></li>
-                                        <li><a href="about-us.html">About Us</a></li>
-                                        <li><a href="#">Listings</a>
-                                            <ul class="dropdown">
-                                                <li><a href="listings.html">Listings</a></li>
-                                                <li><a href="single-listings.html">Single Listings</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Blog</a>
-                                            <ul class="dropdown">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single-blog.html">Single Blog</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="{{ route('house.contact.index') }}">Contact</a></li>
-                                        <li><a href="elements.html">Elements</a></li>
-                                    </ul>
-                                </li>
                                 <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="listings.html">Properties</a></li>
                                 <li><a href="{{ route('house.blog.index') }}">Blog</a></li>
                                 <li><a href="#">Mega Menu</a>
                                     <div class="megamenu">

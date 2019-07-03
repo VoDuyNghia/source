@@ -51,11 +51,11 @@
                         <div class="col-12 col-md-4 col-xl-2">
                             <div class="form-group">
                                 <select class="form-control" name="bedrooms" id="bedrooms">
-                                    <option value = "0">Bedrooms</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
+                                    <option value= "0">Bedrooms</option>
+                                    <option <?php if ($bedrooms == 1 ) echo 'selected' ; ?>  value="1">1</option>
+                                    <option <?php if ($bedrooms == 2 ) echo 'selected' ; ?>  value="2">2</option>
+                                    <option <?php if ($bedrooms == 3 ) echo 'selected' ; ?>  value="3">3</option>
+                                    <option <?php if ($bedrooms == 4 ) echo 'selected' ; ?>  value="4">4</option>
                                 </select>
                             </div>
                         </div>
@@ -64,10 +64,10 @@
                             <div class="form-group">
                                 <select class="form-control" name="bathrooms" id="bathrooms">
                                     <option value = "0">Bathrooms</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
+                                    <option <?php if ($bathrooms == 1 ) echo 'selected' ; ?>  value="1">1</option>
+                                    <option <?php if ($bathrooms == 2 ) echo 'selected' ; ?>  value="2">2</option>
+                                    <option <?php if ($bathrooms == 3 ) echo 'selected' ; ?>  value="3">3</option>
+                                    <option <?php if ($bathrooms == 4 ) echo 'selected' ; ?>  value="4">4</option>
                                 </select>
                             </div>
                         </div>
@@ -81,6 +81,8 @@
                                     <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
                                 </div>
                                 <div class="range">120 sq. ft - 820 sq. ft</div>
+                                <input type="text" name="mix_sqrt" id="mix_sqrt" hidden="" >
+                                <input type="text" name="max_sqrt" id="max_sqrt" hidden="" >
                             </div>
 
                             <!-- Distance Range -->
@@ -91,7 +93,8 @@
                                     <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
                                 </div>
                                 <div class="range">$ 50 - $ 5000 </div>
-                                <input type="text" name="min_price" id="min_price" >
+                                <input type="text" name="min_price" id="min_price" hidden="" >
+                                <input type="text" name="max_price" id="max_price" hidden="" >
                             </div>
                         </div>
                         <div class="col-12 d-flex justify-content-between align-items-end">

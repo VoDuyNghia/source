@@ -53,6 +53,10 @@
   margin: 0;
   padding: 0; }
 
+#google_map {
+    width : 1000px;
+    height: 500px;
+}
 body {
   font-family: "Open Sans", sans-serif; }
 
@@ -340,6 +344,10 @@ img {
       width: 50px;
       line-height: 46px; } }
   @media only screen and (max-width: 767px) {
+    #google_map {
+      width : 380px;
+      height: 500px;
+    }
     #scrollUp {
       bottom: 30px;
       right: 30px;
@@ -360,6 +368,11 @@ img {
     text-transform: uppercase;
     margin-bottom: 5px; }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+        #google_map {
+          max-width: 100%;
+          height: 500px;
+        }
       .section-heading h2 {
         font-size: 24px; } }
     @media only screen and (max-width: 767px) {
@@ -1789,5 +1802,7 @@ img {
 .single-cool-fact-area h6 {
   margin-bottom: 0;
   color: #7d7d7d; }
+
+
 
 /*# sourceMappingURL=style.css.map */

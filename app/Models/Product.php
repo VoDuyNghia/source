@@ -21,7 +21,10 @@ class Product extends Model
 
     public function choose (){
         return $this->belongsTo('App\Models\Choose','choose_id','id');
-        
+    }
+
+    public function district (){
+        return $this->belongsTo('App\Models\District','district_id','id');
     }
 
 
