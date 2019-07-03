@@ -107,7 +107,7 @@
 					    	<div class="col-md-6">
 							    <div class="form-group">
 							        <label>Hình đại điện</label>
-							        <input type="file" style="display:none" id="upload-input_1" multiple="multiple" name="image_detail123" accept="image/*">
+							        <input type="file" style="display:none" id="upload-input_1" name="image_detail123" accept="image/*">
 							        <div id="upload_1" class="form-control drop-area">
 							            <h3>Kéo & thả ảnh vào đây ! </h3>
 							            <button type="button" class="btn btn-primary btn-sm " id="btn_select123">hoặc click vào đây để chọn ảnh !</button>
@@ -140,7 +140,6 @@
                                 <div class="form-group">
                                   <label>Tình trạng bài viết</label>
                                     <select class="form-control" name="active" id="active">
-
                                         <option value="">------ Xin chọn tình trạng bài viết ------ </option>
                                         @foreach ($objActive as $value)
                                             <option value="{{$value->id}}" @if(old('active') == $value->id) selected @endif>{{ $value->name }}</option>

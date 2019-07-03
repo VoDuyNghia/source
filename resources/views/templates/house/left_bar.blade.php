@@ -8,82 +8,49 @@
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
-
         <div class="featured-properties-slides owl-carousel">
-            <!-- Single Slide -->
+            @foreach ($SliderProduct as $value)
+            @php
+                $arr = [
+                    'name' => str_slug($value->product->name),
+                    'id'   => $value->product->id,
+                ];
+            @endphp
             <div class="single-featured-property">
                 <!-- Property Thumbnail -->
                 <div class="property-thumb">
-                    <img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/bg-img/feature1.jpg" alt="">
+                    <a href="{{ route('house.product.index',$arr) }}"><img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/bg-img/feature2.jpg" alt="$value->product->name"></a>
+                    
                     <div class="tag">
-                        <span>For Sale</span>
+                        <span>{{ $value->product->choose->name }}</span>
                     </div>
                     <div class="list-price">
-                        <p>$945 679</p>
+                        <p>${{$value->product->price}}</p>
                     </div>
                 </div>
                 <!-- Property Content -->
                 <div class="property-content">
-                    <h5>Villa in Los Angeles</h5>
-                    <p class="location"><img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/icons/location.png" alt="">Upper Road 3411, no.34 CA</p>
-                    <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada.</p>
+                    <a href="{{ route('house.product.index',$arr) }}"><h5>{{$value->product->name}}</h5></a>
+                    <p class="location"><img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/icons/location.png" alt="">{{ $value->product->address }}</p>
+                    <p>{{$value->product->detail}}</p>
                     <div class="property-meta-data d-flex align-items-end justify-content-between">
-                        <div class="new-tag">
-                            <img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/icons/new.png" alt="">
-                        </div>
                         <div class="bathroom">
-                            <img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/icons/bathtub.png" alt="">
-                            <span>2</span>
+                            <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/bathtub.png" alt="">
+                            <span>{{ $value->product->bathrooms}}</span>
                         </div>
                         <div class="garage">
-                            <img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/icons/garage.png" alt="">
-                            <span>2</span>
+                            <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/garage.png" alt="">
+                            <span>{{ $value->product->bedrooms}}</span>
                         </div>
+                    
                         <div class="space">
-                            <img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/icons/space.png" alt="">
-                            <span>120 sq ft</span>
-                        </div>
+                            <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/space.png" alt="">
+                            <span>{{ $value->product->sqrt}} sq ft</span>
+                        </div> 
                     </div>
                 </div>
             </div>
-
-            <!-- Single Slide -->
-            <div class="single-featured-property">
-                <!-- Property Thumbnail -->
-                <div class="property-thumb">
-                    <img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/bg-img/feature2.jpg" alt="">
-
-                    <div class="tag">
-                        <span>For Sale</span>
-                    </div>
-                    <div class="list-price">
-                        <p>$945 679</p>
-                    </div>
-                </div>
-                <!-- Property Content -->
-                <div class="property-content">
-                    <h5>Town House in Los Angeles</h5>
-                    <p class="location"><img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/icons/location.png" alt="">Upper Road 3411, no.34 CA</p>
-                    <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada.</p>
-                    <div class="property-meta-data d-flex align-items-end justify-content-between">
-                        <div class="new-tag">
-                            <img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/icons/new.png" alt="">
-                        </div>
-                        <div class="bathroom">
-                            <img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/icons/bathtub.png" alt="">
-                            <span>2</span>
-                        </div>
-                        <div class="garage">
-                            <img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/icons/garage.png" alt="">
-                            <span>2</span>
-                        </div>
-                        <div class="space">
-                            <img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/icons/space.png" alt="">
-                            <span>120 sq ft</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
 
     </div>

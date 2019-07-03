@@ -22,12 +22,12 @@ Route::namespace('House')->group( function() {
     Route::get('search_product', 'IndexController@search_product')->name('house.index.search_product');
 
 
-    // Danh mục
+    // Sản phẩm
     Route::get('product/{name}-{id}.html', 'ProductController@index')->name('house.product.index');
     Route::post('product/{name}-{id}.html', 'ProductController@post_ContactPR')->name('contact');
 
 
-    // Sản phẩm
+    // Danh mục
     Route::get('{name}.html', 'CatController@index')->name('house.cat.index');
     Route::get('ajax_product', 'CatController@Ajax_Product')->name('ajax_product');
 
@@ -118,9 +118,28 @@ Route::namespace('Admin')->prefix('admin')->group( function() {
 	Route::get('pages', 'PageController@index')->name('admin.pages.index');
 	Route::get('pages/add', 'PageController@get_Add')->name('admin.pages.add');
 	Route::post('pages/add', 'PageController@post_Add')->name('admin.pages.add');
-	// Route::get('delete_pages', 'PageController@post_Delete')->name('delete_news');
 	Route::get('pages/edit/{id}', 'PageController@get_Edit')->name('admin.pages.edit');
 	Route::post('pages/edit/{id}', 'PageController@post_Edit')->name('admin.pages.edit');
+
+	// Quản lý slider trang chủ
+
+	Route::get('slider/index', 'SliderController@index_Index')->name('admin.slider.index.index');
+	Route::get('slider/index/add', 'SliderController@get_Index_Add')->name('admin.slider.index.add');
+	Route::post('slider/index/add', 'SliderController@post_Index_Add')->name('admin.slider.index.add');
+	Route::get('slider/index/edit/{id}', 'SliderController@get_Index_Edit')->name('admin.slider.index.edit');
+	Route::post('slider/index/edit/{id}', 'SliderController@post_Index_Edit')->name('admin.slider.index.edit');
+	Route::get('slider/index/delete', 'SliderController@delete_slider_index')->name('delete_slider_index');
+
+
+	// Quản lý slider Sản phẩm
+
+	Route::get('slider/product', 'SliderController@index_Product')->name('admin.slider.product.index');
+	Route::get('slider/product/add', 'SliderController@get_Product_Add')->name('admin.slider.product.add');
+	Route::post('slider/product/add', 'SliderController@post_Product_Add')->name('admin.slider.product.add');
+	Route::get('slider/product/edit/{id}', 'SliderController@get_Product_Edit')->name('admin.slider.product.edit');
+	Route::post('slider/product/edit/{id}', 'SliderController@post_Product_Edit')->name('admin.slider.product.edit');
+	Route::get('slider/product/delete', 'SliderController@delete_slider_Product')->name('delete_slider_product');
+
 
 });
 

@@ -14,6 +14,12 @@ class Product extends Model
     protected $fillable = ['name', 'detail', 'content', 'image', 'price ', 'choose_id', 'collection_id', 'district_id', 'users_id', 'address', 'configuration', 'active'];
 
 
+    public function slider()
+    {
+        return $this->belongsToMany('App\Models\Slider');
+    }
+
+
     public function collection (){
         return $this->belongsTo('App\Models\Collection','collection_id','id');
     }

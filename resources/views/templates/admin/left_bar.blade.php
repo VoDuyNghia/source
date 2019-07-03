@@ -30,22 +30,20 @@
       <li><a href="{{ Route('admin.product.index') }}"><i class="fa fa-product-hunt"></i> <span>Quản Lý Sản phẩm</span></a></li>
       <li><a href="{{ Route('admin.news.index') }}"><i class="fa fa-th"></i> <span>Quản Lý Blogs</span></a></li>
       <li><a href="{{ Route('admin.pages.index') }}"><i class="fa fa-files-o"></i> <span>Quản Lý Pages</span></a></li>
-    {{--   <li class="treeview">
+      <li class="treeview">
         <a href="#">
-          <i class="fa fa-files-o"></i>
-          <span>Layout Options</span>
+          <i class="fa fa-laptop"></i>
+          <span>Quản lý Slider</span>
           <span class="pull-right-container">
-            <span class="label label-primary pull-right">4</span>
+            <span class="label label-primary pull-right">2</span>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-          <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-          <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-          <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+          <li><a href="{{ Route('admin.slider.index.index') }}"><i class="fa fa-circle-o"></i> Slider trang chủ</a></li>
+          <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Slider sản phẩm</a></li>
         </ul>
-      </li> --}}
-      <li>
+      </li>
+     {{--  <li>
         <a href="pages/widgets.html">
           <i class="fa fa-th"></i> <span>Widgets</span>
           <span class="pull-right-container">
@@ -185,7 +183,7 @@
       <li class="header">LABELS</li>
       <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
       <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-      <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+      <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li> --}}
     </ul>
   </section>
   <!-- /.sidebar -->
