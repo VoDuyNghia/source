@@ -21,7 +21,6 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
 
             <!-- Single Featured Property -->

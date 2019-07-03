@@ -10,9 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('{locale}', function ($locale){
+	Session::put('locale', $locale);
+	return redirect()->back();
+});
+
+
 route::pattern('name' ,'(.*)');
 route::pattern('id', '([0-9]*)');
-
 
 Route::namespace('House')->group( function() {
 

@@ -9,7 +9,7 @@
                     <div class="footer-widget-area mb-100">
                         <!-- Widget Title -->
                         <div class="widget-title">
-                            <h6>About Us</h6>
+                            <h6>{{ __('message.ABOUT') }}</h6>
                         </div>
 
                         <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/bg-img/footer.jpg" alt="">
@@ -25,7 +25,7 @@
                     <div class="footer-widget-area mb-100">
                         <!-- Widget Title -->
                         <div class="widget-title">
-                            <h6>Hours</h6>
+                            <h6>{{ __('message.HOURS') }}</h6>
                         </div>
                         <!-- Office Hours -->
                         <div class="weekly-office-hours">
@@ -49,22 +49,20 @@
                     <div class="footer-widget-area mb-100">
                         <!-- Widget Title -->
                         <div class="widget-title">
-                            <h6>Useful Links</h6>
+                            <h6>{{ __('message.USEFUL_LINKS') }}</h6>
                         </div>
                         <!-- Nav -->
                         <ul class="useful-links-nav d-flex align-items-center">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">About us</a></li>
+                            <li><a href="#">{{ __('message.ABOUT') }}</a></li>
                             <li><a href="#">Services</a></li>
                             <li><a href="#">Properties</a></li>
                             <li><a href="#">Listings</a></li>
                             <li><a href="#">Testimonials</a></li>
                             <li><a href="#">Properties</a></li>
+                            <li><a href="#">{{ __('message.BLOG') }}</a></li>
                             <li><a href="#">Blog</a></li>
                             <li><a href="#">Testimonials</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Elements</a></li>
+                            <li><a href="#">{{ __('message.CONTACT') }}</a></li>
                             <li><a href="#">FAQ</a></li>
                         </ul>
                     </div>
@@ -75,7 +73,7 @@
                     <div class="footer-widget-area mb-100">
                         <!-- Widget Title -->
                         <div class="widget-title">
-                            <h6>Featured Properties</h6>
+                            <h6>{{ __('message.IMAGE_COMPANY') }}</h6>
                         </div>
                         <!-- Featured Properties Slides -->
                         <div class="featured-properties-slides owl-carousel">

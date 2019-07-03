@@ -106,18 +106,18 @@
                             <form action="{{ route('contact', $arr) }}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="text" required="" class="form-control" name="username" value="{{old('username')}}" id="contact-name" placeholder="Your Name">
+                                    <input type="text" required="" class="form-control" name="username" value="{{old('username')}}" id="contact-name" placeholder="{{ __('message.NAME') }}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" required=""  class="form-control" name="phone" value="{{old('phone')}}"  id="contact-number" placeholder="Your Phone">
+                                    <input type="number" required=""  class="form-control" name="phone" value="{{old('phone')}}"  id="contact-number" placeholder="{{ __('message.PHONE') }}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" required=""  required="" class="form-control" name="email" value="{{old('email')}}"  id="contact-email" placeholder="Your Email">
+                                    <input type="email" required=""  required="" class="form-control" name="email" value="{{old('email')}}"  id="contact-email" placeholder="{{ __('message.EMAIL') }}">
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control"  required="" name="message" id="message" cols="30" rows="10" placeholder="Your Message">{{old('message')}}</textarea>
+                                    <textarea class="form-control"  required="" name="message" id="message" cols="30" rows="10" placeholder="{{ __('message.MESSAGE') }}">{{old('message')}}</textarea>
                                 </div>
-                                <button type="submit" class="btn south-btn">Send Message</button>
+                                <button type="submit" class="btn south-btn">{{ __('message.SUBMIT') }}</button>
                             </form>
                         </div>
                     </div>

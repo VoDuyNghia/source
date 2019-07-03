@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
@@ -72,10 +72,10 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li><a href="{{ route('house.index.index') }}">Home</a></li>
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="{{ route('house.blog.index') }}">Blog</a></li>
-                                <li><a href="#">Mega Menu</a>
+                                <li><a href="{{ route('house.index.index') }}">{{ __('message.HOME') }}</a></li>
+                                <li><a href="about-us.html">{{ __('message.ABOUT') }}</a></li>
+                                <li><a href="{{ route('house.blog.index') }}">{{ __('message.BLOG') }}</a></li>
+                                <li><a href="#">{{ __('message.MENU') }}</a>
                                     <div class="megamenu">
                                         @foreach ($objCollection->chunk(3) as $chunk)
                                         <ul class="single-mega cn-col-4">
@@ -91,7 +91,9 @@
                                         @endforeach
                                     </div>
                                 </li>
-                                <li><a href="{{ route('house.contact.index') }}">Contact</a></li>
+                                <li><a href="{{ route('house.contact.index') }}">{{ __('message.CONTACT') }}</a></li>
+                                <li><a href="{{ url('en') }}" ><i class="fa fa-language"></i> EN</a></li>
+                                <li><a href="{{ url('vn') }}" ><i class="fa fa-language"></i> VN</a></li>
                             </ul>
 
                             <!-- Search Form -->

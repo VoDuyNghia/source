@@ -4,21 +4,21 @@
             <div class="advanced-search-form">
                 <!-- Search Title -->
                 <div class="search-title">
-                    <p>Search for your home</p>
+                    <p>{{ __('message.SEARCH') }}</p>
                 </div>
                 <!-- Search Form -->
                 <form action="{{ route('house.index.search_product') }}" method="get" id="advanceSearch">
                     <div class="row">
                         <div class="col-12 col-md-4 col-lg-3">
                             <div class="form-group">
-                                <input type="input" value='{{ $key_word }}' class="form-control" name="input" placeholder="Keyword">
+                                <input type="input" value='{{ $key_word }}' class="form-control" name="input" placeholder="{{ __('message.KEYWORD') }}">
                             </div>
                         </div>
 
                         <div class="col-12 col-md-4 col-lg-3">
                             <div class="form-group">
                                 <select class="form-control" name="cities" id="cities">
-                                    <option value = "0">All Cities</option>
+                                    <option value = "0">{{ __('message.CITIES') }}</option>
                                     @foreach ($objDistrict as $value)
                                         <option value="{{$value->id}}" @if($value->id == $district) selected @endif>{{$value->name}} </option>
                                     @endforeach
@@ -29,7 +29,7 @@
                         <div class="col-12 col-md-4 col-lg-3">
                             <div class="form-group">
                                 <select class="form-control" name="collection"  id="collection">
-                                    <option value = "0">All Catagories</option>
+                                    <option value = "0">{{ __('message.CATEGORY') }}</option>
                                     @foreach ($objCollection as $value)
                                         <option value="{{$value->id}}" @if($value->id == $collection) selected @endif>{{$value->name}} </option>
                                     @endforeach
@@ -40,7 +40,7 @@
                         <div class="col-12 col-md-4 col-lg-3">
                             <div class="form-group">
                                 <select class="form-control" name="status" id="status">
-                                    <option value = "0">All status</option>
+                                    <option value = "0">{{ __('message.COLLECTION') }}</option>
                                     @foreach ($objChoose as $value)
                                         <option value="{{$value->id}}" @if($value->id == $choose) selected @endif>{{$value->name}} </option>
                                     @endforeach
@@ -51,7 +51,7 @@
                         <div class="col-12 col-md-4 col-xl-2">
                             <div class="form-group">
                                 <select class="form-control" name="bedrooms" id="bedrooms">
-                                    <option value= "0">Bedrooms</option>
+                                    <option value= "0">{{ __('message.BEDROOMS') }}</option>
                                     <option <?php if ($bedrooms == 1 ) echo 'selected' ; ?>  value="1">1</option>
                                     <option <?php if ($bedrooms == 2 ) echo 'selected' ; ?>  value="2">2</option>
                                     <option <?php if ($bedrooms == 3 ) echo 'selected' ; ?>  value="3">3</option>
@@ -63,7 +63,7 @@
                         <div class="col-12 col-md-4 col-xl-2">
                             <div class="form-group">
                                 <select class="form-control" name="bathrooms" id="bathrooms">
-                                    <option value = "0">Bathrooms</option>
+                                    <option value = "0">{{ __('message.BATHROOMS') }}</option>
                                     <option <?php if ($bathrooms == 1 ) echo 'selected' ; ?>  value="1">1</option>
                                     <option <?php if ($bathrooms == 2 ) echo 'selected' ; ?>  value="2">2</option>
                                     <option <?php if ($bathrooms == 3 ) echo 'selected' ; ?>  value="3">3</option>
