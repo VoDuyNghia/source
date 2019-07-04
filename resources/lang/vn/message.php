@@ -15,14 +15,13 @@
 		"HOURS"			=> "Giờ làm việc",
 		"USEFUL_LINKS"	=> "Liên kết hữu ích",
 		"IMAGE_COMPANY"	=> "Hình ảnh về công ty",
-
-
 		"NAME"			=> "Nhập họ và tên",
 		"PHONE"			=> "Nhập số điện thoại",
 		"EMAIL"			=> "Nhập địa chỉ email",
 		"MESSAGE"		=> "Nhập nội dung tin nhắn",
 		"SUBMIT"		=> "Gửi tin nhắn",
 		"CONTACT_INFO"	=> "Thông tin liên hệ",
+		"READMORE"		=> "Xem thêm",
 
 	];
 

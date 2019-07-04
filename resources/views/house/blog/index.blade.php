@@ -44,7 +44,7 @@
                                 </div>
                                 <p>{{ $value->detail }}</p>
                                 <!-- Read More btn -->
-                                <a href="{{ route('house.blog.detail',$arr) }}" class="btn south-btn">Read More</a>
+                                <a href="{{ route('house.blog.detail',$arr) }}" class="btn south-btn">{{ __('message.READMORE') }}</a>
                             </div>
                         </div>
                     @empty

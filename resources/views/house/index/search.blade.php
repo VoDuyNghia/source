@@ -47,7 +47,7 @@
                                 </div>
                                 <p>{{ $value->detail }}</p>
                                 <!-- Read More btn -->
-                                <a href="{{ route('house.blog.detail',$arr) }}" class="btn south-btn">Read More</a>
+                                <a href="{{ route('house.blog.detail',$arr) }}" class="btn south-btn">{{ __('message.READMORE') }}</a>
                             </div>
                         </div>
                     @empty
@@ -77,7 +77,7 @@
                                     <img src="{{asset('storage/app/public/files/show_image/'.$value->image)}}" alt="{{ $value->name }}">
                                 </a>
                                 <div class="tag">
-                                    <span>{{ $value->choose->name }}</span>
+                                    <span>@if (session::get('locale') == "en"){{ $value->choose->name }}@else{{ $value->choose->name_vn }}@endif</span>
                                 </div>
                                 <div class="list-price">
                                     <p>${{ $value->price }}</p>

@@ -39,7 +39,7 @@
                                 <img src="{{asset('storage/app/public/files/show_image/'.$value->image)}}" alt="{{ $value->name }}">
                             </a>
                             <div class="tag">
-                                <span>{{ $value->choose->name }}</span>
+                                <span>@if (session::get('locale') == "en"){{ $value->choose->name }}@else{{ $value->choose->name_vn }}@endif</span>
                             </div>
                             <div class="list-price">
                                 <p>${{$value->price}}</p>
@@ -47,9 +47,9 @@
                         </div>
                         <!-- Property Content -->
                         <div class="property-content">
-                            <a href="{{ route('house.product.index',$arr) }}"><h5>{{ $value->name }}</h5></a>
+                            <a href="{{ route('house.product.index',$arr) }}"><h5>@if (session::get('locale') == "en"){{ $value->name }}@else{{ $value->name_vn }}@endif</h5></a>
                             <p class="location"><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt="">{{ $value->address}}</p>
-                            <p>{{  $value->detail }}</p>
+                            <p>@if (session::get('locale') == "en"){{ $value->detail }}@else{{ $value->detail_vn }}@endif</p>
                             <div class="property-meta-data d-flex align-items-end justify-content-between">
                                 <div class="bathroom">
                                     <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/bathtub.png" alt="">

@@ -14,6 +14,11 @@ class Product extends Model
     protected $fillable = ['name', 'detail', 'content', 'image', 'price ', 'choose_id', 'collection_id', 'district_id', 'users_id', 'address', 'configuration', 'active'];
 
 
+    public function contact() {
+        return $this->hasMany('App\Models\Contact');
+    }
+
+
     public function slider()
     {
         return $this->belongsToMany('App\Models\Slider');
@@ -35,15 +40,21 @@ class Product extends Model
 
 
     public function add_Items($request){
-        $data = $request->all();
-        $value= $data['configuration'];
-        $configuration = json_encode($value);
-        $data['configuration'] = $configuration;
+        $data                      = $request->all();
+        $value                     = $data['configuration'];
+        $configuration             = json_encode($value);
+        $data['configuration']     = $configuration;
+        $value_vn                  = $data['configuration_vn'];
+        $configuration_vn          = json_encode($value_vn);
+        $data['configuration_vn']  = $configuration_vn;
 
 
         $this->name                 = $data['name'];
+        $this->name_vn              = $data['name_vn'];
         $this->detail               = $data['detail'];
+        $this->detail_vn            = $data['detail_vn'];
         $this->content              = $data['description'];
+        $this->content_vn           = $data['description_vn'];
         $this->price                = $data['price'];
         $this->choose_id            = $data['choose_id'];
         $this->collection_id        = $data['collection_id'];
@@ -52,6 +63,7 @@ class Product extends Model
         $this->users_id             = 1;
         $this->address              = $data['address'];
         $this->configuration        = $configuration;
+        $this->configuration_vn     = $configuration_vn;
         $this->bedrooms             = $data['bedrooms'];
         $this->bathrooms            = $data['bathrooms'];
         $this->sqrt                 = $data['sqrt'];

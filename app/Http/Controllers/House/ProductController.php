@@ -22,14 +22,9 @@ class ProductController extends Controller
     }
 
     public function post_ContactPR($name, $id, ContactRequest $request) {
-    	$data 						=	$request->all();
-    	$objContact 				=	new Contact;
-    	$objContact->name 			=  	$data['username'];
-    	$objContact->phone 			=  	$data['phone'];
-    	$objContact->email 			=  	$data['email'];
-    	$objContact->product_id 	=  	$id;
-
-    	if($objContact->save()){
+    	$data 						=  $request->all();
+    	$objContact 				=  new Contact;
+    	if($objContact->add_Items($request, $id)){
     		$request->session()->flash('success','Bạn đã gửi tin thành công ! Chúng tôi sẽ trả lời trong thời gian sớm nhất');
         	return redirect()->route('house.product.index', ['name'=>$name, 'id'=>$id]);
     	} else {

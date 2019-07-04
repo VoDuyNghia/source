@@ -44,7 +44,7 @@
 	                                <img src="{{asset('storage/app/public/files/show_image/'.$value->image)}}" alt="{{ $value->name }}">
 	                            </a>
 	                            <div class="tag">
-	                                <span>{{ $value->choose->name }}</span>
+	                                <span>@if (session::get('locale') == "en"){{ $value->choose->name }}@else{{ $value->choose->name_vn }}@endif</span>
 	                            </div>
 	                            <div class="list-price">
 	                                <p>${{$value->price}}</p>

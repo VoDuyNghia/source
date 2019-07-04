@@ -54,10 +54,13 @@ class ProductController extends Controller
             $request->fileName = '';
         }
 
+        $images = $request->file('image_detail');
         try {
             if($this->objProduct->add_Items($request)) {
-                $file->move('storage/app/public/files/show_image',$fileName);
-                $images = $request->file('image_detail');
+                if($fileName <> ''){
+                    $file->move('storage/app/public/files/show_image',$fileName);
+                }
+            $images = $request->file('image_detail');
             if($images){
                 $id =DB::getPdo()->lastInsertId();
                 foreach ($images as $image){

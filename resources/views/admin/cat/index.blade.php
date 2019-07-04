@@ -36,7 +36,8 @@
                 <thead>
                 <tr>
                   <th class="text-center"> ID</th>
-                  <th class="text-center"> Tên Danh Mục</th>
+                  <th class="text-center"> Tên Danh Mục (EN)</th>
+                  <th class="text-center"> Tên Danh Mục (VN)</th>
                   <th class="text-center"> Vị Trí</th>
                   <th class="text-center">
                       <a href="{{ route('admin.cat.add') }}" class="btn btn-primary btn-xs">Thêm Danh Mục</a>
@@ -48,6 +49,7 @@
                     <tr id="delete-coloum-{{$value->id}}">
                       <td class="text-center">{{ $value->id }}</td>
                       <td class="text-center">{{ $value->name}}</td>
+                      <td class="text-center">{{ $value->name_vn}}</td>
                       <td class="text-center">{{ $value->position}}</td>
                       <td class="text-center">
                           <a href="{{ route('admin.cat.edit',[$value->id ]) }}" class="btn btn-warning btn-xs edit-category">Sửa</a> || 
@@ -59,7 +61,8 @@
                 <tfoot>
                 <tr>
                   <th class="text-center"> ID</th>
-                  <th class="text-center"> Tên Danh Mục</th>
+                  <th class="text-center"> Tên Danh Mục (EN)</th>
+                  <th class="text-center"> Tên Danh Mục (VN)</th>
                   <th class="text-center"> Vị Trí</th>
                   <th class="text-center"> Chức Năng</th>
                   <th></th>

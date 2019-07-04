@@ -11,17 +11,6 @@
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div>
-    <!-- search form -->
-    <form action="#" method="get" class="sidebar-form">
-      <div class="input-group">
-        <input type="text" name="q" class="form-control" placeholder="Search...">
-        <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
-      </div>
-    </form>
-    <!-- /.search form -->
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
@@ -40,10 +29,11 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="{{ Route('admin.slider.index.index') }}"><i class="fa fa-circle-o"></i> Slider trang chủ</a></li>
-          <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Slider sản phẩm</a></li>
+          <li><a href="{{ Route('admin.slider.product.index') }}"><i class="fa fa-circle-o"></i> Slider sản phẩm</a></li>
         </ul>
       </li>
-     {{--  <li>
+      <li><a href="{{ Route('admin.contact.index') }}"><i class="fa fa-envelope"></i> <span>Quản Lý Liên Lạc</span></a></li>
+{{--       <li>
         <a href="pages/widgets.html">
           <i class="fa fa-th"></i> <span>Widgets</span>
           <span class="pull-right-container">

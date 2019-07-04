@@ -85,15 +85,15 @@
                                                     'name' => str_slug($product->name),
                                                 ]
                                             @endphp
-                                                 <li><a href="{{ route('house.cat.index',$arr) }}">{{ $product->name }}</a></li>
+                                                 <li><a href="{{ route('house.cat.index',$arr) }}">@if (session::get('locale') == "en"){{$product->name }}@else{{$product->name_vn }}@endif</a></li>
                                             @endforeach
                                         </ul>
                                         @endforeach
                                     </div>
                                 </li>
                                 <li><a href="{{ route('house.contact.index') }}">{{ __('message.CONTACT') }}</a></li>
-                                <li><a href="{{ url('en') }}" ><i class="fa fa-language"></i> EN</a></li>
-                                <li><a href="{{ url('vn') }}" ><i class="fa fa-language"></i> VN</a></li>
+                                <li><a href="{{ url('language/en') }}" ><i class="fa fa-language"></i> EN</a></li>
+                                <li><a href="{{ url('language/vn') }}" ><i class="fa fa-language"></i> VN</a></li>
                             </ul>
 
                             <!-- Search Form -->

@@ -23,14 +23,18 @@
                 {{ csrf_field() }}
                  <div class="row">
                     <div class="col-md-4">
-                       <div class="form-group">
-                          <label>Tên danh mục</label>
-                          <input class="form-control" type="text" value="{{ old('name_category') }}" name="name_category" placeholder="Nhập tên danh mục">
-                       </div>
-                       <div class="form-group">
+                        <div class="form-group">
+                          <label>Tên danh mục (EN) </label>
+                          <input class="form-control" type="text" value="{{ old('name_category') }}" name="name_category" placeholder="Nhập tên danh mục EN">
+                        </div>
+                        <div class="form-group">
+                          <label>Tên danh mục (VN) </label>
+                          <input class="form-control" type="text" value="{{ old('name_category') }}" name="name_category_vn" placeholder="Nhập tên danh mục VN">
+                        </div>
+                        <div class="form-group">
                           <label>Vị trí</label>
                           <input class="form-control" type="number" value="{{ old('position') }}" min="1" name="position" placeholder="Nhập vị trí">
-                       </div>
+                        </div>
                     </div>
                     <div style='text-align: center;font-size: 30px;text-transform: uppercase;color: red;font-weight: bold;' class="col-md-8">
                         @if ($errors->any())

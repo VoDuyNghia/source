@@ -15,14 +15,13 @@
 		"HOURS"			=> "Hours",
 		"USEFUL_LINKS"	=> "USEFUL LINKS",
 		"IMAGE_COMPANY"	=> "Photos of the company",
-
-
 		"NAME"			=> "Your Name",
 		"PHONE"			=> "Your Phone",
 		"EMAIL"			=> "Your Email",
 		"MESSAGE"		=> "Your Message",
 		"SUBMIT"		=> "SEND MESSAGE",
 		"CONTACT_INFO"	=> "CONTACT_INFO",
+		"READMORE"		=> "READ MORE",
 	];
 
 ?>

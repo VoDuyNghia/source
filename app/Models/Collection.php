@@ -21,7 +21,8 @@ class Collection extends Model
     	return $this->all();
     }
     public function add_Collection($request) {
-		$this->name 			= $request->name_category;
+        $this->name             = $request->name_category;
+		$this->name_vn 			= $request->name_category_vn;
     	$this->name_ascii 		= str_slug($request->name_category);
     	$this->position 		= $request->position;
 
@@ -37,8 +38,8 @@ class Collection extends Model
     public function edit_Collection ($id , $request){
         
     	$objCollection 				= $this->findOrFail($id);
-
-        $objCollection->name 		= $request->name_category;
+        $objCollection->name        = $request->name_category;
+        $objCollection->name_vn	    = $request->name_category_vn;
     	$objCollection->name_ascii 	= str_slug($request->name_category);
     	$objCollection->position 	= $request->position;
 

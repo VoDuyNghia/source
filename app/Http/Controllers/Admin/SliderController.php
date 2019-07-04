@@ -231,6 +231,4 @@ class SliderController extends Controller
             return response()->json(['error'=> 'Xóa thất bại!']);
         }
     }
-
-
 }

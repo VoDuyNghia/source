@@ -33,7 +33,7 @@
 <!-- datepicker -->
 <script src="{{ asset('/public/templates/admin') }}/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
-<script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script src="{{ asset('/public/templates/admin') }}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <!-- Slimscroll -->
 <script src="{{ asset('/public/templates/admin') }}/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
@@ -46,5 +46,6 @@
 <script src="{{ asset('/public/templates/admin') }}/dist/js/demo.js"></script>
 <script src="{{ asset('/public/templates/admin') }}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="{{ asset('/public/templates/admin') }}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ asset('/public/templates/admin') }}/script.js"></script>
 </body>
 </html>

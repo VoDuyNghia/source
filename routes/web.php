@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('{locale}', function ($locale){
+Route::get('language/{locale}', function ($locale){
 	Session::put('locale', $locale);
 	return redirect()->back();
 });
@@ -22,11 +22,9 @@ route::pattern('id', '([0-9]*)');
 
 Route::namespace('House')->group( function() {
 
-	//Trang chủ
     Route::get('', 'IndexController@index')->name('house.index.index');
     Route::get('search', 'IndexController@search')->name('house.index.search');
     Route::get('search_product', 'IndexController@search_product')->name('house.index.search_product');
-
 
     // Sản phẩm
     Route::get('product/{name}-{id}.html', 'ProductController@index')->name('house.product.index');
@@ -41,6 +39,8 @@ Route::namespace('House')->group( function() {
  	Route::get('info/contact', 'ContactController@index')->name('house.contact.index');
  	Route::post('info/contact', 'ContactController@post_Contact')->name('house.contact.index');
 
+ 	Route::get('/admin/contact', 'ContactController@index_admin')->name('admin.contact.index');
+ 	Route::post('ajax_reply', 'ContactController@reply_contact')->name('ajax_reply');
 
  	// Blog
 
