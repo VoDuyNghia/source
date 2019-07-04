@@ -41,6 +41,9 @@
                             <div class="tag">
                                 <span>@if (session::get('locale') == "en"){{ $value->choose->name }}@else{{ $value->choose->name_vn }}@endif</span>
                             </div>
+                            <div class="status">
+                                <span>@if (session::get('locale') == "en"){{ $value->status->name }}@else{{ $value->status->name_vn }}@endif</span>
+                            </div>
                             <div class="list-price">
                                 <p>${{$value->price}}</p>
                             </div>
@@ -62,7 +65,7 @@
                             
                                 <div class="space">
                                     <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/space.png" alt="">
-                                    <span>{{ $value->sqrt }} sq ft</span>
+                                    <span>{{ $value->sqrt }} {{ __('message.S') }}</span>
                                 </div> 
                             </div>
                         </div>
@@ -77,77 +80,6 @@
     </div>
 </section>
 <!-- ##### Featured Properties Area End ##### -->
-
-<!-- ##### Call To Action Area Start ##### -->
-<section class="call-to-action-area bg-fixed bg-overlay-black" style="background-image: url(public/templates/house/img/bg-img/cta.jpg)">
-    <div class="container h-100">
-        <div class="row align-items-center h-100">
-            <div class="col-12">
-                <div class="cta-content text-center">
-                    <h2 class="wow fadeInUp" data-wow-delay="300ms">Are you looking for a place to rent?</h2>
-                    <h6 class="wow fadeInUp" data-wow-delay="400ms">Suspendisse dictum enim sit amet libero malesuada feugiat.</h6>
-                    <a href="#" class="btn south-btn mt-50 wow fadeInUp" data-wow-delay="500ms">Search</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ##### Call To Action Area End ##### -->
-
-<!-- ##### Testimonials Area Start ##### -->
-<section class="south-testimonials-area section-padding-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-heading wow fadeInUp" data-wow-delay="250ms">
-                    <h2>Client testimonials</h2>
-                    <p>Suspendisse dictum enim sit amet libero malesuada feugiat.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="testimonials-slides owl-carousel wow fadeInUp" data-wow-delay="500ms">
-
-                    <!-- Single Testimonial Slide -->
-                    <div class="single-testimonial-slide text-center">
-                        <h5>Perfect Home for me</h5>
-                        <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna.</p>
-
-                        <div class="testimonial-author-info">
-                            <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/bg-img/feature6.jpg" alt="">
-                            <p>Daiane Smith, <span>Customer</span></p>
-                        </div>
-                    </div>
-
-                    <!-- Single Testimonial Slide -->
-                    <div class="single-testimonial-slide text-center">
-                        <h5>Perfect Home for me</h5>
-                        <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna.</p>
-
-                        <div class="testimonial-author-info">
-                            <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/bg-img/feature6.jpg" alt="">
-                            <p>Daiane Smith, <span>Customer</span></p>
-                        </div>
-                    </div>
-
-                    <!-- Single Testimonial Slide -->
-                    <div class="single-testimonial-slide text-center">
-                        <h5>Perfect Home for me</h5>
-                        <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna.</p>
-
-                        <div class="testimonial-author-info">
-                            <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/bg-img/feature6.jpg" alt="">
-                            <p>Daiane Smith, <span>Customer</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ##### Testimonials Area End ##### -->
 
 <!-- ##### Editor Area Start ##### -->
 <section class="south-editor-area d-flex align-items-center">

@@ -45,7 +45,7 @@
                     
                         <div class="space">
                             <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/space.png" alt="">
-                            <span>{{ $value->product->sqrt}} sq ft</span>
+                            <span>{{ $value->product->sqrt}} {{ __('message.S') }}</span>
                         </div> 
                     </div>
                 </div>

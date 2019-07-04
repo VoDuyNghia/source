@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Collection;
 use App\Models\Product;
+use App\Models\Choose;
 
 
 class CatController extends Controller
@@ -14,7 +15,7 @@ class CatController extends Controller
         $collection = Collection::where('name_ascii',$name)->first();
     	$objProduct = Product::select('product.*','collection.*','product.name as title','product.id as id_title')->join('collection','collection.id','=','product.collection_id')->where('active_id',2)->where('name_ascii', $name)->paginate(1);
     	$title 		= $collection['name'];
-    	return view('house.cat.index',compact('title','objProduct','collection','choose'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','');;
+    	return view('house.cat.index',compact('title','objProduct','collection','choose'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','');
     }
 
     public function Ajax_Product(Request $request) {
@@ -50,5 +51,21 @@ class CatController extends Controller
             }
             $objProduct = $query->paginate(10)->appends(request()->query());
             return view('house.cat.index',compact(['objProduct','title']));
-    }	
+    }
+
+    public function Choose_Collection($name1, $name) {
+        $objChoose      = Choose::where('name',$name1)->first();
+        $objCollection  = Collection::where('name_ascii',$name)->first(); 
+        $title          = strtoupper($name1)." - ". strtoupper($objCollection['name']) ." | DA NANG RESIDENCE" ;
+        $objProduct     = Product::select('product.*','collection.*','product.name as title','product.id as id_title')->join('collection','collection.id','=','product.collection_id')->where('active_id',2)->where('choose_id', $objChoose['id'])->where('collection_id', $objCollection['id'])->orderbyDESC('id_title')->paginate(10);
+        return view('house.cat.choose_collection',compact('title','objProduct'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','');;
+    }
+
+    public function Choose_Product($name) {
+        $objChoose      = Choose::where('name',$name)->first();
+        $title          = strtoupper($name)." | DA NANG RESIDENCE" ;
+        $objProduct     = Product::select('product.*','collection.*','product.name as title','product.id as id_title')->join('collection','collection.id','=','product.collection_id')->where('active_id',2)->where('choose_id', $objChoose['id'])->orderbyDESC('id_title')->paginate(10);
+
+         return view('house.cat.choose_product',compact('title','objProduct'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','');;
+    }
 }

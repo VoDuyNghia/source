@@ -22,6 +22,7 @@
 		"SUBMIT"		=> "Gửi tin nhắn",
 		"CONTACT_INFO"	=> "Thông tin liên hệ",
 		"READMORE"		=> "Xem thêm",
+		"S"				=> "m²",
 
 	];
 

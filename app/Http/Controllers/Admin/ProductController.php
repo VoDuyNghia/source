@@ -12,6 +12,7 @@ use App\Models\District;
 use App\Models\ImageDetail;
 use Intervention\Image\Facades\Image;
 use App\Models\Active;
+use App\Models\Status;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Hash;
@@ -23,12 +24,13 @@ use Helpers;
 class ProductController extends Controller
 {   
 
-   public function __construct(Collection $objCollection, Choose $objChoose, District $objDistrict, Product $objProduct, Active $objActive){
+   public function __construct(Status $objStatus, Collection $objCollection, Choose $objChoose, District $objDistrict, Product $objProduct, Active $objActive){
         $this->objCollection = $objCollection;
         $this->objChoose     = $objChoose;
         $this->objDistrict   = $objDistrict;
         $this->objProduct    = $objProduct;
         $this->objActive     = $objActive;
+        $this->objStatus     = $objStatus;
     }
 
     public function index() {
@@ -41,7 +43,8 @@ class ProductController extends Controller
         $objCollection      = $this->objCollection->get_Collection();
         $objDistrict        = $this->objDistrict->get_District();
         $objActive          = $this->objActive ->get_Active();
-        return view('admin.product.add',compact('objCollection','objChoose','objDistrict','objActive'));
+        $objStatus          = $this->objStatus ->get_Status();
+        return view('admin.product.add',compact('objCollection','objChoose','objDistrict','objActive','objStatus'));
     }
 
     public function post_Add(ProductRequest $request) {
@@ -138,10 +141,10 @@ class ProductController extends Controller
         $objCollection      = $this->objCollection->get_Collection();
         $objDistrict        = $this->objDistrict->get_District();
         $objActive          = $this->objActive ->get_Active();
-
+        $objStatus          = $this->objStatus ->get_Status();
         $objProduct         = Product::findOrfail($id);
         $ImageProduct       = ImageDetail::where('product_id',$id)->get();
-        return view("admin.product.edit",compact('objCollection','objChoose','objDistrict','objActive','objProduct','ImageProduct'));
+        return view("admin.product.edit",compact('objCollection','objChoose','objDistrict','objActive','objStatus','objProduct','ImageProduct'));
     }
 
     public function post_Edit($id, ProductRequest $request) {
@@ -199,6 +202,7 @@ class ProductController extends Controller
             $objItem->content              = $data['description'];
             $objItem->price                = $data['price'];
             $objItem->choose_id            = $data['choose_id'];
+            $objItem->status_id            = $data['status_id'];
             $objItem->collection_id        = $data['collection_id'];
             $objItem->district_id          = $data['district_id'];
             $objItem->users_id             = 1;

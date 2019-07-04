@@ -18,6 +18,7 @@ Route::get('language/{locale}', function ($locale){
 
 
 route::pattern('name' ,'(.*)');
+route::pattern('name1' ,'(.*)');
 route::pattern('id', '([0-9]*)');
 
 Route::namespace('House')->group( function() {
@@ -33,6 +34,8 @@ Route::namespace('House')->group( function() {
 
     // Danh mục
     Route::get('{name}.html', 'CatController@index')->name('house.cat.index');
+    Route::get('{name1}/{name}.htm', 'CatController@Choose_Collection')->name('house.cat.choose_collection');
+    Route::get('{name1}.htm', 'CatController@Choose_Product')->name('house.cat.choose_product');
     Route::get('ajax_product', 'CatController@Ajax_Product')->name('ajax_product');
 
     // Liên hệ

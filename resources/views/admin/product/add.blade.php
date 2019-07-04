@@ -167,6 +167,18 @@
                                             @endforeach
                                         </select>
                                     </div>
+
+                                    <div class="form-group">
+                                      <label>Tình trạng sản phẩm</label>
+                                        <select class="form-control" name="status_id" id="status_id">
+                                            <option value="">------ Xin chọn tình trạng sản phẩm------ </option>
+                                            @foreach ($objStatus as $value)
+                                                <option value="{{$value->id}}" @if(old('status_id') == $value->id) selected @endif>{{ $value->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+
                                 </div>
     						</div>
     					</div>

@@ -8,6 +8,9 @@
 	        <div class="tag">
 	            <span>@if (session::get('locale') == "en"){{ $value->choose->name }}@else{{ $value->choose->name_vn }}@endif</span>
 	        </div>
+            <div class="status">
+                <span>@if (session::get('locale') == "en"){{ $value->status->name }}@else{{ $value->status->name_vn }}@endif</span>
+            </div>
 	        <div class="list-price">
 	            <p>${{ $value->price }}</p>
 	        </div>
@@ -29,7 +32,7 @@
 
 				<div class="space">
 				    <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/space.png" alt="">
-				    <span>{{ $value->sqrt}} sq ft</span>
+				    <span>{{ $value->sqrt}} {{ __('message.S') }}</span>
 				</div> 
 	        </div>
 	    </div>

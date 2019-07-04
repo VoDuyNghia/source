@@ -77,18 +77,25 @@
                                 <li><a href="{{ route('house.blog.index') }}">{{ __('message.BLOG') }}</a></li>
                                 <li><a href="#">{{ __('message.MENU') }}</a>
                                     <div class="megamenu">
-                                        @foreach ($objCollection->chunk(3) as $chunk)
+                                    @foreach ($objChoose->chunk(1) as $chunk)
                                         <ul class="single-mega cn-col-4">
-                                            @foreach ($chunk as $product)
-                                            @php
-                                                $arr = [
-                                                    'name' => str_slug($product->name),
-                                                ]
-                                            @endphp
-                                                 <li><a href="{{ route('house.cat.index',$arr) }}">@if (session::get('locale') == "en"){{$product->name }}@else{{$product->name_vn }}@endif</a></li>
+                                            @foreach ($chunk as $value)
+                                                <li class="title">
+                                                    <a href="{{ route('house.cat.choose_product',strtolower($value->name)) }}">@if (session::get('locale') == "en"){{$value->name}}@else{{$value->name_vn }}@endif </a>
+                                                </li>
+                                            @foreach ($objCollection as $product)
+                                                @php
+                                                    $arr = [
+                                                        'name'  => str_slug ($product->name),
+                                                        'name1' => strtolower($value->name),
+                                                    ]
+                                                @endphp
+                                                 <li><a href="{{ route('house.cat.choose_collection',$arr) }}">@if (session::get('locale') == "en"){{$product->name }}@else{{$product->name_vn }}@endif</a>
+                                                 </li>
+                                            @endforeach
                                             @endforeach
                                         </ul>
-                                        @endforeach
+                                    @endforeach
                                     </div>
                                 </li>
                                 <li><a href="{{ route('house.contact.index') }}">{{ __('message.CONTACT') }}</a></li>

@@ -34,6 +34,10 @@ class Product extends Model
         return $this->belongsTo('App\Models\Choose','choose_id','id');
     }
 
+    public function status (){
+        return $this->belongsTo('App\Models\Status','status_id','id');
+    }
+
     public function district (){
         return $this->belongsTo('App\Models\District','district_id','id');
     }
@@ -57,6 +61,7 @@ class Product extends Model
         $this->content_vn           = $data['description_vn'];
         $this->price                = $data['price'];
         $this->choose_id            = $data['choose_id'];
+        $this->status_id            = $data['status_id'];
         $this->collection_id        = $data['collection_id'];
         $this->district_id          = $data['district_id'];
         // $this->users_id             = Auth::user()->id;

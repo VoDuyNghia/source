@@ -195,6 +195,16 @@
                                           @endforeach
                                       </select>
                                   </div>
+
+                                  <div class="form-group">
+                                    <label>Tình trạng sản phẩm</label>
+                                      <select class="form-control" name="status_id" id="status_id">
+                                          <option value="">------ Xin chọn tình trạng sản phẩm ------ </option>
+                                          @foreach ($objStatus as $value)
+                                              <option value="{{$value->id}}" @if($value->id == $objProduct['status_id']) selected @endif>{{$value->name}} </option>
+                                          @endforeach
+                                      </select>
+                                  </div>
                               </div>
                           </div>
                       </div>
@@ -202,6 +212,12 @@
                           <div class="form-group">
                               <label>Mô tả</label>
                               <textarea class="form-control"  name="description">{{$objProduct['content'] }}</textarea>
+                          </div>
+
+                          <div class="row">
+                            <div style="text-align: center;" class="col-md-12">
+                                <button class="btn btn-primary nextBtn btn-lg" type="button" >Next</button>
+                            </div>
                           </div>
                       </div>
                     </div>

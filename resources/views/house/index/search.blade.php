@@ -79,6 +79,9 @@
                                 <div class="tag">
                                     <span>@if (session::get('locale') == "en"){{ $value->choose->name }}@else{{ $value->choose->name_vn }}@endif</span>
                                 </div>
+                                <div class="status">
+                                    <span>@if (session::get('locale') == "en"){{ $value->status->name }}@else{{ $value->status->name_vn }}@endif</span>
+                                </div>
                                 <div class="list-price">
                                     <p>${{ $value->price }}</p>
                                 </div>
@@ -108,13 +111,11 @@
                                         @elseif($key==2)
                                             <div class="space">
                                                 <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/space.png" alt="">
-                                                <span>{{ $key }} sq ft</span>
+                                                <span>{{ $key }} {{ __('message.S') }}</span>
                                             </div> 
                                         @endif
                                     @empty
                                     @endforelse
-
-
                                 </div>
                             </div>
                         </div>
