@@ -1,3 +1,10 @@
+@forelse ($objProduct as $value)
+@php
+    $arr = [
+        'name' => str_slug($value->title),
+        'id'   => $value->id_title,
+    ]
+@endphp
 <div class="col-12 col-md-6 col-xl-4">
 	<div class="single-featured-property mb-50">
 	    <!-- Property Thumbnail -->
@@ -17,9 +24,9 @@
 	    </div>
 	    <!-- Property Content -->
 	    <div class="property-content">
-	    	<a href="{{ route('house.product.index',$arr) }}"><h5>{{ $value->title }}</h5></a>
+	    	<a href="{{ route('house.product.index',$arr) }}"><h5>@if(session::get('locale') == "en"){{$value->name }}@else{{ $value->name_vn }}@endif</h5></a>
 	        <p class="location"><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt="">{{ $value->address }}</p>
-	        <p>{{ $value->detail }}</p>
+	        <p>@if (session::get('locale') == "en"){{ $value->detail }}@else{{ $value->detail_vn }}@endif</p>
 	        <div class="property-meta-data d-flex align-items-end justify-content-between">
 				<div class="bathroom">
 				    <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/bathtub.png" alt="">
@@ -38,3 +45,10 @@
 	    </div>
 	</div>
 </div>
+@empty
+    <div class="col-12 col-md-6 col-xl-4">
+        Không có sản phẩm
+    </div>
+@endforelse
+
+

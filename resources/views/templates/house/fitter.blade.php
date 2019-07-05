@@ -31,7 +31,7 @@
                                 <select class="form-control" name="collection"  id="collection">
                                     <option value = "0">{{ __('message.CATEGORY') }}</option>
                                     @foreach ($objCollection as $value)
-                                        <option value="{{$value->id}}" @if($value->id == $collection) selected @endif>{{$value->name}} </option>
+                                        <option value="{{$value->id}}" @if($value->id == $collection) selected @endif>@if (session::get('locale') == "en"){{ $value->name }}@else{{ $value->name_vn }}@endif</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -42,7 +42,7 @@
                                 <select class="form-control" name="status" id="status">
                                     <option value = "0">{{ __('message.COLLECTION') }}</option>
                                     @foreach ($objChoose as $value)
-                                        <option value="{{$value->id}}" @if($value->id == $choose) selected @endif>{{$value->name}} </option>
+                                        <option value="{{$value->id}}" @if($value->id == $choose) selected @endif>@if (session::get('locale') == "en"){{ $value->name }}@else{{ $value->name_vn }}@endif</option>
                                     @endforeach
                                 </select>
                             </div>

@@ -36,12 +36,18 @@
                 <div class="email-address">
                     <a href="mailto:contact@southtemplate.com">contact@southtemplate.com</a>
                 </div>
+
                 <div class="phone-number d-flex">
                     <div class="icon">
                         <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt="">
                     </div>
                     <div class="number">
                         <a href="tel:+45 677 8993000 223">+45 677 8993000 223</a>
+
+                        <img class="logo_language" src="http://www.iotcoworkingspace.com/frontend/images/ic-vi.svg">
+                            <a class="language" href="{{ url('language/vn') }}"><i style="margin-right: 1em;" class="fa fa-language"></i>VN</a>
+                        <img class="logo_language" src="http://www.iotcoworkingspace.com/frontend/images/ic-en.svg">
+                            <a class="language" href="{{ url('language/en') }}"><i style="margin-right: 1em;" class="fa fa-language"></i>EN</a>
                     </div>
                 </div>
             </div>
@@ -78,9 +84,9 @@
                                 <li><a href="#">{{ __('message.MENU') }}</a>
                                     <div class="megamenu">
                                     @foreach ($objChoose->chunk(1) as $chunk)
-                                        <ul class="single-mega cn-col-4">
+                                        <ul class="single-mega cn-col-3">
                                             @foreach ($chunk as $value)
-                                                <li class="title">
+                                                <li style="text-align: center;" class="title">
                                                     <a href="{{ route('house.cat.choose_product',strtolower($value->name)) }}">@if (session::get('locale') == "en"){{$value->name}}@else{{$value->name_vn }}@endif </a>
                                                 </li>
                                             @foreach ($objCollection as $product)
@@ -96,11 +102,14 @@
                                             @endforeach
                                         </ul>
                                     @endforeach
+                                        <ul class="single-mega cn-col-3">
+                                            <li style="text-align: center;" class="title">
+                                                <a href="{{ route('house.blog.project.index') }}">{{ __('message.PROJECT') }}</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </li>
                                 <li><a href="{{ route('house.contact.index') }}">{{ __('message.CONTACT') }}</a></li>
-                                <li><a href="{{ url('language/en') }}" ><i class="fa fa-language"></i> EN</a></li>
-                                <li><a href="{{ url('language/vn') }}" ><i class="fa fa-language"></i> VN</a></li>
                             </ul>
 
                             <!-- Search Form -->

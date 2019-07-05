@@ -31,6 +31,7 @@ class ProductRequest extends FormRequest
 
             'choose_id'         => 'required',
             'name'              => 'required|min:5|max:50 |unique:product,name,'.$request->id.',id',
+            'code'              => 'required|unique:product,code,'.$request->id.',id',
             'name_vn'           => 'required|min:5|max:50',
             'detail'            => 'required|min:50|max:200',
             'detail_vn'         => 'required|min:50|max:200',
@@ -46,6 +47,9 @@ class ProductRequest extends FormRequest
     }
     public function messages() {
         return [
+            'name.required'               => 'Vui lòng nhập mã sản phẩm',
+            'name.unique'                 => 'Mã sản phẩm đã tồn tại',
+            
             'choose_id.required'          => 'Vui lòng chọn thể loại.',
             'collection_id.required'      => 'Vui lòng chọn danh mục.',
             'name.required'               => 'Vui lòng nhập tiêu đề tin (EN)',

@@ -45,7 +45,7 @@
                           	<input class="form-control" type="number" value="{{ old('position') }}" min="1" name="position" placeholder="Nhập vị trí">
                        	</div>
 					    <div class="form-group">
-					        <label>Hình hiển thị</label>
+					        <label>Hình hiển thị ( 1920 x 800 )</label>
 					        <input type="file" style="display:none" id="upload-input_1" name="image_detail123" accept="image/*">
 					        <div id="upload_1" class="form-control drop-area">
 					            <h3>Kéo & thả ảnh vào đây ! </h3>

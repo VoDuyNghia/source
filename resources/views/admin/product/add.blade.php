@@ -71,6 +71,10 @@
     						            @endforeach
     						        </select>
     						   	</div>
+                                <div class="form-group">
+                                  <label>Mã sản phẩm</label>
+                                  <input class="form-control" type="text" name="code" placeholder="Xin nhập mã sản phẩm" value="{{ old('code') }}">
+                                </div>
     				            <div class="form-group">
     						      <label>Tiêu đề (EN )</label>
     						      <input class="form-control" type="text" name="name" placeholder="Xin nhập tên sản phẩm" value="{{ old('name') }}">
@@ -109,7 +113,7 @@
     						<div class="col-md-8">
     							<div class="col-md-12">
     							    <div class="form-group">
-    							        <label>Hình ảnh Mô tả</label>
+    							        <label>Hình ảnh Mô tả ( 1200 x 604)</label>
     							        <input type="file" style="display:none" id="upload-input" multiple="multiple" name="image_detail[]" accept="image/*">
     							        <div id="upload" class="form-control drop-area">
     							            <h3>Kéo & thả ảnh vào đây ! </h3>
@@ -120,7 +124,7 @@
     						 	</div>
     					    	<div class="col-md-6">
     							    <div class="form-group">
-    							        <label>Hình đại điện</label>
+    							        <label>Hình đại điện (1000 x 724)</label>
     							        <input type="file" style="display:none" id="upload-input_1" name="image_detail123" accept="image/*">
     							        <div id="upload_1" class="form-control drop-area">
     							            <h3>Kéo & thả ảnh vào đây ! </h3>

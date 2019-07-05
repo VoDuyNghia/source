@@ -1819,4 +1819,20 @@ img {
     z-index: 10;
 }
 
+.logo_language {
+    width: 23px;
+    height: 17.25px;
+    margin-right: -1em;
+}
+
+.language li {
+  list-style:none;
+
+}
+.top-header-area .phone-number .number a {
+    padding: 0 20px;
+    color: #ffffff;
+    line-height: 45px;
+    font-size: 12px;
+}
 /*# sourceMappingURL=style.css.map */

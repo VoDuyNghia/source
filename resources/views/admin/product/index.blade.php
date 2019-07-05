@@ -34,7 +34,8 @@
                 <thead>
                 <tr>
                   <th class="text-center">ID</th>
-                  <th class="text-center">TÊN BÀI VIẾT</th>
+                  <th class="text-center">MÃ SẢN PHẨM</th>
+                  <th class="text-center">TÊN BÀI VIẾT (EN)</th>
                   <th class="text-center">HÌNH ẢNH</th>
                   <th class="text-center">DANH MỤC</th>
                   <th class="text-center">TRẠNG THÁI</th>
@@ -49,6 +50,7 @@
                   @foreach ($objProduct as $value)
                     <tr id="delete-coloum-{{$value->id}}" data-id="{{ $value->id }}">
                       <td class="text-center">{{ $value->id }}</td>
+                      <td class="text-center">{{ $value->code }}</td>
                       <td>{{ $value->name}}</td>
                       <td class="text-center"><img width="100px" height="100px" class="img img-thumbnail" src="{{ asset('storage/app/public/files/show_image/'.$value->image)}}"></td>
                       <td class="text-center">{{$value->collection->name}}</td>
@@ -78,7 +80,8 @@
                 <tfoot>
                 <tr>
                   <th class="text-center"> ID </th>
-                  <th class="text-center"> Tên bài viết </th>
+                  <th class="text-center">MÃ SẢN PHẨM</th>
+                  <th class="text-center"> Tên bài viết (EN) </th>
                   <th class="text-center"> Hình ảnh </th>
                   <th class="text-center"> Trạng Thái</th>
                   <th></th>

@@ -53,6 +53,7 @@ class Product extends Model
         $data['configuration_vn']  = $configuration_vn;
 
 
+        $this->code                 = $data['code'];
         $this->name                 = $data['name'];
         $this->name_vn              = $data['name_vn'];
         $this->detail               = $data['detail'];

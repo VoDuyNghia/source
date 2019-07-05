@@ -49,7 +49,7 @@
                 <div class="col-12">
                     <div class="south-pagination d-flex justify-content-end">
                         <nav aria-label="Page navigation">
-                            {{-- {{$objProduct->links()}} --}}
+                            {{-- {{$objProduct->total()}} --}}
                         </nav>
                     </div>
                 </div>

@@ -42,7 +42,7 @@ class ContactRequest extends FormRequest
             'phone.required'        => 'Vui lòng nhập số điện thoại',
             'phone.required'        => 'Định dạng số điện thoại là số',
             'message.required'      => 'Vui lòng nhập nội dung',
-            'message.min'           => 'Nội dung tối thiểu 10 ký tự',
+            'message.min'           => 'Nội dung tối thiểu 100 ký tự',
         ];
     }
 }

@@ -29,8 +29,12 @@ class News extends Model
         $data = $request->all();
         
         $this->name                 = $data['name'];
+        $this->name_vn              = $data['name_vn'];
         $this->detail               = $data['detail'];
+        $this->detail_vn            = $data['detail_vn'];
         $this->content              = $data['description'];
+        $this->content_vn           = $data['description_vn'];
+        $this->address              = $data['address'];
         // $this->users_id             = Auth::user()->id;
         $this->user_id              = 1;
         $this->active_id            = $data['active'];

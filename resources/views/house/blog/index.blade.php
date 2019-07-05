@@ -15,50 +15,14 @@
 
     <section class="south-blog-area section-padding-100">
         <div class="container">
-            <div class="row">
-                <div id="content" class="col-12 col-lg-8">
-                    <!-- Single Blog Area -->
-                    @forelse ($objNews as $value)
-                    @php
-                        $arr = [
-                            'name' => str_slug($value->name),
-                            'id'   => $value->id
-                        ]
-                    @endphp
-                        <div class="single-blog-area mb-50">
-                            <!-- Post Thumbnail -->
-                            <div class="blog-post-thumbnail">
-                                <img src="{{asset('storage/app/public/files/show_news/'.$value->image)}}" alt="{{ $value->name }}">
-                            </div>
-                            <!-- Post Content -->
-                            <div class="post-content">
-                                <!-- Date -->
-                                <div class="post-date">
-                                    <a href="#">{{ Carbon\Carbon::createFromTimestamp(strtotime($value->created_at))->diffForHumans() }} </a>
-                                </div>
-                                <!-- Headline -->
-                                <a href="#" class="headline">{{ $value->name }}</a>
-                                <!-- Post Meta -->
-                                <div class="post-meta">
-                                    <p>By <a href="#">{{$value->user->name}}</a></p>
-                                </div>
-                                <p>{{ $value->detail }}</p>
-                                <!-- Read More btn -->
-                                <a href="{{ route('house.blog.detail',$arr) }}" class="btn south-btn">{{ __('message.READMORE') }}</a>
-                            </div>
-                        </div>
-                    @empty
-                    @endforelse
-                </div>
-                @include('templates.house.left_bar')
-            </div>
+            @include('house.blog.blog')
             <div class="row">
                 <div class="col-12">
                     <!-- Pagination -->
                     <div class="south-pagination mt-100 d-flex">
                         <nav aria-label="Page navigation">
                             <ul class="pagination">
-                                {{ $objNews->links() }}
+                                {{ $objNews->total() }}
                             </ul>
                         </nav>
                     </div>

@@ -33,7 +33,6 @@ Route::namespace('House')->group( function() {
 
 
     // Danh mục
-    Route::get('{name}.html', 'CatController@index')->name('house.cat.index');
     Route::get('{name1}/{name}.htm', 'CatController@Choose_Collection')->name('house.cat.choose_collection');
     Route::get('{name1}.htm', 'CatController@Choose_Product')->name('house.cat.choose_product');
     Route::get('ajax_product', 'CatController@Ajax_Product')->name('ajax_product');
@@ -48,9 +47,11 @@ Route::namespace('House')->group( function() {
  	// Blog
 
  	Route::get('blog', 'BlogController@index')->name('house.blog.index');
- 	Route::get('blog/{name}-{id}.htm', 'BlogController@detail_news')->name('house.blog.detail');
- 	Route::get('blog/{name}-{id}.htm', 'BlogController@detail_news')->name('house.blog.detail');
+ 	Route::get('blog/{name}-{id}.html', 'BlogController@detail_news')->name('house.blog.detail');
  	Route::get('search_blog', 'BlogController@search_blogs')->name('house.blog.search');
+ 	Route::get('project', 'BlogController@index_project')->name('house.blog.project.index');
+ 	Route::get('project/{name}-{id}.html', 'BlogController@news_project')->name('house.blog.project.detail');
+
 });
 
 Route::namespace('Admin')->prefix('admin')->group( function() {
@@ -148,7 +149,6 @@ Route::namespace('Admin')->prefix('admin')->group( function() {
 	Route::get('slider/product/edit/{id}', 'SliderController@get_Product_Edit')->name('admin.slider.product.edit');
 	Route::post('slider/product/edit/{id}', 'SliderController@post_Product_Edit')->name('admin.slider.product.edit');
 	Route::get('slider/product/delete', 'SliderController@delete_slider_Product')->name('delete_slider_product');
-
 
 });
 

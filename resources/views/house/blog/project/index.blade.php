@@ -21,17 +21,23 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-
-            <!-- Single Featured Property -->
-            @forelse ($objProducts as $value)
-            @php
-                $arr = [
-                    'name' => str_slug($value->name),
-                    'id'   => $value->id,
-                ]
-            @endphp
-                @include('house.cat.ajax_product')
+            @forelse ($objNews as $value)
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="single-featured-property mb-50">
+                        <!-- Property Thumbnail -->
+                        <div class="property-thumb">
+                            <a href="{{ route('house.blog.project.detail',[ 'id' => $value->id,'name' => str_slug($value->name) ]) }}">
+                                <img src="{{asset('storage/app/public/files/show_news/'.$value->image)}}" alt="{{ $value->name }}">
+                            </a>
+                        </div>
+                        <!-- Property Content -->
+                        <div class="property-content">
+                            <a href="{{ route('house.blog.project.detail',[ 'id' => $value->id,'name' => str_slug($value->name) ]) }}"><h5>@if(session::get('locale') == "en"){{ $value->name }}@else{{ $value->name_vn }}@endif</h5></a>
+                            <p class="location"><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt="">{{ $value->address }}</p>
+                            <p>@if(session::get('locale') == "en"){{ $value->detail }}@else{{ $value->detail_vn }}@endif</p>
+                        </div>
+                    </div>
+                </div>
             @empty
                 <div class="col-12 col-md-6 col-xl-4">
                     Không có sản phẩm

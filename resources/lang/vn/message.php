@@ -23,6 +23,7 @@
 		"CONTACT_INFO"	=> "Thông tin liên hệ",
 		"READMORE"		=> "Xem thêm",
 		"S"				=> "m²",
+		"PROJECT"		=> "Dự Án",
 
 	];
 

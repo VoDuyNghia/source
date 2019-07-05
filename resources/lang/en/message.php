@@ -23,6 +23,7 @@
 		"CONTACT_INFO"	=> "CONTACT_INFO",
 		"READMORE"		=> "READ MORE",
 		"S"				=> "sq ft",
+		"PROJECT"		=> "Project",
 	];
 
 ?>

@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Input;
 class IndexController extends Controller
 {
     public function index() {
-        $title 	     = "Trang Chủ";
+        $title 	     = "HOME | DANANG RESIDENCE";
         $objProducts = Product::where('active_id',2)->orderbyDESC('id')->take(9)->get();
 
-        return view("house.index.index",compact('title','objProducts'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','');;
+        return view("house.index.index",compact('title','objProducts'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','');
     }
 
     public function search(Request $request) {
@@ -29,7 +29,7 @@ class IndexController extends Controller
     }
 
     public function search_product(Request $request) {
-        $title = "Tìm Kiếm Nâng Cao | DA NANG RESIDENCE";
+        $title = "ADVANCED SEARCH | DA NANG RESIDENCE";
         $query      = Product::query();       
         $filters = [
             'key_word'   => Input::get('input'),

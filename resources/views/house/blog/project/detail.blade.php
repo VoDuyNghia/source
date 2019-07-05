@@ -17,17 +17,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-8">
-                    <div>
-                        <p style="text-transform: uppercase;" class="the-article-category">
-                            <a href="{{ route('house.index.index') }}">{{ __('message.HOME') }}</a>
-                                <span><img src="{{ asset('arrow.png') }}"></span>
-                            <a href="{{ route('house.blog.index') }}" class="parent_cate">{{ __('message.BLOG') }}</a>
-                                <span><img src="{{ asset('arrow.png') }}"></span>
-                            <span>@if (session::get('locale') == "en"){{ $objNews['name'] }}@else{{ $objNews['name_vn'] }}@endif</span>
-                        </p> 
-                    </div>
-
                     <div class="single-blog-area">
+                        <div class="blog-post-thumbnail">
+                            <p style="text-transform: uppercase;" class="the-article-category">
+                                 <a href="{{ route('house.index.index') }}">{{ __('message.HOME') }}</a>
+                                    <span><img src="{{ asset('arrow.png') }}"></span>
+                                <a href="{{ route('house.blog.project.index') }}" class="parent_cate">PROJECT</a>
+                                    <span><img src="{{ asset('arrow.png') }}"></span>
+                                <span>@if (session::get('locale') == "en"){{ $objNews['name'] }}@else{{ $objNews['name_vn'] }}@endif</span>
+                            </p> 
+                        </div>
                         <!-- Post Thumbnail -->
                         <div class="blog-post-thumbnail">
                            <img src="{{asset('storage/app/public/files/show_news/'.$objNews['image'])}}" alt="{{ $objNews['name'] }}">
@@ -75,8 +74,17 @@
 
                     <!-- Leave A Comment -->
                 </div>
-
                 @include('templates.house.left_bar')
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="listings-maps mt-100">
+                        <address>
+                            {{ $objNews['address']}} 
+                        </address>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

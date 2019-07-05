@@ -197,6 +197,7 @@ class ProductController extends Controller
             }
             $objProduct                    = new Product();
             $objItem                       = $objProduct->findOrfail($id);
+            $objItem->code                 = $data['code'];
             $objItem->name                 = $data['name'];
             $objItem->detail               = $data['detail'];
             $objItem->content              = $data['description'];

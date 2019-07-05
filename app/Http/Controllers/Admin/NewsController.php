@@ -87,9 +87,13 @@ class NewsController extends Controller
             $objNews                = new News();
             $objItem                = $objNews->findOrfail($id);
             $objItem->name          = $data['name'];
+            $objItem->name_vn       = $data['name_vn'];
             $objItem->detail        = $data['detail'];
+            $objItem->detail_vn     = $data['detail_vn'];
             $objItem->content       = $data['description'];
+            $objItem->content_vn    = $data['description_vn'];
             $objItem->active_id     = $data['active'];
+            $objItem->address       = $data['address'];
             $objItem->image         = $request->fileName;
             if($objItem->save()){
                 if($images123){

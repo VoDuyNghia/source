@@ -49,35 +49,11 @@
                 <div class="col-12">
                     <div class="south-pagination d-flex justify-content-end">
                         <nav aria-label="Page navigation">
-                            {{$objProduct->links()}}
+                            {{$objProduct->total()}}
                         </nav>
                     </div>
                 </div>
             </div>
-
-			<script>
-			  	$.ajaxSetup({
-			        headers: {
-			          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-			        }
-			  	});
-        		function callAjax() {
-	            	var status = $('#status').val();
-		            $.ajax({
-		                url: '{{ route('ajax_product') }}',
-		                type: 'GET',
-		                data: {
-		                    status: status
-		                },
-		                success: function (data) {
-		                    $('#content').html(data.view);
-		                }
-		            });
-	        	};
-			</script>
-
-
-
         </div>
     </section>
 @endsection

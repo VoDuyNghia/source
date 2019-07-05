@@ -74,11 +74,16 @@
                                       @endforeach
                                   </select>
                               </div>
-                             <div class="form-group">
+                              <div class="form-group">
+                                  <label>Mã sản phẩm</label>
+                                  <input class="form-control" type="text" name="code" placeholder="Xin nhập mã sản phẩm" value="{{ $objProduct['code'] }}">
+                                </div>
+
+                              <div class="form-group">
                                 <label>Tiêu đề (EN)</label>
                                 <input class="form-control" type="text" name="name" placeholder="Xin nhập tên sản phẩm" value="{{ $objProduct['name'] }}">
-                             </div>
-                             <div class="form-group">
+                              </div>
+                              <div class="form-group">
                                   <label>Chi tiết (EN)</label>
                                   <textarea class="form-control" name="detail" id="detail">{{ $objProduct['detail'] }}</textarea>
                               </div>
@@ -126,7 +131,7 @@
                           <div class="col-md-8">
                               <div class="col-md-12">
                                    <div class="form-group">
-                                      <label>Hình ảnh Mô tả</label>
+                                      <label>Hình ảnh Mô tả ( 1200 x 604)</label>
                                       <div class="row form-group text-center">
                                          <div class="d-inline " id="listimage">
                                             <input type="hidden" name="id_del_image" id="id_del_image" >
@@ -148,7 +153,7 @@
 
                               <div class="col-md-6">
                                    <div class="form-group">
-                                      <label>Hình đại điện</label>
+                                      <label>Hình đại điện (1000 x 724)</label>
                                       <input type="file" style="display:none" id="upload-input_1" name="image_detail123" accept="image/*">
                                       <div id="upload_1" class="form-control drop-area">
                                          <h3>Kéo & thả ảnh vào đây ! </h3>
@@ -245,10 +250,6 @@
                                           <tr id="colum_{{ $key }}">
                                               <td>    
                                                   <input class="form-control" name='configuration_vn[]' type='text' value="{{ $value }}"/>
-                                              </td>
-                                              <td>    
-                                                  <button data-token="JKgdob76fnKQoaalH1LEKvbbnznMjsjR65PBOGf8" data-id="{{ $key }}" id="delete_{{ $key }}" type="button" class="btn btn-warning clear-image-{{ $key }}" style="border-radius: 0;"><i class="fa fa-remove"></i>
-                                                    </button>
                                               </td>
                                           </tr>
                                       @empty

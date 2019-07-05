@@ -34,8 +34,9 @@
                 <thead>
                 <tr>
                   <th class="text-center"> ID</th>
-                  <th class="text-center"> Tiêu đề</th>
+                  <th class="text-center"> Tiêu đề (EN)</th>
                   <th class="text-center"> Hình Ảnh</th>
+                  <th class="text-center"> Thể Loại</th>
                   <th class="text-center"> Ngày Đăng</th>
                   <th class="text-center"> Trạng Thái</th>
                   <th class="text-center">
@@ -49,6 +50,7 @@
                       <td class="text-center">{{ $value->id }}</td>
                       <td class="text-center">{{ $value->name}}</td>
                       <td class="text-center"><img width="100px" height="100px" class="img img-thumbnail" src="{{ asset('storage/app/public/files/show_news/'.$value->image)}}"></td>
+                      <td class="text-center">@if($value->address <> '') Dự Án @else Blogs @endif</td>
                       <td class="text-center">{{ $value->created_at }}</td>
                       <td class="text-center">
                           <a href="{{ route('admin.news.edit',[$value->id ]) }}" class="btn btn-warning btn-xs edit-category">Sửa</a> || 
@@ -73,8 +75,9 @@
                 <tfoot>
                 <tr>
                   <th class="text-center"> ID</th>
-                  <th class="text-center"> Tiêu đề</th>
+                  <th class="text-center"> Tiêu đề (EN)</th>
                   <th class="text-center"> Hình Ảnh</th>
+                  <th class="text-center"> Thể Loại</th>
                   <th class="text-center"> Ngày Đăng</th>
                   <th class="text-center"> Trạng Thái</th>
                 </tr>
