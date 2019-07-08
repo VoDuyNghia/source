@@ -72,7 +72,11 @@ Route::get('admin/login' , [
 Route::get('admin/login', 'Admin\UserController@login_Admin')->name('auth.login');
 Route::post('admin/login', 'Admin\UserController@post_login_Admin')->name('auth.login');
 
+
+
 Route::middleware('admin')->namespace('Admin')->prefix('admin')->group( function() {
+	Route::any('/ckfinder/examples/{example?}', 'CKSource\CKFinderBridge\Controller\CKFinderController@examplesAction')
+    ->name('ckfinder_examples');
 
 	Route::get('logout',  [
 		'uses' => 'UserController@Logout',
