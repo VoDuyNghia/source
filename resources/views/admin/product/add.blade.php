@@ -32,11 +32,12 @@
             </div>
 	        <div class="box-header">
                 <div class="col-lg-12" style="padding-bottom:50px">
-                @if ($errors->any())
+                @if ($errors->any() or Session::has('msg') )
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li> {{ $error }} </li>
+                                <li> {{ Session::get('msg') }}</li>
                             @endforeach
                         </ul>
                     </div>

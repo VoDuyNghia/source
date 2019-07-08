@@ -100,7 +100,7 @@
                         <div class="col-12 d-flex justify-content-between align-items-end">
                             <!-- Submit -->
                             <div class="form-group mb-0">
-                                <button type="submit" class="btn south-btn">Search</button>
+                                <button type="submit" class="btn south-btn">{{  __('message.SEARCH') }}</button>
                             </div>
                         </div>
                     </div>

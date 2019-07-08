@@ -37,8 +37,8 @@
                         </div>
                         <!-- Address -->
                         <div class="address">
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt=""> +45 677 8993000 223</h6>
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/envelope.png" alt=""> office@template.com</h6>
+                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt=""> 0905.972.521</h6>
+                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/envelope.png" alt=""> danangresidence@gmail.com</h6>
                             <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt=""> Main Str. no 45-46, b3, 56832, Los Angeles, CA</h6>
                         </div>
                     </div>
@@ -53,17 +53,15 @@
                         </div>
                         <!-- Nav -->
                         <ul class="useful-links-nav d-flex align-items-center">
-                            <li><a href="#">{{ __('message.ABOUT') }}</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Properties</a></li>
-                            <li><a href="#">Listings</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                            <li><a href="#">Properties</a></li>
-                            <li><a href="#">{{ __('message.BLOG') }}</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                            <li><a href="#">{{ __('message.CONTACT') }}</a></li>
-                            <li><a href="#">FAQ</a></li>
+                            <li><a href="{{ route('house.page.about') }}">{{ __('message.ABOUT') }}</a></li>
+                            <li><a href="{{ route('house.blog.index') }}">{{ __('message.BLOG') }}</a></li>
+                            <li><a href="{{ route('house.contact.index') }}">{{ __('message.CONTACT') }}</a></li>
+                            @foreach ($objChoose as $value)
+                                <li>
+                                    <a href="{{ route('house.cat.choose_product',strtolower($value->name)) }}">@if (session::get('locale') == "en"){{$value->name}}@else{{$value->name_vn }}@endif </a>
+                                </li>
+                            @endforeach
+                            <li><a href="{{ route('house.blog.project.index') }}">{{ __('message.PROJECT') }}</a></li>
                         </ul>
                     </div>
                 </div>

@@ -1,8 +1,8 @@
-@forelse ($objProduct as $value)
+@forelse ($objProducts as $value)
 @php
     $arr = [
-        'name' => str_slug($value->title),
-        'id'   => $value->id_title,
+        'name' => str_slug($value->name),
+        'id'   => $value->id,
     ]
 @endphp
 <div class="col-12 col-md-6 col-xl-4">
@@ -25,6 +25,7 @@
 	    <!-- Property Content -->
 	    <div class="property-content">
 	    	<a href="{{ route('house.product.index',$arr) }}"><h5>@if(session::get('locale') == "en"){{$value->name }}@else{{ $value->name_vn }}@endif</h5></a>
+	    	<h6 style="color:blue;font-weight: bold;"> ( {{$value->code}} ) </h6>
 	        <p class="location"><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt="">{{ $value->address }}</p>
 	        <p>@if (session::get('locale') == "en"){{ $value->detail }}@else{{ $value->detail_vn }}@endif</p>
 	        <div class="property-meta-data d-flex align-items-end justify-content-between">
@@ -47,7 +48,7 @@
 </div>
 @empty
     <div class="col-12 col-md-6 col-xl-4">
-        Không có sản phẩm
+ 		{{ __('message.RESULT', ['result' => count($objProducts)]) }}
     </div>
 @endforelse
 

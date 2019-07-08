@@ -7,11 +7,18 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 use Illuminate\Support\Facades\DB;
+use Session;
 
 class ContactController extends Controller
 {
     public function index() {
-    	$title = "DA NANG RESIDENCE | CONTACT";
+    	
+
+        if (session::get('locale') == "en") {
+            $title = "CONTACT | DA NANG RESIDENCE";
+        } else {
+            $title = "LIÊN HỆ | DA NANG RESIDENCE";
+        }
     	return view('house.contact.index',compact('title'));
     }
 

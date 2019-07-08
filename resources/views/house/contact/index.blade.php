@@ -5,7 +5,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcumb-content">
-                        <h3 class="breadcumb-title">Contact</h3>
+                        <h3 class="breadcumb-title">{{ __('message.CONTACT') }}</h3>
                     </div>
                 </div>
             </div>
@@ -71,8 +71,8 @@
                         </div>
                         <!-- Address -->
                         <div class="address mt-30">
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt=""> +45 677 8993000 223</h6>
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/envelope.png" alt=""> office@template.com</h6>
+                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt=""> 0905.972.521</h6>
+                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/envelope.png" alt=""> danangresidence@gmail.com</h6>
                             <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt=""> Main Str. no 45-46, b3, 56832,<br>Los Angeles, CA</h6>
                         </div>
                     </div>
@@ -113,4 +113,5 @@
             </div>
         </div>
 	</div>
+    @include('templates.house.describe')
 @endsection

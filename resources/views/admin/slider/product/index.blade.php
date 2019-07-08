@@ -5,7 +5,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Slider Sản phẩm
+        Slider Sản phẩm (Bắt buộc phải có 2 bài viết để xuất hiện trên trang sản phẩm)
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ route('admin.index.index') }}"><i class="fa fa-dashboard"></i> Sản phẩm</a></li>
@@ -20,7 +20,6 @@
             <div class="box-header">
               <h3 class="box-title">Danh Sách Slider trrang chủ</h3>
             </div>
-  
             <div id="notify_success" class=" notify success">
               @if (Session::has('msg'))
                 <div class="alert alert-success">{{ Session::get('msg') }}</div>

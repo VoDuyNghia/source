@@ -75,6 +75,10 @@ class NewsController extends Controller
         $data                   = $request->all();
         $News                   = News::findOrfail($id);
         $images123              = $request->file('image_detail123');
+        $data = $request->all();
+        if(!isset($data['address'])) {
+            $data['address'] = null;
+        }
 
         if($images123) {
             $name123 = $request->fileName  = 'avatar_'.time() . "_" .rand(5, 5000000).'_'. $images123->getClientOriginalName();

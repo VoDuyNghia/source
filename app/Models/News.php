@@ -27,7 +27,9 @@ class News extends Model
 
     public function add_Items($request){
         $data = $request->all();
-        
+        if(!isset($data['address'])) {
+            $data['address'] = null;
+        }
         $this->name                 = $data['name'];
         $this->name_vn              = $data['name_vn'];
         $this->detail               = $data['detail'];

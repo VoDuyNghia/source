@@ -24,6 +24,11 @@
 		"READMORE"		=> "READ MORE",
 		"S"				=> "sq ft",
 		"PROJECT"		=> "Project",
+		"RESULT"		=> "There are :result results found",
+		"REALTOR"		=> "Realtor",
+		"PRODUCT"		=> "Our products",
+		"TITLE_PROJECT" => "Our Project",
+		"SEARCH_BLOG"	=> "Search Blogs...",
 	];
 
 ?>

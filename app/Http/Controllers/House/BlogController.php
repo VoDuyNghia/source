@@ -7,11 +7,18 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 use App\Models\News;
+use Session;
 
 class BlogController extends Controller
 {
     public function index() {
-    	$title      = "BLOGS | DA NANG RESIDENCE";
+    	
+        if (session::get('locale') == "en") {
+            $title  = "BLOGS | DA NANG RESIDENCE";
+        } else {
+            $title  = "TIN TỨC | DA NANG RESIDENCE";
+        }
+
         $key_word   = "";
         $objNews    = News::where('active_id',2)->whereNull('address')->orderbyDESC('id')->paginate(10);
     	return view('house.blog.index',compact('title','objNews','key_word'));
@@ -20,7 +27,11 @@ class BlogController extends Controller
     public function detail_news($name, $id){
         $key_word   = "";
         $objNews    = News::findOrfail($id);
-        $title      = $objNews['name']. " - BLOGS | DA NANG RESIDENCE";
+        if (session::get('locale') == "en") {
+            $title      = $objNews['name']. " - BLOGS | DA NANG RESIDENCE";
+        } else {
+            $title      = $objNews['name_vn']. " - BLOGS | DA NANG RESIDENCE";
+        }
         return view('house.blog.detail',compact('objNews','title','key_word'));
     }
 
@@ -33,7 +44,13 @@ class BlogController extends Controller
 
 
     public function index_project() {
-        $title      = "PROJECT | DA NANG RESIDENCE";
+        
+        if (session::get('locale') == "en") {
+            $title      = "PROJECT | DA NANG RESIDENCE";
+        } else {
+            $title      = "DỰ ÁN | DA NANG RESIDENCE";
+        }
+
         $key_word   = "";
         $objNews    = News::where('active_id',2)->whereNotNull('address')->orderbyDESC('id')->paginate(10);
         return view('house.blog.project.index',compact('title','objNews','key_word'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','');
@@ -42,7 +59,14 @@ class BlogController extends Controller
     public function news_project($name,$id) {
         $key_word   = "";
         $objNews    = News::where('id',$id)->first();
-        $title      = $objNews['name']. " - PROJECT | DA NANG RESIDENCE";
+        
+        if (session::get('locale') == "en") {
+            $title      = $objNews['name']. " - PROJECT | DA NANG RESIDENCE";
+        } else {
+            $title      = $objNews['name_vn']. " - PROJECT | DA NANG RESIDENCE";
+        }
+
+
         return view('house.blog.project.detail',compact('objNews','title','key_word'));
     }
 

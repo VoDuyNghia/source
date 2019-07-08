@@ -83,6 +83,7 @@ class ProductController extends Controller
                 return redirect()->route('admin.product.index');
             }
         } catch(\Exception $e) {
+            DB::rollback();
             $request->session()->flash('msg','Thêm thất bại');
             return redirect()->route('admin.product.add');
         }
@@ -149,9 +150,19 @@ class ProductController extends Controller
 
     public function post_Edit($id, ProductRequest $request) {
         $data = $request->all();
-        $value                         = $data['configuration'];
-        $configuration                 = json_encode($value);
-        $data['configuration']         = $configuration;
+        if(isset($data['configuration'])) {
+            $configuration              = json_encode($data['configuration']);
+            $data['configuration']      = $configuration;
+        } else {
+            $configuration              = null;
+        }
+        
+        if(isset($data['configuration_vn'])) {
+            $configuration_vn           = json_encode($data['configuration_vn']);
+            $data['configuration_vn']   = $configuration_vn;
+        } else {
+            $configuration_vn           = null;
+        }
 
         try{
             DB::beginTransaction();
@@ -209,6 +220,7 @@ class ProductController extends Controller
             $objItem->users_id             = 1;
             $objItem->address              = $data['address'];
             $objItem->configuration        = $configuration;
+            $objItem->configuration_vn     = $configuration_vn;
             $objItem->bedrooms             = $data['bedrooms'];
             $objItem->bathrooms            = $data['bathrooms'];
             $objItem->sqrt                 = $data['sqrt'];

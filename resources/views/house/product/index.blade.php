@@ -14,6 +14,25 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <div class="page-breadcrumbs">
+                    <nav class="property-breadcrumbs">
+                        <ul>
+                            <li>
+                                <a href="{{ route('house.index.index') }}">{{ __('message.HOME') }}&nbsp;</a>
+                                <i class="breadcrumbs-separator fa fa-angle-right">&nbsp;</i>
+                            </li>
+                            <li>
+                                <a href="{{ route('house.cat.choose_product',strtolower($objProducts->choose->name)) }}" class="parent_cate">@if (session::get('locale') == "en"){{ $objProducts->choose->name }}@else{{ $objProducts->choose->name_vn }}@endif&nbsp;</a>
+                                <i class="breadcrumbs-separator fa fa-angle-right">&nbsp;</i>
+                            </li>
+                            <li>
+                                @if (session::get('locale') == "en"){{ $objProducts['name'] }}@else{{ $objProducts['name_vn'] }}@endif
+                            </li>            
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-12">
                 @if ($errors->any() or Session::has('fail') )
                     <div class="alert alert-danger">
                         <ul>
@@ -52,9 +71,8 @@
                     </div>
                     <h5>{{ $objProducts['name'] }}</h5>
                     <p class="location"><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt="">{{ $objProducts['address'] }}</p>
-                    <p style="word-break: break-all;">{!! $objProducts['content'] !!}</p>
+                    
                     <!-- Meta -->
-
                     <div class="property-meta-data d-flex align-items-end">
                        <div class="bathroom">
                             <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/bathtub.png" alt="">
@@ -72,6 +90,7 @@
                         
                     </div>
                     <!-- Core Features -->
+                    @if ($objProducts['configuration'] <> null)
                     <ul class="listings-core-features d-flex align-items-center">
                         @if(json_decode($objProducts['configuration'], true))
                         <?php
@@ -84,6 +103,9 @@
                        	@empty
                         @endforelse
                     </ul>
+                    @endif
+
+                    <p style="word-break: break-all;">{!! $objProducts['content'] !!}</p>
                     <!-- Listings Btn Groups -->
                 </div>
             </div>
@@ -94,8 +116,8 @@
                         <div class="realtor---info">
                             <h2>Jeremy Scott</h2>
                             <p>Realtor</p>
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt=""> +45 677 8993000 223</h6>
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/envelope.png" alt=""> office@template.com</h6>
+                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt=""> 0905.972.521</h6>
+                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/envelope.png" alt=""> danangresidence@gmail.com</h6>
                         </div>
                         <div class="realtor--contact-form">
                             @php
@@ -145,13 +167,13 @@
         <!-- Section Heading -->
         <div class="section-heading wow fadeInUp" data-wow-delay="250ms">
             <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/prize.png" alt="">
-            <h2>jeremy Scott</h2>
-            <p>Realtor</p>
+            <h2>TRUONG DINH HOANG</h2>
+            <p>{{ __('message.REALTOR') }}</p>
         </div>
         <p class="wow fadeInUp" data-wow-delay="500ms">Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odiomattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna. Curabitur rhoncus auctor eleifend. Fusce venenatis diam urna, eu pharetra arcu varius ac. Etiam cursus turpis lectus, id iaculis risus tempor id. Phasellus fringilla nisl sed sem scelerisque, eget aliquam magna vehicula.</p>
         <div class="address wow fadeInUp" data-wow-delay="750ms">
-            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt=""> +45 677 8993000 223</h6>
-            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/envelope.png" alt=""> office@template.com</h6>
+            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt=""> 0905.972.521</h6>
+            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/envelope.png" alt="">danangresidence@gmail.com</h6>
         </div>
         <div class="signature mt-50 wow fadeInUp" data-wow-delay="1000ms">
             <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/core-img/signature.png" alt="">
@@ -160,7 +182,7 @@
 
     <!-- Editor Thumbnail -->
     <div class="editor-thumbnail">
-        <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/bg-img/editor.jpg" alt="">
+        <img src="{{ asset('/public/templates/house/img/bg-img/2.jpg') }}" alt="">
     </div>
 </section>
 @endsection

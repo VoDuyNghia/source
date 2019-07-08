@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <div class="single-blog-area mb-50">
-                        Có {{count($objNews)}} blogs cần tìm
+                        {{ __('message.RESULT', ['result' => count($objNews)]) }}
                     </div>
                     <!-- Single Blog Area -->
                     @forelse ($objNews as $value)
@@ -40,26 +40,38 @@
                                     <a href="#">{{ Carbon\Carbon::createFromTimestamp(strtotime($value->created_at))->diffForHumans() }} </a>
                                 </div>
                                 <!-- Headline -->
-                                <a href="#" class="headline">{{ $value->name }}</a>
+                                <a href="#" class="headline">
+                                    {{ $value->name }}
+                                    @if ($value->address <> null)
+                                        <span style="text-transform: uppercase; color:red;font-weight: bold;">( {{ __('message.PROJECT') }} )</span>
+                                    @else
+                                        <span style="text-transform: uppercase; color:blue;font-weight: bold;">( {{ __('message.BLOG') }} )</span>
+                                    @endif
+                                </a>
                                 <!-- Post Meta -->
                                 <div class="post-meta">
-                                    <p>By <a href="#">{{$value->user->name}}</a> | <a href="#">2 Comments</a></p>
+                                    <p>By <a href="#">{{$value->user->name}}</a></p>
                                 </div>
                                 <p>{{ $value->detail }}</p>
                                 <!-- Read More btn -->
-                                <a href="{{ route('house.blog.detail',$arr) }}" class="btn south-btn">{{ __('message.READMORE') }}</a>
+                                @if ($value->address == null)
+                                    <a href="{{ route('house.blog.detail',$arr) }}" class="btn south-btn">{{ __('message.READMORE') }}</a>
+                                @else
+                                    <a href="{{ route('house.blog.project.detail',$arr) }}" class="btn south-btn">{{ __('message.READMORE') }}</a>
+                                @endif
+                                
                             </div>
                         </div>
                     @empty
                         <div class="single-blog-area mb-50">
-                            Không tìm thấy tin tức phù hợp
+                           {{ __('message.RESULT', ['result' => count($objNews)]) }}
                         </div>
                     @endforelse
                 </div>
 
                 <div class="col-12 col-lg-4">
                     <div class="single-blog-area mb-50">
-                        Có {{count($objProducts)}} sản phẩm cần tìm
+                        {{ __('message.RESULT', ['result' => count($objProducts)]) }}
                     </div>
                     <div class="blog-sidebar-area">
 
@@ -89,8 +101,10 @@
                             <!-- Property Content -->
                             <div class="property-content">
                                 <a href="{{ route('house.product.index',$arr) }}"><h5>{{ $value->name }}</h5></a>
+                                <h6 style="color:blue;font-weight: bold;">( {{ $value->code }} )</h6>
                                 <p class="location"><img src="{{ getenv("URL_TEMPLATES_HOUSE") }}/img/icons/location.png" alt="">{{ $value->address }}</p>
                                 <p>{{ $value->detail }}</p>
+                                @if($value->configuration <> null && $value->configuration_vn <> null)
                                 <div class="property-meta-data d-flex align-items-end justify-content-between">
                                     @if(json_decode($value->configuration, true))
                                     <?php
@@ -117,12 +131,13 @@
                                     @empty
                                     @endforelse
                                 </div>
+                                @endif
                             </div>
                         </div>
 
                         @empty
                         <div class="single-featured-property">
-                            Không tìm thấy sản phẩm phù hợp
+                           {{ __('message.RESULT', ['result' => count($objProducts)]) }}
                         </div>
                         @endforelse
                     </div>

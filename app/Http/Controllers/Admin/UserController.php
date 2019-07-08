@@ -7,10 +7,34 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UsersRequest;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends Controller
 {
+
+    public function login_Admin() {
+        if(Auth::viaRemember() || Auth::check()){
+            return redirect('admin/dashboard');
+        }
+        return view('auth.login');
+    }
+
+    public function post_login_Admin(Request $request) {
+        $remember = $request->has('remember') ? true : false;
+        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password],$remember)){
+            return redirect('admin/dashboard');
+        }
+        else{
+            return redirect('admin/login')->with('errors','Đăng nhập không thành công !');
+        }
+    }
+
+    public function Logout() {
+        Auth::logout();
+        return redirect('admin/login')->with('errors','Đăng xuất thành công!');
+    }
+
     public function index() {
     	$objUsers = User::all();
     	return view('admin.users.index',compact('objUsers'));

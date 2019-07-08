@@ -1,3 +1,26 @@
+$( document ).ready(function() {
+
+    CKEDITOR.replace( 'description', {
+        filebrowserBrowseUrl: '/public/templates/libraries/ckfinder/ckfinder.html',
+        filebrowserImageBrowseUrl: '/public/templates/libraries/ckfinder/ckfinder.html?type=Images',
+        filebrowserFlashBrowseUrl: '/public/templates/libraries/ckfinder/ckfinder.html?type=Flash',
+        filebrowserUploadUrl: '/public/templates/libraries/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        filebrowserImageUploadUrl: '/public/templates/libraries/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+        filebrowserFlashUploadUrl: '/public/templates/libraries/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+    });
+
+    CKEDITOR.replace( 'description_vn', {
+        filebrowserBrowseUrl: '/public/templates/libraries/ckfinder/ckfinder.html',
+        filebrowserImageBrowseUrl: '/public/templates/libraries/ckfinder/ckfinder.html?type=Images',
+        filebrowserFlashBrowseUrl: '/public/templates/libraries/ckfinder/ckfinder.html?type=Flash',
+        filebrowserUploadUrl: '/public/templates/libraries/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        filebrowserImageUploadUrl: '/public/templates/libraries/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+        filebrowserFlashUploadUrl: '/public/templates/libraries/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+    });
+
+});
+
+
 $(function () {
     $('#example1').DataTable()
     $('#example2').DataTable({
@@ -227,4 +250,6 @@ $(document).ready(function () {
 
 
     $('div.setup-panel div a.btn-primary').trigger('click');
-});    
+});
+
+

@@ -4,7 +4,7 @@
         <!-- Search Widget -->
         <div class="search-widget-area mb-70">
             <form action="{{route('house.blog.search')}}" method="get">
-                <input type="search" name="search" value="{{ $key_word }}" id="search" placeholder="Search Blogs...">
+                <input type="search" name="search" value="{{ $key_word }}" id="search" placeholder="{{ __('message.SEARCH_BLOG') }}">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>

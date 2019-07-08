@@ -25,7 +25,7 @@ class CollectionRequest extends FormRequest
     public function rules(Request $request)
     {
         return [
-            'name_category'        => 'required|min:5|max:50 |unique:collection,name,'.$request->id.',id',
+            'name_category'        => 'required|unique:collection,name,'.$request->id.',id',
             'position'             => 'required|unique:collection,position,'.$request->id.',id',
         ];
     }
@@ -33,8 +33,6 @@ class CollectionRequest extends FormRequest
         return [
             'name_category.required'    => 'Vui lòng nhập tên danh mục',
             'position.required'         => 'Vui lòng nhập vị trí',
-            'name_category.min'         => 'Tên danh mục trong khoản 5 - 50 ký tự',
-            'name_category.max'         => 'Tên danh mục trong khoản 5 - 50 ký tự',
             'name_category.unique'      => 'Tên danh mục đã tồn tại',
             'position.unique'           => 'Vị trí đã tồn tại',
         ];

@@ -44,14 +44,20 @@ class Product extends Model
 
 
     public function add_Items($request){
-        $data                      = $request->all();
-        $value                     = $data['configuration'];
-        $configuration             = json_encode($value);
-        $data['configuration']     = $configuration;
-        $value_vn                  = $data['configuration_vn'];
-        $configuration_vn          = json_encode($value_vn);
-        $data['configuration_vn']  = $configuration_vn;
-
+        $data                       = $request->all();
+        if(isset($data['configuration'])) {
+            $configuration          = json_encode($data['configuration']);
+            $data['configuration']  = $configuration;
+        } else {
+            $configuration          = null;
+        }
+        
+        if(isset($data['configuration_vn'])) {
+            $configuration_vn       = json_encode($data['configuration_vn']);
+            $data['configuration_vn']= $configuration_vn;
+        } else {
+            $configuration_vn          = null;
+        }
 
         $this->code                 = $data['code'];
         $this->name                 = $data['name'];
@@ -65,7 +71,6 @@ class Product extends Model
         $this->status_id            = $data['status_id'];
         $this->collection_id        = $data['collection_id'];
         $this->district_id          = $data['district_id'];
-        // $this->users_id             = Auth::user()->id;
         $this->users_id             = 1;
         $this->address              = $data['address'];
         $this->configuration        = $configuration;

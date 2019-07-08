@@ -11,6 +11,9 @@
 |
 */
 
+Session::put('locale', 'en');
+
+
 Route::get('language/{locale}', function ($locale){
 	Session::put('locale', $locale);
 	return redirect()->back();
@@ -52,9 +55,29 @@ Route::namespace('House')->group( function() {
  	Route::get('project', 'BlogController@index_project')->name('house.blog.project.index');
  	Route::get('project/{name}-{id}.html', 'BlogController@news_project')->name('house.blog.project.detail');
 
+
+
+ 	// Page
+
+ 	Route::get('about-us.html', 'PageController@about_us')->name('house.page.about');
+
 });
 
-Route::namespace('Admin')->prefix('admin')->group( function() {
+Route::get('admin/login' , [
+	'uses' => 'Admin\UserController@login_Admin',
+	'as'   => 'auth.login'
+]);
+
+
+Route::get('admin/login', 'Admin\UserController@login_Admin')->name('auth.login');
+Route::post('admin/login', 'Admin\UserController@post_login_Admin')->name('auth.login');
+
+Route::middleware('admin')->namespace('Admin')->prefix('admin')->group( function() {
+
+	Route::get('logout',  [
+		'uses' => 'UserController@Logout',
+		'as'   => 'logout'
+	]);
 	Route::get('dashboard' , [
 		'uses' => 'DashboardController@index',
 		'as'   => 'admin.index.index'

@@ -42,31 +42,31 @@
         </div>
     </section>
 
-        <script type="text/javascript">
-          $("select[name='status']").change(function(){
-                var status  = $(this).val();
-                var choose  = {{ $id_choose }};
-                var token   = $("input[name='_token']").val();
+    <script type="text/javascript">
+      $("select[name='status']").change(function(){
+            var status  = $(this).val();
+            var choose  = {{ $id_choose }};
+            var token   = $("input[name='_token']").val();
 
-                $.ajaxSetup({
-                    headers: {
-                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.ajax({
-                    url: '{{ route('ajax_product') }}',
-                    type: 'GET',
-                    data: {
-                        status: status,
-                        choose: choose,
-                    },
-                    success: function(data){
-                        $('#content').html(data.view);
-                    },
-                    error: function(data){
-                        alert("s");
-                    }
-                });
-          });
-        </script>
+            $.ajaxSetup({
+                headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '{{ route('ajax_product') }}',
+                type: 'GET',
+                data: {
+                    status: status,
+                    choose: choose,
+                },
+                success: function(data){
+                    $('#content').html(data.view);
+                },
+                error: function(data){
+                    console.log(data.error);
+                }
+            });
+      });
+    </script>
 @endsection

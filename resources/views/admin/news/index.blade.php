@@ -52,10 +52,6 @@
                       <td class="text-center"><img width="100px" height="100px" class="img img-thumbnail" src="{{ asset('storage/app/public/files/show_news/'.$value->image)}}"></td>
                       <td class="text-center">@if($value->address <> '') Dự Án @else Blogs @endif</td>
                       <td class="text-center">{{ $value->created_at }}</td>
-                      <td class="text-center">
-                          <a href="{{ route('admin.news.edit',[$value->id ]) }}" class="btn btn-warning btn-xs edit-category">Sửa</a> || 
-                          <button class="btn btn-danger btn-xs" id="delete-category" value="{{$value->id}}">Xóa</button>
-                      </td>
                       <td  id="trangthai_{{$value->id}}" class="text-center">
                           <div class="row">
                               @if ($value->active_id == 0)
@@ -69,6 +65,11 @@
                               @endif
                           </div>
                       </td>
+                      <td class="text-center">
+                          <a href="{{ route('admin.news.edit',[$value->id ]) }}" class="btn btn-warning btn-xs edit-category">Sửa</a> || 
+                          <button class="btn btn-danger btn-xs" id="delete-category" value="{{$value->id}}">Xóa</button>
+                      </td>
+
                     </tr>
                   @endforeach
                 </tbody>

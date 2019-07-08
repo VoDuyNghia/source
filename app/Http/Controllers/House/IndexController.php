@@ -8,11 +8,12 @@ use Intervention\Image\Facades\Image;
 use App\Models\Product;
 use App\Models\News;
 use Illuminate\Support\Facades\Input;
+use Session;
 
 class IndexController extends Controller
 {
     public function index() {
-        $title 	     = "HOME | DANANG RESIDENCE";
+        if (session::get('locale') == "en") { $title = "HOME | DA NANG RESIDENCE"; } else { $title = "TRANG CHỦ | DA NANG RESIDENCE";}
         $objProducts = Product::where('active_id',2)->orderbyDESC('id')->take(9)->get();
 
         return view("house.index.index",compact('title','objProducts'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','');
@@ -20,7 +21,13 @@ class IndexController extends Controller
 
     public function search(Request $request) {
         $key_word   =  $request->search;
-        $title      =  $key_word.' - Tìm Kiếm '.$key_word. " | DA NANG RESIDENCE";
+
+        if (session::get('locale') == "en") {
+            $title = $key_word.' - SEARCH '.$key_word. " | DA NANG RESIDENCE";
+        } else {
+            $title =  $key_word.' - Tìm Kiếm '.$key_word. " | DA NANG RESIDENCE";
+        }
+
 
         $objNews    =  News::where('active_id',2)->where('name', 'like','%'. $key_word.'%')->orwhere('detail', 'like','%'. $key_word.'%')->orwhere('content', 'like','%'. $key_word.'%')->orderbyDESC('id')->paginate(10);
 
@@ -29,7 +36,13 @@ class IndexController extends Controller
     }
 
     public function search_product(Request $request) {
-        $title = "ADVANCED SEARCH | DA NANG RESIDENCE";
+       
+        if (session::get('locale') == "en") {
+            $title = "ADVANCED SEARCH | DA NANG RESIDENCE";
+        } else {
+            $title = "TÌM KIẾM NÂNG CAO | DA NANG RESIDENCE";
+        }
+
         $query      = Product::query();       
         $filters = [
             'key_word'   => Input::get('input'),

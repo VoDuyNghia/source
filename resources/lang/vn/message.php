@@ -24,6 +24,11 @@
 		"READMORE"		=> "Xem thêm",
 		"S"				=> "m²",
 		"PROJECT"		=> "Dự Án",
+		"RESULT"		=> "Có :result kết quả phù hợp ! ",
+		"REALTOR"		=> "Môi Giới",
+		"PRODUCT"		=> "Sản phẩm của chúng tôi",
+		"TITLE_PROJECT" => "Dự án của chúng tôi",
+		"SEARCH_BLOG"	=> "Tìm kiếm tin tức ...",
 
 	];
 

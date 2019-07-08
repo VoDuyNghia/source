@@ -5,7 +5,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Slider Trang chủ
+        Slider Trang chủ (Bắt buộc phải có 2 bài viết để xuất hiện trên trang chủ)
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ route('admin.index.index') }}"><i class="fa fa-dashboard"></i> Trang Chủ</a></li>

@@ -109,6 +109,7 @@
                               <div class="form-group" style="margin-bottom: 5em;">
                                   <label>Thông số kỹ thuật (EN) </label>
                                   <table class="table configuration">
+                                      @if ($objProduct['configuration'] <> null)
                                       @if(json_decode($objProduct['configuration'], true))
                                       <?php
                                         $configurations = json_decode($objProduct['configuration'], true);
@@ -122,10 +123,13 @@
                                           </tr>
                                       @empty
                                       @endforelse
+                                      @endif
                                   </table>
+
                                   <button id="btn_add_columns" type="button" class="btn btn-sm btn-primary pull-left">
                                       <span class="glyphicon glyphicon-plus"></span>&nbsp;Thêm
                                   </button>
+                                  
                               </div>
                           </div>
                           <div class="col-md-8">
@@ -239,8 +243,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Thông số (VN)</label>
+                                  <label>Thông số (VN)</label>
+                                  
                                   <table class="table configuration_vn">
+                                      @if ($objProduct['configuration_vn'] <> null)
                                       @if(json_decode($objProduct['configuration_vn'], true))
                                       <?php
                                         $configurations_vn = json_decode($objProduct['configuration_vn'], true);
@@ -254,6 +260,7 @@
                                           </tr>
                                       @empty
                                       @endforelse
+                                      @endif
                                   </table>
                                     <button id="btn_add_columns_vn" type="button" class="btn btn-sm btn-primary pull-left">
                                         <span class="glyphicon glyphicon-plus"></span>&nbsp;Thêm

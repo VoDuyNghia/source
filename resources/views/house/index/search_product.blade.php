@@ -5,7 +5,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcumb-content">
-                        <h3 class="breadcumb-title">TÌM KIẾM TỪ KHÓA NÂNG CAO</h3>
+                        <h3 class="breadcumb-title">{{ __('message.SEARCH') }}</h3>
                     </div>
                 </div>
             </div>
@@ -20,28 +20,14 @@
 	        <div class="row">
 	            <div class="col-12">
 	                <div class="section-heading wow fadeInUp">
-	                    <h2>TÌM KIẾM NÂNG CAO</h2>
-	                    <p>Có {{ count($objProducts) }} kết quả phù hợp ! </p>
+	                    <h2>{{ __('message.SEARCH') }}</h2>
+	                    <p>{{ __('message.RESULT', ['result' => count($objProducts)]) }}</p>
 	                </div>
 	            </div>
 	        </div>
 
-	        <div class="row">
-
-	            <!-- Single Featured Property -->
-	            @forelse ($objProducts as $value)
-	            @php
-	                $arr = [
-	                    'name' => str_slug($value->name),
-	                    'id'   => $value->id,
-	                ]
-	            @endphp
-               		@include('house.cat.ajax_product')
-	            @empty
-	                <div class="col-12 col-md-6 col-xl-4">
-	                    Không có sản phẩm
-	                </div>
-	            @endforelse
+	        <div id="content" class="row">
+           		@include('house.cat.ajax_product')
 	        </div>
 	    </div>
 	</section>

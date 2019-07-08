@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('objCollection', Collection::orderbyDESC("position")->get());
+        View::share('objCollection', Collection::orderby("position",'ASC')->get());
         View::share('objDistrict', District::all());
         View::share('objChoose', Choose::all());
         View::share('SliderIndex', Slider::where('active_id',2)->where('location',1)->orderby('position','ASC')->take(6)->get());

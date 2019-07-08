@@ -5,11 +5,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Blogs
+        Quản lý liên lạc của khác hàng
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ route('admin.index.index') }}"><i class="fa fa-dashboard"></i> Trang Chủ</a></li>
-        <li class="active">Blogs</li>
+        <li class="active">Quản lý liên lạc của khác hàng</li>
       </ol>
     </section>
 
@@ -19,7 +19,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Danh Sách Blogs</h3>
+              <h3 class="box-title">Danh Sách liên lạc của khác hàng</h3>
             </div>
   
             <div id="notify_success" class=" notify success">

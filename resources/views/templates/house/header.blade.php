@@ -19,6 +19,71 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{getenv('URL_TEMPLATES_HOUSE')}}/style.css">
+
+
+    <style>
+    @import url(http://weloveiconfonts.com/api/?family=entypo);
+    /* entypo */
+    [class*="entypo-"]:before {
+       font-family: "entypo", sans-serif;
+    }
+    #sticky-social a { 
+       text-decoration: none;
+    }
+    #sticky-social ul {
+       list-style: none;
+       margin: 0;
+       padding: 0;
+    }
+    #sticky-social .container {
+       margin: 0 auto;
+       padding: 20px 50px;
+       background: white;
+    }
+    #sticky-social {
+        z-index: 10;
+        left: 0;
+        position: fixed;
+        top: 150px;
+    }
+    #sticky-social a {
+       background: #333;
+       color: #fff;
+       display: block;
+       height: 35px;
+       font: 16px "Open Sans", sans-serif;
+       line-height: 35px;
+       position: relative;
+       text-align: center;
+       width: 35px;
+    }
+    #sticky-social a span {
+       line-height: 35px;
+       left: -120px;
+       position: absolute;
+       text-align:center;
+       width:120px;
+    }
+    #sticky-social a:hover span {
+       left: 100%;
+    }
+    #sticky-social a[class*="facebook"],
+    #sticky-social a[class*="facebook"]:hover,
+    #sticky-social a[class*="facebook"] span { background: #3b5998; }
+
+    #sticky-social a[class*="twitter"],
+    #sticky-social a[class*="twitter"]:hover,
+    #sticky-social a[class*="twitter"] span { background: #00aced; }
+
+    #sticky-social a[class*="gplus"],
+    #sticky-social a[class*="gplus"]:hover,
+    #sticky-social a[class*="gplus"] span { background: #dd4b39; }  
+
+
+    #sticky-social a[class*="instagrem"],
+    #sticky-social a[class*="instagrem"]:hover,
+    #sticky-social a[class*="instagrem"] span { background: #517fa4; }  
+    </style>
 </head>
 
 <body>
@@ -28,13 +93,12 @@
     </div>
 
     <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
-
+    <header style="position: fixed;" class="header-area">
         <!-- Top Header Area -->
         <div class="top-header-area">
             <div class="h-100 d-md-flex justify-content-between align-items-center">
                 <div class="email-address">
-                    <a href="mailto:contact@southtemplate.com">contact@southtemplate.com</a>
+                    <a href="mailto:danangresidence@gmail.com">danangresidence@gmail.com</a>
                 </div>
 
                 <div class="phone-number d-flex">
@@ -42,11 +106,11 @@
                         <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt="">
                     </div>
                     <div class="number">
-                        <a href="tel:+45 677 8993000 223">+45 677 8993000 223</a>
+                        <a href="tel:0905.972.521">0905.972.521</a>
 
-                        <img class="logo_language" src="http://www.iotcoworkingspace.com/frontend/images/ic-vi.svg">
+                        <img class="logo_language" src="{{ asset('/public/templates/house/img/blog-img/ic-en.svg') }}">
                             <a class="language" href="{{ url('language/vn') }}"><i style="margin-right: 1em;" class="fa fa-language"></i>VN</a>
-                        <img class="logo_language" src="http://www.iotcoworkingspace.com/frontend/images/ic-en.svg">
+                        <img class="logo_language" src="{{ asset('/public/templates/house/img/blog-img/ic-vi.svg') }}">
                             <a class="language" href="{{ url('language/en') }}"><i style="margin-right: 1em;" class="fa fa-language"></i>EN</a>
                     </div>
                 </div>
@@ -79,15 +143,15 @@
                         <div class="classynav">
                             <ul>
                                 <li><a href="{{ route('house.index.index') }}">{{ __('message.HOME') }}</a></li>
-                                <li><a href="about-us.html">{{ __('message.ABOUT') }}</a></li>
+                                <li><a href="{{ route('house.page.about') }}">{{ __('message.ABOUT') }}</a></li>
                                 <li><a href="{{ route('house.blog.index') }}">{{ __('message.BLOG') }}</a></li>
                                 <li><a href="#">{{ __('message.MENU') }}</a>
                                     <div class="megamenu">
                                     @foreach ($objChoose->chunk(1) as $chunk)
                                         <ul class="single-mega cn-col-3">
                                             @foreach ($chunk as $value)
-                                                <li style="text-align: center;" class="title">
-                                                    <a href="{{ route('house.cat.choose_product',strtolower($value->name)) }}">@if (session::get('locale') == "en"){{$value->name}}@else{{$value->name_vn }}@endif </a>
+                                                <li style="text-align: center;font-size: 1.5em;" class="title_menu">
+                                                    <a style="font-size: 1.5em;" href="{{ route('house.cat.choose_product',strtolower($value->name)) }}">@if (session::get('locale') == "en"){{$value->name}}@else{{$value->name_vn }}@endif </a>
                                                 </li>
                                             @foreach ($objCollection as $product)
                                                 @php
@@ -103,8 +167,8 @@
                                         </ul>
                                     @endforeach
                                         <ul class="single-mega cn-col-3">
-                                            <li style="text-align: center;" class="title">
-                                                <a href="{{ route('house.blog.project.index') }}">{{ __('message.PROJECT') }}</a>
+                                            <li style="text-align: center" class="title_menu">
+                                                <a style="font-size: 1.5em;" href="{{ route('house.blog.project.index') }}">{{ __('message.PROJECT') }}</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -129,3 +193,13 @@
             </div>
         </div>
     </header>
+
+
+    <aside id="sticky-social">
+    <ul>
+        <li><a href="https://www.facebook.com/residencedanang" class="entypo-facebook" target="_blank"><span>Facebook</span></a></li>
+        <li><a href="#" class="entypo-twitter" target="_blank"><span>Twitter</span></a></li>
+        <li><a href="#" class="entypo-gplus" target="_blank"><span>Google+</span></a></li>
+        <li><a href="#" class="entypo-instagrem" target="_blank"><span>Instagram</span></a></li>
+    </ul>
+</aside>
