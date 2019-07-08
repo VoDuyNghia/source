@@ -84,11 +84,13 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success PreviousBtn btn-lg">Lưu</button>
+                            <button class="btn btn-primary PreviousBtn btn-lg" type="button" >Previous Step 1</button>
+                        </div>
                     </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-success PreviousBtn btn-lg">Lưu</button>
-                        <button class="btn btn-primary PreviousBtn btn-lg" type="button" >Previous Step 1</button>
-                    </div>
+
 					</form>
                 </div>
 	        </div>

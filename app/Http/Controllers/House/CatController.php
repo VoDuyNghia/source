@@ -59,7 +59,7 @@ class CatController extends Controller
 
 
         $objProducts     = Product::select('product.*','collection.*','product.name as title','product.id as id_title')->join('collection','collection.id','=','product.collection_id')->where('active_id',2)->where('choose_id', $objChoose['id'])->where('collection_id', $objCollection['id'])->orderbyDESC('id_title')->paginate(10);
-        return view('house.cat.choose_collection',compact('title','objProducts','id_choose','id_collection'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','');
+        return view('house.cat.choose_collection',compact('title','objProducts','id_choose','id_collection'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','')->with('description',$title)->with('image',asset('/public/templates/house/img/bg-img/logo.jpg'));
     }
 
     public function Choose_Product($name) {
@@ -74,6 +74,6 @@ class CatController extends Controller
 
 
         $objProducts     = Product::select('product.*','collection.*','collection.name as title','collection.id as id_title','product.id as id','product.name as name','product.name_vn as name_vn')->join('collection','collection.id','=','product.collection_id')->where('active_id',2)->where('choose_id', $objChoose['id'])->orderByDesc('product.id')->paginate(10);
-         return view('house.cat.choose_product',compact('title','objProducts','id_choose'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','');
+         return view('house.cat.choose_product',compact('title','objProducts','id_choose'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','')->with('description',$title)->with('image',asset('/public/templates/house/img/bg-img/logo.jpg'));
     }
 }

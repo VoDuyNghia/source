@@ -21,7 +21,7 @@
 	            <div class="col-12">
 	                <div class="section-heading wow fadeInUp">
 	                    <h2>{{ __('message.SEARCH') }}</h2>
-	                    <p>{{ __('message.RESULT', ['result' => count($objProducts)]) }}</p>
+	                    <p>{{ __('message.RESULT', ['result' => $objProducts->total()]) }}</p>
 	                </div>
 	            </div>
 	        </div>
@@ -29,6 +29,18 @@
 	        <div id="content" class="row">
            		@include('house.cat.ajax_product')
 	        </div>
+            <div class="row">
+                <div class="col-12">
+                    <!-- Pagination -->
+                    <div class="south-pagination mt-100 d-flex">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li>{{ $objProducts->appends(request()->input())->links() }}</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
 	    </div>
 	</section>
 @endsection

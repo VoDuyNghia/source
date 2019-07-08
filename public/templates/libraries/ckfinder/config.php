@@ -14,8 +14,8 @@ error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
 ini_set('display_errors', 0);
 
 // Development
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 /*============================ General Settings =======================================*/
 // https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html
@@ -32,8 +32,8 @@ $config['authentication'] = function () {
 /*============================ License Key ============================================*/
 // https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html#configuration_options_licenseKey
 
-$config['licenseName'] = '';
-$config['licenseKey']  = '';
+$config['licenseName'] = 'huy';
+$config['licenseKey']  = '*J?L-*1**-D**N-*E**-*W**-A*8*-2**G';
 
 /*============================ CKFinder Internal Directory ============================*/
 // https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html#configuration_options_privateDir
@@ -66,8 +66,8 @@ $config['images'] = array(
 $config['backends'][] = array(
     'name'         => 'default',
     'adapter'      => 'local',
-    'baseUrl'      => '/storage/app/public/files/ckfinder/',
-//  'root'         => '', // Can be used to explicitly set the CKFinder user files directory.
+    'baseUrl'      => 'upload',
+    //'root'         => 'upload', // Can be used to explicitly set the CKFinder user files directory.
     'chmodFiles'   => 0777,
     'chmodFolders' => 0755,
     'filesystemEncoding' => 'UTF-8',
@@ -156,8 +156,10 @@ $config['cache'] = array(
 
 /*============================ Temp Directory settings ================================*/
 // https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html#configuration_options_tempDirectory
+$url_temp_local = '/Applications/XAMPP/xamppfiles/temp/'; // url mac os for local
+$url_temp = sys_get_temp_dir();
+$config['tempDirectory'] =$url_temp;
 
-$config['tempDirectory'] = sys_get_temp_dir();
 
 /*============================ Session Cause Performance Issues =======================*/
 // https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html#configuration_options_sessionWriteClose

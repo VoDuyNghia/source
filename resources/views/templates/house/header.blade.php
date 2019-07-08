@@ -7,20 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!-- Title  -->
+    <meta property="og:url"           content="{{ URL::current() }}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="{{ $title }}" />
+    <meta property="og:description"   content="{{ $description }}" />
+    <meta property="og:image"         content="{{ $image }}" />
     <title>{{$title}}</title>
-
-    <!-- Favicon  -->
     <link rel="icon" href="{{getenv('URL_TEMPLATES_HOUSE')}}/img/core-img/favicon.ico">
     <script src="{{getenv('URL_TEMPLATES_HOUSE')}}/js/jquery/jquery-2.2.4.min.js"></script>
-
-    <!-- Style CSS -->
     <link rel="stylesheet" href="{{getenv('URL_TEMPLATES_HOUSE')}}/style.css">
-
-
     <style>
     @import url(http://weloveiconfonts.com/api/?family=entypo);
     /* entypo */
@@ -108,9 +103,9 @@
                     <div class="number">
                         <a href="tel:0905.972.521">0905.972.521</a>
 
-                        <img class="logo_language" src="{{ asset('/public/templates/house/img/blog-img/ic-en.svg') }}">
-                            <a class="language" href="{{ url('language/vn') }}"><i style="margin-right: 1em;" class="fa fa-language"></i>VN</a>
                         <img class="logo_language" src="{{ asset('/public/templates/house/img/blog-img/ic-vi.svg') }}">
+                            <a class="language" href="{{ url('language/vn') }}"><i style="margin-right: 1em;" class="fa fa-language"></i>VN</a>
+                        <img class="logo_language" src="{{ asset('/public/templates/house/img/blog-img/ic-en.svg') }}">
                             <a class="language" href="{{ url('language/en') }}"><i style="margin-right: 1em;" class="fa fa-language"></i>EN</a>
                     </div>
                 </div>

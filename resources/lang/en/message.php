@@ -29,6 +29,7 @@
 		"PRODUCT"		=> "Our products",
 		"TITLE_PROJECT" => "Our Project",
 		"SEARCH_BLOG"	=> "Search Blogs...",
+		"SEARCH_KEYWORD"=> "Search keywords",
 	];
 
 ?>

@@ -13,10 +13,10 @@ use Session;
 class IndexController extends Controller
 {
     public function index() {
-        if (session::get('locale') == "en") { $title = "HOME | DA NANG RESIDENCE"; } else { $title = "TRANG CHỦ | DA NANG RESIDENCE";}
+        if (session::get('locale') == "en") { $title = "HOME | DA NANG RESIDENCE"; $description = "DaNang Residence will help you find the house for rent, apartment for rent, villa for rent in Da Nang as rapidly as possible. All about for rent in Da Nang."; } else { $title = "TRANG CHỦ | DA NANG RESIDENCE"; $description = "DaNang Residence sẽ giúp bạn tìm nhà cho thuê, căn hộ cho thuê, biệt thự cho thuê tại Đà Nẵng càng nhanh càng tốt. Tất cả về cho thuê tại Đà Nẵng";};
         $objProducts = Product::where('active_id',2)->orderbyDESC('id')->take(9)->get();
 
-        return view("house.index.index",compact('title','objProducts'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','');
+        return view("house.index.index",compact('title','objProducts','title'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','')->with('description',$description)->with('image',asset('/public/templates/house/img/bg-img/logo.jpg'));
     }
 
     public function search(Request $request) {
@@ -31,8 +31,8 @@ class IndexController extends Controller
 
         $objNews    =  News::where('active_id',2)->where('name', 'like','%'. $key_word.'%')->orwhere('detail', 'like','%'. $key_word.'%')->orwhere('content', 'like','%'. $key_word.'%')->orderbyDESC('id')->paginate(10);
 
-        $objProducts = Product::where('active_id',2)->where('name', 'like','%'. $key_word.'%')->orwhere('detail', 'like','%'. $key_word.'%')->orwhere('content', 'like','%'. $key_word.'%')->orwhere('price', 'like','%'. $key_word.'%')->orwhere('address', 'like','%'. $key_word.'%')->orderbyDESC('id')->paginate(10);
-        return view('house.index.search',compact('title','objNews','objProducts','key_word'));
+        $objProducts = Product::where('active_id',2)->where('name', 'like','%'. $key_word.'%')->orwhere('detail', 'like','%'. $key_word.'%')->orwhere('code', 'like','%'. $key_word.'%')->orwhere('content', 'like','%'. $key_word.'%')->orwhere('price', 'like','%'. $key_word.'%')->orwhere('address', 'like','%'. $key_word.'%')->orderbyDESC('id')->paginate(10);
+        return view('house.index.search',compact('title','objNews','objProducts','key_word'))->with('description',$title)->with('image',asset('/public/templates/house/img/bg-img/logo.jpg'));
     }
 
     public function search_product(Request $request) {
@@ -71,6 +71,7 @@ class IndexController extends Controller
 
                 $query = $query->where('id', 'like','%'.  $filters['key_word'].'%')
                 ->orWhere('name', ' like','%'.  $filters['key_word'].'%')
+                ->orWhere('code', ' like','%'.  $filters['key_word'].'%')
                 ->orWhere('detail', 'like','%'.  $filters['key_word'].'%')
                 ->orWhere('content', 'like','%'.  $filters['key_word'].'%');
             }
@@ -102,11 +103,8 @@ class IndexController extends Controller
             if (!empty($filters['min_sqrt']) && !empty($filters['max_sqrt'])) {
                 $query->whereBetween('sqrt',[$filters['min_sqrt'],$filters['max_sqrt']]);
             }
-
-
-
-        })->get();
+        })->paginate(9);
         
-        return view('house.index.search_product',compact('objProducts','title','key_word','district','collection','choose','bedrooms','bathrooms'));
+        return view('house.index.search_product',compact('objProducts','title','key_word','district','collection','choose','bedrooms','bathrooms'))->with('description',$title)->with('image',asset('/public/templates/house/img/bg-img/logo.jpg'));;
     }
 }

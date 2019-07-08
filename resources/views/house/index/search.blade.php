@@ -5,7 +5,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcumb-content">
-                        <h3 class="breadcumb-title">TÌM KIẾM TỪ KHÓA <br/> {{ $key_word }}</h3>
+                        <h3 class="breadcumb-title">{{ __('message.SEARCH_KEYWORD') }} <br/> {{ $key_word }}</h3>
                     </div>
                 </div>
             </div>
@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <div class="single-blog-area mb-50">
-                        {{ __('message.RESULT', ['result' => count($objNews)]) }}
+                        {{ __('message.RESULT', ['result' => $objNews->total()]) }}
                     </div>
                     <!-- Single Blog Area -->
                     @forelse ($objNews as $value)
@@ -63,15 +63,12 @@
                             </div>
                         </div>
                     @empty
-                        <div class="single-blog-area mb-50">
-                           {{ __('message.RESULT', ['result' => count($objNews)]) }}
-                        </div>
                     @endforelse
                 </div>
 
                 <div class="col-12 col-lg-4">
                     <div class="single-blog-area mb-50">
-                        {{ __('message.RESULT', ['result' => count($objProducts)]) }}
+                        {{ __('message.RESULT', ['result' => $objProducts->total()]) }}
                     </div>
                     <div class="blog-sidebar-area">
 
@@ -134,12 +131,20 @@
                                 @endif
                             </div>
                         </div>
-
                         @empty
-                        <div class="single-featured-property">
-                           {{ __('message.RESULT', ['result' => count($objProducts)]) }}
-                        </div>
                         @endforelse
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <!-- Pagination -->
+                    <div class="south-pagination mt-100 d-flex">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li>{{ $objNews->appends(request()->input())->links() }}</li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>

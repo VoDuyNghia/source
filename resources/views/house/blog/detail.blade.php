@@ -17,14 +17,22 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-8">
-                    <div>
-                        <p style="text-transform: uppercase;" class="the-article-category">
-                            <a href="{{ route('house.index.index') }}">{{ __('message.HOME') }}</a>
-                                <span><img src="{{ asset('arrow.png') }}"></span>
-                            <a href="{{ route('house.blog.index') }}" class="parent_cate">{{ __('message.BLOG') }}</a>
-                                <span><img src="{{ asset('arrow.png') }}"></span>
-                            <span>@if (session::get('locale') == "en"){{ $objNews['name'] }}@else{{ $objNews['name_vn'] }}@endif</span>
-                        </p> 
+                    <div class="page-breadcrumbs">
+                        <nav class="property-breadcrumbs">
+                            <ul>
+                                <li>
+                                    <a href="{{ route('house.index.index') }}">{{ __('message.HOME') }}&nbsp;</a>
+                                    <i class="breadcrumbs-separator fa fa-angle-right">&nbsp;</i>
+                                </li>
+                                <li>
+                                    <a href="{{ route('house.blog.index') }}" class="parent_cate">{{ __('message.BLOG') }}&nbsp;</a>
+                                    <i class="breadcrumbs-separator fa fa-angle-right">&nbsp;</i>
+                                </li>
+                                <li>
+                                    @if (session::get('locale') == "en"){{ $objNews['name'] }}@else{{ $objNews['name_vn'] }}@endif
+                                </li>            
+                            </ul>
+                        </nav>
                     </div>
 
                     <div class="single-blog-area">
@@ -38,6 +46,19 @@
                             <div class="post-date">
                                 <a href="#">{{ Carbon\Carbon::createFromTimestamp(strtotime($objNews['created_at']))->diffForHumans() }} </a>
                             </div>
+                            <div class="list-price">
+                                <div class="fb-share-button" 
+                                    data-href="{{ URL::current() }}" 
+                                    data-layout="button_count">
+                                </div>
+                                <div style="line-height: 2em;" class="fb-like" 
+                                    data-href="{{ URL::current() }}" 
+                                    data-layout="standard" 
+                                    data-action="like" 
+                                    data-show-faces="true">
+                                </div>
+                            </div>
+                    
                             <!-- Headline -->
                             <a href="#" class="headline">@if (session::get('locale') == "en"){{ $objNews['name'] }}@else{{ $objNews['name_vn'] }}@endif</a>
                             <!-- Post Meta -->

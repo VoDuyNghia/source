@@ -19,12 +19,14 @@ class ProductController extends Controller
     	$objImage	 = ImageDetail::where('product_id',$id)->get();
     	
         if (session::get('locale') == "en") {
-            $title = $objProducts['name'].' - '.$objProducts->collection->name .' | DA NANG RESIDENCE';
+            $title       = $objProducts['name'].' - '.$objProducts->collection->name .' | DA NANG RESIDENCE';
+            $description = $objProducts['detail'].' | DA NANG RESIDENCE';
         } else {
-            $title = $objProducts['name_vn'].' - '.$objProducts->collection->name_vn.' | DA NANG RESIDENCE';
+            $title       = $objProducts['name_vn'].' - '.$objProducts->collection->name_vn.' | DA NANG RESIDENCE';
+            $description = $objProducts['detail_vn'].' | DA NANG RESIDENCE';
         }
 
-        return view("house.product.index",compact('title','objImage','title','objProducts'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','');
+        return view("house.product.index",compact('title','objImage','title','objProducts'))->with('key_word', '')->with('key_word', '')->with('district','')->with('collection','')->with('choose','')->with('bedrooms','')->with('bathrooms','')->with('description',$description)->with('image',asset('/storage/app/public/files/show_image/'.$objProducts['image']));
     }
 
     public function post_ContactPR($name, $id, ContactRequest $request) {

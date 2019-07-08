@@ -1,14 +1,13 @@
+
+
 @extends('templates.house.master')
 @section('content')
-
 <!-- ##### Hero Area End ##### -->
 @include('templates.house.banner')
 <!-- ##### Advance Search Area Start ##### -->
 <div class="south-search-area">
     @include("templates.house.fitter")
 </div>
-<!-- ##### Advance Search Area End ##### -->
-
 <!-- ##### Featured Properties Area Start ##### -->
 <section class="listings-content-wrapper section-padding-100">
     <div class="container">
@@ -26,7 +25,7 @@
                                 <i class="breadcrumbs-separator fa fa-angle-right">&nbsp;</i>
                             </li>
                             <li>
-                                @if (session::get('locale') == "en"){{ $objProducts['name'] }}@else{{ $objProducts['name_vn'] }}@endif
+                                @if(session::get('locale') == "en"){{ $objProducts['name'] }}@else{{ $objProducts['name_vn'] }}@endif
                             </li>            
                         </ul>
                     </nav>
@@ -68,6 +67,16 @@
                     <!-- Price -->
                     <div class="list-price">
                         <p>${{ $objProducts['price'] }}</p>
+                        <div class="fb-share-button" 
+                            data-href="{{ URL::current() }}" 
+                            data-layout="button_count">
+                        </div>
+                        <div style="line-height: 2em;" class="fb-like" 
+                            data-href="{{ URL::current() }}" 
+                            data-layout="standard" 
+                            data-action="like" 
+                            data-show-faces="true">
+                        </div>
                     </div>
                     <h5>{{ $objProducts['name'] }}</h5>
                     <p class="location"><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt="">{{ $objProducts['address'] }}</p>

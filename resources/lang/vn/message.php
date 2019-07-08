@@ -29,6 +29,7 @@
 		"PRODUCT"		=> "Sản phẩm của chúng tôi",
 		"TITLE_PROJECT" => "Dự án của chúng tôi",
 		"SEARCH_BLOG"	=> "Tìm kiếm tin tức ...",
+		"SEARCH_KEYWORD"=> "Từ khóa tìm kiếm",
 
 	];
 

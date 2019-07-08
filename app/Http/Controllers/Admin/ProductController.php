@@ -87,35 +87,7 @@ class ProductController extends Controller
             $request->session()->flash('msg','Thêm thất bại');
             return redirect()->route('admin.product.add');
         }
-
-
-        if($this->objProduct->add_Items($request)) {
-            $file->move('storage/app/public/files/show_image',$fileName);
-            $images = $request->file('image_detail');
-            if($images){
-                $id =DB::getPdo()->lastInsertId();
-                foreach ($images as $image){
-                    $name = time() . "_" . rand(5, 5000000).'_'. $image->getClientOriginalName();  
-                    $url = "storage/app/public/files/detail_image";
-                    $image->move('storage/app/public/files/detail_image',$name);
-                    Helpers::watermark_detail($image,$name,$url);
-                    ImageDetail::create([
-                        'image_detail'  => $name,
-                        'product_id'    => $id,
-                    ]);
-                   
-                }
-            }
-
-            DB::commit();
-            $request->session()->flash('msg','Thêm thành công');
-            return redirect()->route('admin.product.index');
-        } else {
-            $request->session()->flash('msg','Thêm thất bại');
-            return redirect()->route('admin.product.add');
-        }
     }
-
     public function post_Delete(Request $request ){
         try {
 

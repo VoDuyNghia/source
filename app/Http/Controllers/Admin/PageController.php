@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Pages;
+use App\Http\Requests\PageRequest;
 
 class PageController extends Controller
 {
@@ -17,7 +18,7 @@ class PageController extends Controller
     	return view('admin.pages.add');
     }
 
-    public function post_Add(Request $request) {
+    public function post_Add(PageRequest $request) {
     	$objPages = new Pages;
         if($objPages->add_Items($request)){
             $request->session()->flash('msg','Thêm thành công');
@@ -28,7 +29,7 @@ class PageController extends Controller
         }
     }
 
-    public function get_Edit($id, Request $request) {
+    public function get_Edit($id, PageRequest $request) {
     	$objPages = Pages::findOrfail($id);
     	return view('admin.pages.edit',compact('objPages'));
     }

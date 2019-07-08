@@ -15,11 +15,13 @@ class ContactController extends Controller
     	
 
         if (session::get('locale') == "en") {
-            $title = "CONTACT | DA NANG RESIDENCE";
+            $title          = "CONTACT | DA NANG RESIDENCE";
+            $description    = "DaNang Residence will help you find the house for rent, apartment for rent, villa for rent in Da Nang as rapidly as possible. Phone: (84) 905 972 521.";
         } else {
-            $title = "LIÊN HỆ | DA NANG RESIDENCE";
+            $title          = "LIÊN HỆ | DA NANG RESIDENCE";
+            $description    = "DaNang Residence sẽ giúp bạn tìm nhà cho thuê, căn hộ cho thuê, biệt thự cho thuê tại Đà Nẵng càng nhanh càng tốt. Điện thoại: (84) 905 972 521";
         }
-    	return view('house.contact.index',compact('title'));
+    	return view('house.contact.index',compact('title'))->with('description',$description)->with('image',asset('/public/templates/house/img/bg-img/logo.jpg'));
     }
 
     public function post_Contact(ContactRequest $request) {
