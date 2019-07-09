@@ -11,7 +11,7 @@
             <div class="single-blog-area mb-50">
                 <!-- Post Thumbnail -->
                 <div class="blog-post-thumbnail">
-                    <img src="{{asset('storage/app/public/files/show_news/'.$value->image)}}" alt="{{ $value->name }}">
+                    <img src="{{asset('/image/files/show_news/'.$value->image)}}" alt="{{ $value->name }}">
                 </div>
                 <!-- Post Content -->
                 <div class="post-content">

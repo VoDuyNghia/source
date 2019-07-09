@@ -8,7 +8,6 @@
 
 /*============================ PHP Error Reporting ====================================*/
 // http://docs.cksource.com/ckfinder3-php/debugging.html
-
 // Production
 //error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
 //ini_set('display_errors', 0);

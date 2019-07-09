@@ -4,7 +4,7 @@
 		"ABOUT"			=> "Về chúng tôi",
 		"BLOG"			=> "Tin Tức",
 		"CONTACT"		=> "Liên Hệ",
-		"MENU"			=> "Danh Mục",
+		"MENU"			=> "Sản phẩm",
 		"SEARCH"		=> "Tìm kiếm nhà của bạn",
 		"KEYWORD"		=> "Từ khóa tìm kiếm",
 		"CITIES"		=> "Quận, huyện",
@@ -30,7 +30,9 @@
 		"TITLE_PROJECT" => "Dự án của chúng tôi",
 		"SEARCH_BLOG"	=> "Tìm kiếm tin tức ...",
 		"SEARCH_KEYWORD"=> "Từ khóa tìm kiếm",
-
+		"SOLOGAN"		=> "Sự hài lòng của bạn là niềm tự hào của chúng tôi",
+		"ADDRESS"		=> "Chung cư NestHome, P.Mân Thái, Q.Sơn Trà, TP. Đà Nẵng",
+		"TEAM"			=> "Thành viên của chúng tôi",
 	];
 
 ?>

@@ -1,24 +1,76 @@
-<section class="south-editor-area d-flex align-items-center">
-    <!-- Editor Content -->
-    <div class="editor-content-area">
-        <!-- Section Heading -->
-        <div class="section-heading wow fadeInUp" data-wow-delay="250ms">
-            <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/prize.png" alt="">
-            <h2>TRUONG DINH HOANG</h2>
-            <p>{{ __('message.REALTOR')}}</p>
-        </div>
-        <p class="wow fadeInUp" data-wow-delay="500ms">Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odiomattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna. Curabitur rhoncus auctor eleifend. Fusce venenatis diam urna, eu pharetra arcu varius ac. Etiam cursus turpis lectus, id iaculis risus tempor id. Phasellus fringilla nisl sed sem scelerisque, eget aliquam magna vehicula.</p>
-        <div class="address wow fadeInUp" data-wow-delay="750ms">
-            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt=""> 0905.972.521</h6>
-            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/envelope.png" alt=""> danangresidence@gmail.com</h6>
-        </div>
-        <div class="signature mt-50 wow fadeInUp" data-wow-delay="1000ms">
-            <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/core-img/signature.png" alt="">
-        </div>
-    </div>
+    <section class="meet-the-team-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h2>{{ __('message.TEAM') }}</h2>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Editor Thumbnail -->
-    <div class="editor-thumbnail">
-        <img src="{{ asset('/public/templates/house/img/bg-img/2.jpg') }}" alt="">
-    </div>
-</section>
+            <div class="row justify-content-center">
+                <!-- Single Team Member -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-team-member mb-100 wow fadeInUp" data-wow-delay="250ms">
+                        <!-- Team Member Thumb -->
+                        <div class="team-member-thumb">
+                            <img src="{{ asset('/public/templates/house/img/bg-img/1.jpg') }}" alt="">
+                        </div>
+                        <!-- Team Member Info -->
+                        <div class="team-member-info">
+                            <div class="section-heading">
+                                <img src="img/icons/prize.png" alt="">
+                                <h2>Trang Nguyen</h2>
+                                <p>{{ __('message.REALTOR') }}</p>
+                            </div>
+                            <div class="address">
+                                <h6><img src="img/icons/phone-call.png" alt=""> 0932.556.309</h6>
+                                <h6><img src="img/icons/envelope.png" alt=""> danangresidence@gmail.com</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Team Member -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-team-member mb-100 wow fadeInUp" data-wow-delay="500ms">
+                        <!-- Team Member Thumb -->
+                        <div class="team-member-thumb">
+                            <img style="height: 460px" src="{{ asset('/public/templates/house/img/bg-img/2.jpg') }}" alt="">
+                        </div>
+                        <!-- Team Member Info -->
+                        <div class="team-member-info">
+                            <div class="section-heading">
+                                <img src="img/icons/prize.png" alt="">
+                                <h2>DINH HOANG</h2>
+                                <p>{{ __('message.REALTOR') }}</p>
+                            </div>
+                            <div class="address">
+                                <h6><img src="img/icons/phone-call.png" alt=""> 0905.972.521</h6>
+                                <h6><img src="img/icons/envelope.png" alt=""> danangresidence@gmail.com</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-team-member mb-100 wow fadeInUp" data-wow-delay="500ms">
+                        <!-- Team Member Thumb -->
+                        <div class="team-member-thumb">
+                            <img style="height: 460px" src="{{ asset('/public/templates/house/img/bg-img/2.jpg') }}" alt="">
+                        </div>
+                        <!-- Team Member Info -->
+                        <div class="team-member-info">
+                            <div class="section-heading">
+                                <img src="img/icons/prize.png" alt="">
+                                <h2>LUXIE Pham</h2>
+                                <p>{{ __('message.REALTOR') }}</p>
+                            </div>
+                            <div class="address">
+                                <h6><img src="img/icons/phone-call.png" alt=""> 0934.715.411</h6>
+                                <h6><img src="img/icons/envelope.png" alt=""> danangresidence@gmail.com</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

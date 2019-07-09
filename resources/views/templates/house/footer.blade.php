@@ -16,7 +16,7 @@
                         <div class="footer-logo my-4">
                             <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/core-img/logo.png" alt="">
                         </div>
-                        <p>Integer nec bibendum lacus. Suspen disse dictum enim sit amet libero males uada feugiat. Praesent malesuada.</p>
+                        <p>{{ __('message.SOLOGAN') }}</p>
                     </div>
                 </div>
 
@@ -30,16 +30,14 @@
                         <!-- Office Hours -->
                         <div class="weekly-office-hours">
                             <ul>
-                                <li class="d-flex align-items-center justify-content-between"><span>Monday - Friday</span> <span>09 AM - 19 PM</span></li>
-                                <li class="d-flex align-items-center justify-content-between"><span>Saturday</span> <span>09 AM - 14 PM</span></li>
-                                <li class="d-flex align-items-center justify-content-between"><span>Sunday</span> <span>Closed</span></li>
+                                <li class="d-flex align-items-center justify-content-between"><span>Monday - Sunday</span> <span>09 AM - 18 PM</span></li>
                             </ul>
                         </div>
                         <!-- Address -->
                         <div class="address">
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt=""> 0905.972.521</h6>
+                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt=""> 0798.739.286</h6>
                             <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/envelope.png" alt=""> danangresidence@gmail.com</h6>
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt=""> Main Str. no 45-46, b3, 56832, Los Angeles, CA</h6>
+                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt=""> {{ __('message.ADDRESS') }}</h6>
                         </div>
                     </div>
                 </div>

@@ -52,7 +52,7 @@
                       <td class="text-center">{{ $value->id }}</td>
                       <td class="text-center">{{ $value->code }}</td>
                       <td>{{ $value->name}}</td>
-                      <td class="text-center"><img width="100px" height="100px" class="img img-thumbnail" src="{{ asset('storage/app/public/files/show_image/'.$value->image)}}"></td>
+                      <td class="text-center"><img width="100px" height="100px" class="img img-thumbnail" src="{{ asset('public/image/files/show_image/'.$value->image)}}"></td>
                       <td class="text-center">{{$value->collection->name}}</td>
                       <td  id="trangthai_{{$value->id}}" class="text-center">
                           <div class="row">

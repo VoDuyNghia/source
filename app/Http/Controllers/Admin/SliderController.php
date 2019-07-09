@@ -50,7 +50,7 @@ class SliderController extends Controller
 
 	        if($objProduct->save()){
 	    	 	if(!is_null($file)){
-	    	 		$file->move('storage/app/public/files/slider_index',$fileName);
+	    	 		$file->move('image/files/slider_index',$fileName);
 	    	 	}
 	    	 	DB::commit();
 	            $request->session()->flash('msg','Thêm thành công');
@@ -81,7 +81,7 @@ class SliderController extends Controller
             $images123 = $request->file('image_detail123');
             if($images123) {
                 $name123 = $request->fileName  = 'avatar_'.time() . "_" .rand(5, 5000000).'_'. $images123->getClientOriginalName();
-                $images123->move('storage/app/public/files/slider_index',$name123);
+                $images123->move('image/files/slider_index',$name123);
             } else {
                 $request->fileName = $slider['image'];
             }
@@ -94,7 +94,7 @@ class SliderController extends Controller
             
             if($objItem->save()){
                 if($images123){
-                    $oldimage123 = $_SERVER["DOCUMENT_ROOT"]. '/storage/app/public/files/slider_index/'.$slider['image'];
+                    $oldimage123 = $_SERVER["DOCUMENT_ROOT"]. '/public/image/files/slider_index/'.$slider['image'];
                     if(file_exists($oldimage123)) {
                         unlink($oldimage123);
                     }

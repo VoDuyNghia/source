@@ -1839,3 +1839,42 @@ img {
     font-size: 12px;
 }
 /*# sourceMappingURL=style.css.map */
+.hero-slides-content h2 {
+  font-size:37px;
+  background-color: #000000ba;
+}
+
+.single-hero-slide {
+  max-height: 400px;
+}
+
+.property-thumb a img {
+  max-height:262px;
+}
+
+.owl-stage .owl-item img {
+  max-height:740px;
+}
+
+.title_menu {
+  text-align: center; 
+  font-family: Courier;
+  font-size:26px;
+}
+
+.title_menu_parent {
+  font-family: Comic Sans MS;
+}
+
+.listings-content p {
+    margin: 18px 0;
+}
+
+
+.single-blog-area .post-content p {
+  margin: 18px 0;
+}
+
+.content li {
+  list-style: inherit;
+}

@@ -56,21 +56,20 @@ class ProductController extends Controller
         } else {
             $request->fileName = '';
         }
-
         $images = $request->file('image_detail');
         try {
             if($this->objProduct->add_Items($request)) {
                 if($fileName <> ''){
-                    $file->move('storage/app/public/files/show_image',$fileName);
+                    $file->move('image/files/show_image',$fileName);
                 }
             $images = $request->file('image_detail');
             if($images){
                 $id =DB::getPdo()->lastInsertId();
                 foreach ($images as $image){
                     $name = time() . "_" . rand(5, 5000000).'_'. $image->getClientOriginalName();  
-                    $url = "storage/app/public/files/detail_image";
-                    $image->move('storage/app/public/files/detail_image',$name);
-                    Helpers::watermark_detail($image,$name,$url);
+                    $url = "image/files/detail_image";
+                    $image->move('image/files/detail_image',$name);
+                    // Helpers::watermark_detail($image,$name,$url);
                     ImageDetail::create([
                         'image_detail'  => $name,
                         'product_id'    => $id,
@@ -92,12 +91,12 @@ class ProductController extends Controller
         try {
 
             $Image        = Product::where('id', $request->input('id'))->first();
-            $patch_name   = 'storage/app/public/files/show_image/'.$Image['image'];
+            $patch_name   = 'image/files/show_image/'.$Image['image'];
             File::delete($patch_name);
 
             $Image_name_  = ImageDetail::where('product_id', $request->input('id'))->get();
             foreach ($Image_name_ as $value) {
-                $patch = 'storage/app/public/files/detail_image/'.$value->image_detail;
+                $patch = 'image/files/detail_image/'.$value->image_detail;
                 File::delete($patch);
             } 
             $Product        = Product::where('id', $request->input('id'))->delete();
@@ -145,7 +144,7 @@ class ProductController extends Controller
                 $array_img = explode(',',$images_del);
                 foreach($array_img as $id_del){
                     $img  = ImageDetail::find($id_del);
-                    $path = $_SERVER["DOCUMENT_ROOT"].'/storage/app/public/files/detail_image/'.$img->image_detail;
+                    $path = $_SERVER["DOCUMENT_ROOT"].'/public/image/files/detail_image/'.$img->image_detail;
                     if(file_exists($path)){
                         unlink($path);
                     }
@@ -157,7 +156,7 @@ class ProductController extends Controller
             $images123 = $request->file('image_detail123');
             if($images123) {
                 $name123 = $request->fileName  = 'avatar_'.time() . "_" .rand(5, 5000000).'_'. $images123->getClientOriginalName();
-                $images123->move('storage/app/public/files/show_image',$name123);
+                $images123->move('image/files/show_image',$name123);
             } else {
                 $request->fileName = $product['image'];
             }
@@ -167,11 +166,10 @@ class ProductController extends Controller
             if($images){
                 foreach ($images as $image){
                     $name = time() . "_" . rand(5, 5000000).'_'. $image->getClientOriginalName();
-                    $url = "storage/app/public/files/detail_image";
+                    $url = "public/files/detail_image";
 
-                    $image->move('storage/app/public/files/detail_image',$name);
-                    Helpers::watermark_detail($image,$name,$url);
-
+                    $image->move('image/files/detail_image',$name);
+                    // Helpers::watermark_detail($image,$name,$url);
                     ImageDetail::create([
                         'image_detail'  => $name,
                         'product_id'    => $id,
@@ -201,7 +199,7 @@ class ProductController extends Controller
             
             if($objItem->save()){
                 if($images123){
-                    $oldimage123 = $_SERVER["DOCUMENT_ROOT"]. '/storage/app/public/files/show_image/'.$product['image'];
+                    $oldimage123 = $_SERVER["DOCUMENT_ROOT"]. '/public/image/files/show_image/'.$product['image'];
                     if(file_exists($oldimage123)) {
                         unlink($oldimage123);
                     }

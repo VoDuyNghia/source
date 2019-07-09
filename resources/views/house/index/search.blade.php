@@ -31,7 +31,7 @@
                         <div class="single-blog-area mb-50">
                             <!-- Post Thumbnail -->
                             <div class="blog-post-thumbnail">
-                                <img src="{{asset('storage/app/public/files/show_news/'.$value->image)}}" alt="{{ $value->name }}">
+                                <img src="{{asset('/image/files/show_news/'.$value->image)}}" alt="{{ $value->name }}">
                             </div>
                             <!-- Post Content -->
                             <div class="post-content">
@@ -83,7 +83,7 @@
                             <!-- Property Thumbnail -->
                             <div class="property-thumb">
                                 <a href="{{ route('house.product.index',$arr) }}">
-                                    <img src="{{asset('storage/app/public/files/show_image/'.$value->image)}}" alt="{{ $value->name }}">
+                                    <img src="{{asset('/image/files/show_image/'.$value->image)}}" alt="{{ $value->name }}">
                                 </a>
                                 <div class="tag">
                                     <span>@if (session::get('locale') == "en"){{ $value->choose->name }}@else{{ $value->choose->name_vn }}@endif</span>
@@ -92,7 +92,7 @@
                                     <span>@if (session::get('locale') == "en"){{ $value->status->name }}@else{{ $value->status->name_vn }}@endif</span>
                                 </div>
                                 <div class="list-price">
-                                    <p>${{ $value->price }}</p>
+                                    <p>{{ $value->price }}</p>
                                 </div>
                             </div>
                             <!-- Property Content -->

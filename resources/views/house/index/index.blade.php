@@ -28,5 +28,4 @@
 <!-- ##### Featured Properties Area End ##### -->
 
 <!-- ##### Editor Area Start ##### -->
-@include('templates.house.describe')
 @endsection

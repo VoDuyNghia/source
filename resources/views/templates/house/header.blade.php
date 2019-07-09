@@ -101,7 +101,7 @@
                         <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt="">
                     </div>
                     <div class="number">
-                        <a href="tel:0905.972.521">0905.972.521</a>
+                        <a href="tel:0798.739.286">0798.739.286</a>
 
                         <img class="logo_language" src="{{ asset('/public/templates/house/img/blog-img/ic-vi.svg') }}">
                             <a class="language" href="{{ url('language/vn') }}"><i style="margin-right: 1em;" class="fa fa-language"></i>VN</a>
@@ -145,7 +145,7 @@
                                     @foreach ($objChoose->chunk(1) as $chunk)
                                         <ul class="single-mega cn-col-3">
                                             @foreach ($chunk as $value)
-                                                <li style="text-align: center;font-size: 1.5em;" class="title_menu">
+                                                <li class="title_menu">
                                                     <a style="font-size: 1.5em;" href="{{ route('house.cat.choose_product',strtolower($value->name)) }}">@if (session::get('locale') == "en"){{$value->name}}@else{{$value->name_vn }}@endif </a>
                                                 </li>
                                             @foreach ($objCollection as $product)
@@ -155,14 +155,14 @@
                                                         'name1' => strtolower($value->name),
                                                     ]
                                                 @endphp
-                                                 <li><a href="{{ route('house.cat.choose_collection',$arr) }}">@if (session::get('locale') == "en"){{$product->name }}@else{{$product->name_vn }}@endif</a>
+                                                 <li class="title_menu_parent"><a href="{{ route('house.cat.choose_collection',$arr) }}">@if (session::get('locale') == "en"){{$product->name }}@else{{$product->name_vn }}@endif</a>
                                                  </li>
                                             @endforeach
                                             @endforeach
                                         </ul>
                                     @endforeach
                                         <ul class="single-mega cn-col-3">
-                                            <li style="text-align: center" class="title_menu">
+                                            <li class="title_menu">
                                                 <a style="font-size: 1.5em;" href="{{ route('house.blog.project.index') }}">{{ __('message.PROJECT') }}</a>
                                             </li>
                                         </ul>

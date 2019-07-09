@@ -26,7 +26,7 @@
                         <!-- Property Thumbnail -->
                         <div class="property-thumb">
                             <a href="{{ route('house.blog.project.detail',[ 'id' => $value->id,'name' => str_slug($value->name) ]) }}">
-                                <img src="{{asset('storage/app/public/files/show_news/'.$value->image)}}" alt="{{ $value->name }}">
+                                <img src="{{asset('/image/files/show_news/'.$value->image)}}" alt="{{ $value->name }}">
                             </a>
                         </div>
                         <!-- Property Content -->

@@ -50,7 +50,7 @@
                       <td class="text-center">{{ $value->product->id }}</td>
                       <td class="text-center">{{ $value->product->name }}</td>
                       <td class="text-center">
-                        <img width="100px" height="100px" class="img img-thumbnail" src="{{ asset('/storage/app/public/files/slider_index/'.$value->image) }}">
+                        <img width="100px" height="100px" class="img img-thumbnail" src="{{ asset('image/files/slider_index/'.$value->image) }}">
                       </td>
                       {{-- <td class="text-center">{{ $value->name}}</td> --}}
                       <td class="text-center">{{ $value->position}}</td>

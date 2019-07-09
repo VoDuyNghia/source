@@ -71,7 +71,7 @@
                         </div>
                         <!-- Address -->
                         <div class="address mt-30">
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt=""> 0905.972.521</h6>
+                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt=""> 0798.739.286</h6>
                             <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/envelope.png" alt=""> danangresidence@gmail.com</h6>
                             <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt=""> Main Str. no 45-46, b3, 56832,<br>Los Angeles, CA</h6>
                         </div>
@@ -108,7 +108,7 @@
         <div class="container">
             <div class="row">
                 <address>
-                    89B Tôn Đản, Phường Hòa An, Quận Cẩm Lệ, Thành Phố Đà Nẵng
+                    Chung Cư NestHome , 66 Dương Văn An , Phường Mân Thái
                 </address>
             </div>
         </div>

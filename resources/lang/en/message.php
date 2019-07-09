@@ -2,9 +2,9 @@
 	return [
 		'HOME' 			=> "HOME",
 		"ABOUT"			=> "About Us",
-		"BLOG"			=> "Blog",
+		"BLOG"			=> "News",
 		"CONTACT"		=> "Contact",
-		"MENU"			=> "Mega Menu",
+		"MENU"			=> "Product",
 		"SEARCH"		=> "SEARCH FOR YOUR HOME",
 		"KEYWORD"		=> "Keyword",
 		"CITIES"		=> "All Cities",
@@ -22,7 +22,7 @@
 		"SUBMIT"		=> "SEND MESSAGE",
 		"CONTACT_INFO"	=> "CONTACT_INFO",
 		"READMORE"		=> "READ MORE",
-		"S"				=> "sq ft",
+		"S"				=> "sqm",
 		"PROJECT"		=> "Project",
 		"RESULT"		=> "There are :result results found",
 		"REALTOR"		=> "Realtor",
@@ -30,6 +30,9 @@
 		"TITLE_PROJECT" => "Our Project",
 		"SEARCH_BLOG"	=> "Search Blogs...",
 		"SEARCH_KEYWORD"=> "Search keywords",
+		"SOLOGAN"		=> "Your satisfaction is our pride",
+		"ADDRESS"		=> "NestHome apartment, Man Thai ward, Son Tra district, DaNang city",
+		"TEAM"			=> "MEET THE TEAM",
 	];
 
 ?>

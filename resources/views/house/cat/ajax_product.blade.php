@@ -10,7 +10,7 @@
 	    <!-- Property Thumbnail -->
 	    <div class="property-thumb">
 	    	<a href="{{ route('house.product.index',$arr) }}">
-	            <img src="{{asset('storage/app/public/files/show_image/'.$value->image)}}" alt="{{ $value->name }}">
+	            <img src="{{asset('/image/files/show_image/'.$value->image)}}" alt="{{ $value->name }}">
 	        </a>
 	        <div class="tag">
 	            <span>@if (session::get('locale') == "en"){{ $value->choose->name }}@else{{ $value->choose->name_vn }}@endif</span>

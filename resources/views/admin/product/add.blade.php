@@ -160,7 +160,7 @@
 
                                     <div class="form-group">
                                       <label>Giá tiền</label>
-                                      <input class="form-control" type="text" name="price" placeholder="Xin nhập giá" value="{{ old('price') }}">
+                                      <input class="form-control" type="number" step="0.01" name="price" placeholder="Xin nhập giá" value="{{ old('price') }}">
                                     </div>
 
                                     <div class="form-group">

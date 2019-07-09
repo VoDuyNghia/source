@@ -38,7 +38,7 @@
                     <div class="single-blog-area">
                         <!-- Post Thumbnail -->
                         <div class="blog-post-thumbnail">
-                           <img src="{{asset('storage/app/public/files/show_news/'.$objNews['image'])}}" alt="{{ $objNews['name'] }}">
+                           <img src="{{asset('/image/files/show_news/'.$objNews['image'])}}" alt="{{ $objNews['name'] }}">
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
@@ -65,7 +65,10 @@
                             <div class="post-meta">
                                 <p>By <a href="#">{{ $objNews->user->name }}</a></p>
                             </div>
-                            <p>@if (session::get('locale') == "en"){!! $objNews['content']!!}@else{!! $objNews['content_vn']!!}@endif </p>
+                            <p>
+                            <div class="content">
+                                @if (session::get('locale') == "en"){!! $objNews['content']!!}@else{!! $objNews['content_vn']!!}@endif 
+                            </div>
                         </div>
                     </div>
 

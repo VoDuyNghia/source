@@ -141,7 +141,7 @@
                                             <input type="hidden" name="id_del_image" id="id_del_image" >
                                             @foreach($ImageProduct as $img)
                                             <div class="wp-image" id="{{$img->id}}">
-                                               <img style='max-width: 120px !important; max-height: 120px !important;' class="img-thumbnail  listimage-edit" src="{{asset('storage/app/public/files/detail_image/'.$img->image_detail)}}"/>
+                                               <img style='max-width: 120px !important; max-height: 120px !important;' class="img-thumbnail  listimage-edit" src="{{asset('public/image/files/detail_image/'.$img->image_detail)}}"/>
                                             </div>
                                             @endforeach
                                          </div>
@@ -167,7 +167,7 @@
                                               <div style="height: 150px;" class="d-inline " id="listimage">
                                                   <input type="hidden" name="id_del_image123" id="id_del_image123" >
                                                   <div class="wp-image" id="{{ $objProduct['image']}}">
-                                                      <img style='width: 100px;height: 100px;margin: 5px;' class="img-thumbnail123" src="{{asset('storage/app/public/files/show_image/'.$objProduct['image'])}}"/>
+                                                      <img style='width: 100px;height: 100px;margin: 5px;' class="img-thumbnail123" src="{{asset('public/image/files/show_image/'.$objProduct['image'])}}"/>
                                                   </div>
                                              </div>
                                          </div>
@@ -192,7 +192,7 @@
 
                                   <div class="form-group">
                                     <label>Giá tiền</label>
-                                    <input class="form-control" type="text" name="price" placeholder="Xin nhập giá" value="{{ $objProduct['price'] }} ">
+                                    <input class="form-control" type="number" step="0.01" name="price" placeholder="Xin nhập giá" value="{{ $objProduct['price'] }} ">
                                   </div>
 
                                   <div class="form-group">

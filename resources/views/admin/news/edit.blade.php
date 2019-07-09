@@ -75,7 +75,7 @@
 								            <button type="button" class="btn btn-primary btn-sm " id="btn_select123">hoặc click vào đây để chọn ảnh !</button>
 								            <div id="thumbnail123" >
 								            	<span>Ảnh cũ</span> <br/>
-								            	<img style='width: 100px;height: 100px;margin: 5px;' class="img-thumbnail123" src="{{asset('storage/app/public/files/show_news/'.$objNews['image'])}}"/>
+								            	<img style='width: 100px;height: 100px;margin: 5px;' class="img-thumbnail123" src="{{asset('image/files/show_news/'.$objNews['image'])}}"/>
 								            </div>
 								        </div>
 								    </div>

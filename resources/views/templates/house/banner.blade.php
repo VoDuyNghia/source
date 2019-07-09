@@ -3,7 +3,7 @@
         <!-- Single Hero Slide -->
         @foreach ($SliderIndex as $value)
         @php
-            $image = "/storage/app/public/files/slider_index/".$value->image;
+            $image = "/public/image/files/slider_index/".$value->image;
             $arr = [
                 'name' => str_slug($value->product->name),
                 'id'   => $value->product->id

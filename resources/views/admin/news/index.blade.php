@@ -49,7 +49,7 @@
                     <tr id="delete-coloum-{{$value->id}}">
                       <td class="text-center">{{ $value->id }}</td>
                       <td class="text-center">{{ $value->name}}</td>
-                      <td class="text-center"><img width="100px" height="100px" class="img img-thumbnail" src="{{ asset('storage/app/public/files/show_news/'.$value->image)}}"></td>
+                      <td class="text-center"><img width="100px" height="100px" class="img img-thumbnail" src="{{ asset('image/files/show_news/'.$value->image)}}"></td>
                       <td class="text-center">@if($value->address <> '') Dự Án @else Blogs @endif</td>
                       <td class="text-center">{{ $value->created_at }}</td>
                       <td  id="trangthai_{{$value->id}}" class="text-center">

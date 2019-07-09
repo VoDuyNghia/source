@@ -37,7 +37,7 @@
                     </div>
                     <!-- Post Thumbnail -->
                     <div class="blog-post-thumbnail">
-                       <img src="{{asset('storage/app/public/files/show_news/'.$objNews['image'])}}" alt="{{ $objNews['name'] }}">
+                       <img src="{{asset('/image/files/show_news/'.$objNews['image'])}}" alt="{{ $objNews['name'] }}">
                     </div>
                     <!-- Post Content -->
                     <div class="post-content">
