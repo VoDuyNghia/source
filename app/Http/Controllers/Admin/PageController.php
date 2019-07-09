@@ -29,7 +29,7 @@ class PageController extends Controller
         }
     }
 
-    public function get_Edit($id, PageRequest $request) {
+    public function get_Edit($id, Request $request) {
     	$objPages = Pages::findOrfail($id);
     	return view('admin.pages.edit',compact('objPages'));
     }

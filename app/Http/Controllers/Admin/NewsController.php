@@ -8,6 +8,7 @@ use App\Models\Active;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Validator,Redirect,Response,File;
+use Helpers;
 
 class NewsController extends Controller
 {
@@ -38,14 +39,15 @@ class NewsController extends Controller
 
         try {
             if($this->objNews->add_Items($request)) {
-                $file->move('image/files/show_news',$fileName);
+                $url = "image/files/show_news";
+                Helpers::watermark_detail($file,$fileName,$url);
                 DB::commit();
                 $request->session()->flash('msg','Thêm thành công');
                 return redirect()->route('admin.news.index');
             }
         } catch(\Exception $e) {
         	DB::rollback();
-            $request->session()->flash('msg',$e);
+            $request->session()->flash('msg','Thêm thất bại');
             return redirect()->route('admin.news.add');
         }
     }
@@ -101,7 +103,9 @@ class NewsController extends Controller
             $objItem->image         = $request->fileName;
             if($objItem->save()){
                 if($images123){
-                    $images123->move('image/files/show_news',$name123);
+                    $url = "image/files/show_news";
+                    Helpers::watermark_detail($images123,$name123,$url);
+
                     $oldimage123 = $_SERVER["DOCUMENT_ROOT"]. '/public/image/files/show_news/'.$News['image'];
                     if(file_exists($oldimage123)) {
                         unlink($oldimage123);

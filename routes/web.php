@@ -155,8 +155,8 @@ Route::middleware('admin')->namespace('Admin')->prefix('admin')->group( function
 	Route::get('pages', 'PageController@index')->name('admin.pages.index');
 	Route::get('pages/add', 'PageController@get_Add')->name('admin.pages.add');
 	Route::post('pages/add', 'PageController@post_Add')->name('admin.pages.add');
-	Route::get('pages/edit/{id}', 'PageController@get_Edit')->name('admin.pages.edit');
-	Route::post('pages/edit/{id}', 'PageController@post_Edit')->name('admin.pages.edit');
+	Route::get('pages/123/{id}', 'PageController@get_Edit')->name('admin.pages.edit');
+	Route::post('pages/123/{id}', 'PageController@post_Edit')->name('admin.pages.edit');
 
 	// Quản lý slider trang chủ
 

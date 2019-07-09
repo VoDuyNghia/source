@@ -9,6 +9,7 @@ use App\Models\Slider;
 use App\Models\Active;
 use Illuminate\Support\Facades\DB;
 use File;
+use Helpers;
 
 class SliderController extends Controller
 {
@@ -50,7 +51,8 @@ class SliderController extends Controller
 
 	        if($objProduct->save()){
 	    	 	if(!is_null($file)){
-	    	 		$file->move('image/files/slider_index',$fileName);
+                    $url = "image/files/slider_index";
+                    Helpers::watermark_detail($file,$fileName,$url);
 	    	 	}
 	    	 	DB::commit();
 	            $request->session()->flash('msg','Thêm thành công');
@@ -81,7 +83,6 @@ class SliderController extends Controller
             $images123 = $request->file('image_detail123');
             if($images123) {
                 $name123 = $request->fileName  = 'avatar_'.time() . "_" .rand(5, 5000000).'_'. $images123->getClientOriginalName();
-                $images123->move('image/files/slider_index',$name123);
             } else {
                 $request->fileName = $slider['image'];
             }
@@ -98,6 +99,8 @@ class SliderController extends Controller
                     if(file_exists($oldimage123)) {
                         unlink($oldimage123);
                     }
+                    $url = "image/files/slider_index";
+                    Helpers::watermark_detail($images123,$name123,$url);
                 }
                 DB::commit();
                 $request->session()->flash('msg','Sửa thành công');
@@ -161,7 +164,8 @@ class SliderController extends Controller
 
             if($objProduct->save()){
                 if(!is_null($file)){
-                    $file->move('storage/app/public/files/slider_product',$fileName);
+                    $url = "image/files/slider_product";
+                    Helpers::watermark_detail($file,$fileName,$url);
                 }
                 DB::commit();
                 $request->session()->flash('msg','Thêm thành công');
@@ -190,7 +194,6 @@ class SliderController extends Controller
             $images123 = $request->file('image_detail123');
             if($images123) {
                 $name123 = $request->fileName  = 'avatar_'.time() . "_" .rand(5, 5000000).'_'. $images123->getClientOriginalName();
-                $images123->move('storage/app/public/files/slider_product',$name123);
             } else {
                 $request->fileName = $slider['image'];
             }
@@ -207,6 +210,9 @@ class SliderController extends Controller
                     if(file_exists($oldimage123)) {
                         unlink($oldimage123);
                     }
+
+                    $url = "image/files/slider_product";
+                    Helpers::watermark_detail($images123,$name123,$url);
                 }
                 DB::commit();
                 $request->session()->flash('msg','Sửa thành công');

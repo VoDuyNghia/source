@@ -19,11 +19,14 @@
             <div class="single-featured-property">
                 <!-- Property Thumbnail -->
                 <div class="property-thumb">
-                    <a href="{{ route('house.product.index',$arr) }}"><img src="{{ getenv('URL_TEMPLATES_HOUSE') }}/img/bg-img/feature2.jpg" alt="$value->product->name"></a>
+                    <a href="{{ route('house.product.index',$arr) }}"><img src="{{ asset('image/files/slider_product/'.$value->image) }}" alt="{{ $value->product->name }}"></a>
                     
                     <div class="tag">
                         <span>{{ $value->product->choose->name }}</span>
                     </div>
+                <div class="status">
+                    <span>@if (session::get('locale') == "en"){{ $value->product->status->name }}@else{{ $value->product->status->name }}@endif</span>
+                </div>
                     <div class="list-price">
                         <p>${{$value->product->price}}</p>
                     </div>

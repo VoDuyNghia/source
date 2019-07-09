@@ -192,9 +192,8 @@
 
                                   <div class="form-group">
                                     <label>Giá tiền</label>
-                                    <input class="form-control" type="number" step="0.01" name="price" placeholder="Xin nhập giá" value="{{ $objProduct['price'] }} ">
+                                    <input class="form-control" type="number" step="0.1" name="price" placeholder="Xin nhập giá" value="{{ $objProduct['price'] }}">
                                   </div>
-
                                   <div class="form-group">
                                     <label>Tình trạng bài viết</label>
                                       <select class="form-control" name="active" id="active">

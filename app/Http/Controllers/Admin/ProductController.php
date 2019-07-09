@@ -59,8 +59,9 @@ class ProductController extends Controller
         $images = $request->file('image_detail');
         try {
             if($this->objProduct->add_Items($request)) {
-                if($fileName <> ''){
-                    $file->move('image/files/show_image',$fileName);
+                if($file <> ''){
+                    $url1 = "image/files/show_image";
+                    Helpers::watermark_detail($file,$fileName,$url1);
                 }
             $images = $request->file('image_detail');
             if($images){
@@ -68,8 +69,7 @@ class ProductController extends Controller
                 foreach ($images as $image){
                     $name = time() . "_" . rand(5, 5000000).'_'. $image->getClientOriginalName();  
                     $url = "image/files/detail_image";
-                    $image->move('image/files/detail_image',$name);
-                    // Helpers::watermark_detail($image,$name,$url);
+                    Helpers::watermark_detail($image,$name,$url);
                     ImageDetail::create([
                         'image_detail'  => $name,
                         'product_id'    => $id,
@@ -152,24 +152,22 @@ class ProductController extends Controller
                 }
             }
 
-            // Ảnh đại điện
+            // Ảnh đại điện  
             $images123 = $request->file('image_detail123');
             if($images123) {
                 $name123 = $request->fileName  = 'avatar_'.time() . "_" .rand(5, 5000000).'_'. $images123->getClientOriginalName();
-                $images123->move('image/files/show_image',$name123);
             } else {
                 $request->fileName = $product['image'];
             }
+
 
             /// Thêm ảnh mô tả
             $images = $request->file('image_detail');
             if($images){
                 foreach ($images as $image){
                     $name = time() . "_" . rand(5, 5000000).'_'. $image->getClientOriginalName();
-                    $url = "public/files/detail_image";
-
-                    $image->move('image/files/detail_image',$name);
-                    // Helpers::watermark_detail($image,$name,$url);
+                    $url = "image/files/detail_image";
+                    Helpers::watermark_detail($image,$name,$url);
                     ImageDetail::create([
                         'image_detail'  => $name,
                         'product_id'    => $id,
@@ -202,6 +200,8 @@ class ProductController extends Controller
                     $oldimage123 = $_SERVER["DOCUMENT_ROOT"]. '/public/image/files/show_image/'.$product['image'];
                     if(file_exists($oldimage123)) {
                         unlink($oldimage123);
+                        $url1 = "image/files/show_image";
+                        Helpers::watermark_detail($images123,$name123,$url1);
                     }
                 }
                 DB::commit();

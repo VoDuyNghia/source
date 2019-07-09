@@ -125,8 +125,10 @@
             
             if(data.success){
                 $('#notify_success').html('<div class=" notify success"><div class="alert alert-success">' + data.success + '</div></div>');
+                setTimeout(function(){location.href='{{ route('admin.cat.index') }}';},2000);
             }else{
                 $('#notify_success').html('<div class=" notify error"><div class="alert alert-danger">' + data.error + '</div></div>');
+                setTimeout(function(){location.href='{{ route('admin.cat.index') }}';},2000);
             }
         }
         });
