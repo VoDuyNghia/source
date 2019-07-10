@@ -26,20 +26,20 @@
 	    <div class="property-content">
 	    	<a href="{{ route('house.product.index',$arr) }}"><h5>@if(session::get('locale') == "en"){{$value->name }}@else{{ $value->name_vn }}@endif</h5></a>
 	    	<h6 style="color:blue;font-weight: bold;"> ( {{$value->code}} ) </h6>
-	        <p class="location"><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt="">{{ $value->address }}</p>
+	        <p class="location"><img src="{{ asset('templates/house/') }}/img/icons/location.png" alt="">{{ $value->address }}</p>
 	        <p>@if (session::get('locale') == "en"){{ $value->detail }}@else{{ $value->detail_vn }}@endif</p>
 	        <div class="property-meta-data d-flex align-items-end justify-content-between">
 				<div class="bathroom">
-				    <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/bathtub.png" alt="">
+				    <img src="{{ asset('templates/house/') }}/img/icons/bathtub.png" alt="">
 				    <span>{{ $value->bathrooms}}</span>
 				</div>
 				<div class="garage">
-				    <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/garage.png" alt="">
+				    <img src="{{ asset('templates/house/') }}/img/icons/garage.png" alt="">
 				    <span>{{ $value->bedrooms}}</span>
 				</div>
 
 				<div class="space">
-				    <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/space.png" alt="">
+				    <img src="{{ asset('templates/house/') }}/img/icons/space.png" alt="">
 				    <span>{{ $value->sqrt}} {{ __('message.S') }}</span>
 				</div> 
 	        </div>

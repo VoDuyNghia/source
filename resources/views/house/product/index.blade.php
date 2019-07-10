@@ -79,21 +79,21 @@
                         </div>
                     </div>
                     <h5>{{ $objProducts['name'] }}</h5>
-                    <p class="location"><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt="">{{ $objProducts['address'] }}</p>
+                    <p class="location"><img src="{{ asset('templates/house/') }}/img/icons/location.png" alt="">{{ $objProducts['address'] }}</p>
                     
                     <!-- Meta -->
                     <div class="property-meta-data d-flex align-items-end">
                        <div class="bathroom">
-                            <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/bathtub.png" alt="">
+                            <img src="{{ asset('templates/house/') }}/img/icons/bathtub.png" alt="">
                             <span>{{ $objProducts['bathrooms']}}</span>
                         </div>
                         <div class="garage">
-                            <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/garage.png" alt="">
+                            <img src="{{ asset('templates/house/') }}/img/icons/garage.png" alt="">
                             <span>{{ $objProducts['bedrooms']}}</span>
                         </div>
                     
                         <div class="space">
-                            <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/space.png" alt="">
+                            <img src="{{ asset('templates/house/') }}/img/icons/space.png" alt="">
                             <span>{{ $objProducts['sqrt']}} {{ __('message.S') }}</span>
                         </div>
                         
@@ -121,13 +121,13 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="contact-realtor-wrapper">
                     <div class="realtor-info">
-                        <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/bg-img/listing.jpg" alt="">
+                        <img src="{{ asset('templates/house/') }}/img/bg-img/listing.jpg" alt="">
                         <div class="realtor---info">
                             <h2>TRUONG DINH HOANG</h2>
                             <p>Realtor</p>
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt=""> 0905.972.521</h6>
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/envelope.png" alt="">danangresidence@gmail.com</h6>
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt="">{{ __('message.ADDRESS') }}</h6>
+                            <h6><img src="{{ asset('templates/house/') }}/img/icons/phone-call.png" alt=""> 0905.972.521</h6>
+                            <h6><img src="{{ asset('templates/house/') }}/img/icons/envelope.png" alt="">danangresidence@gmail.com</h6>
+                            <h6><img src="{{ asset('templates/house/') }}/img/icons/location.png" alt="">{{ __('message.ADDRESS') }}</h6>
                         </div>
                         <div class="realtor--contact-form">
                             @php

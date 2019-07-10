@@ -13,9 +13,9 @@
     <meta property="og:description"   content="{{ $description }}" />
     <meta property="og:image"         content="{{ $image }}" />
     <title>{{$title}}</title>
-    <link rel="icon" href="{{getenv('URL_TEMPLATES_HOUSE')}}/img/core-img/favicon.ico">
-    <script src="{{getenv('URL_TEMPLATES_HOUSE')}}/js/jquery/jquery-2.2.4.min.js"></script>
-    <link rel="stylesheet" href="{{getenv('URL_TEMPLATES_HOUSE')}}/style.css">
+    <link rel="icon" href="{{ asset('/templates/house/') }}/img/core-img/favicon.ico">
+    <script src="{{ asset('/templates/house/') }}/js/jquery/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('/templates/house/') }}/style.css">
     <style>
     @import url(http://weloveiconfonts.com/api/?family=entypo);
     /* entypo */
@@ -98,14 +98,14 @@
 
                 <div class="phone-number d-flex">
                     <div class="icon">
-                        <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt="">
+                        <img src="{{ asset('/templates/house/') }}/img/icons/phone-call.png" alt="">
                     </div>
                     <div class="number">
                         <a href="tel:0798.739.286">0798.739.286</a>
 
-                        <img class="logo_language" src="{{ asset('/public/templates/house/img/blog-img/ic-vi.svg') }}">
+                        <img class="logo_language" src="{{ asset('templates/house/img/blog-img/ic-vi.svg') }}">
                             <a class="language" href="{{ url('language/vn') }}"><i style="margin-right: 1em;" class="fa fa-language"></i>VN</a>
-                        <img class="logo_language" src="{{ asset('/public/templates/house/img/blog-img/ic-en.svg') }}">
+                        <img class="logo_language" src="{{ asset('templates/house/img/blog-img/ic-en.svg') }}">
                             <a class="language" href="{{ url('language/en') }}"><i style="margin-right: 1em;" class="fa fa-language"></i>EN</a>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                 <nav class="classy-navbar justify-content-between" id="southNav">
 
                     <!-- Logo -->
-                    <a class="nav-brand" href="{{ route('house.index.index') }}"><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/core-img/logo.png" alt=""></a>
+                    <a class="nav-brand" href="{{ route('house.index.index') }}"><img src="{{ asset('/templates/house/') }}/img/core-img/logo.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">

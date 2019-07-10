@@ -26,7 +26,7 @@ class BlogController extends Controller
 
     public function detail_news($name, $id){
         $key_word       = "";
-        $objNews        = News::findOrfail($id);
+        $objNews        = News::whereNull('address')->findOrfail($id);
         if (session::get('locale') == "en") {
             $title      = $objNews['name']. " - BLOGS | DA NANG RESIDENCE";
             $description= $objNews['detail']. " - BLOGS | DA NANG RESIDENCE";
@@ -60,7 +60,7 @@ class BlogController extends Controller
 
     public function news_project($name,$id) {
         $key_word   = "";
-        $objNews    = News::where('id',$id)->first();
+        $objNews    = News::where('id',$id)->whereNotNull('address')->first();
         
         if (session::get('locale') == "en") {
             $title      = $objNews['name']. " - PROJECT | DA NANG RESIDENCE";

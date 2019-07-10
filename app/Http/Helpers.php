@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\DB;
 class Helpers {
         public static function watermark_detail($image,$name,$url){
                 $watermark     =  Image::make(asset('logo.jpg'));
-
                 $img           =  Image::make($image);
                 //#1
                 $watermarkSize = $img->width(); //size of the image minus 20 margins

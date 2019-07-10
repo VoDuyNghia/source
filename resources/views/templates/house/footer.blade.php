@@ -12,9 +12,9 @@
                             <h6>{{ __('message.ABOUT') }}</h6>
                         </div>
 
-                        <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/bg-img/footer.jpg" alt="">
+                        <img src="{{ asset('templates/house/') }}/img/bg-img/footer.jpg" alt="">
                         <div class="footer-logo my-4">
-                            <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/core-img/logo.png" alt="">
+                            <img src="{{ asset('templates/house/') }}/img/core-img/logo.png" alt="">
                         </div>
                         <p>{{ __('message.SOLOGAN') }}</p>
                     </div>
@@ -35,9 +35,9 @@
                         </div>
                         <!-- Address -->
                         <div class="address">
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt=""> 0798.739.286</h6>
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/envelope.png" alt=""> danangresidence@gmail.com</h6>
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt=""> {{ __('message.ADDRESS') }}</h6>
+                            <h6><img src="{{ asset('templates/house/') }}/img/icons/phone-call.png" alt=""> 0798.739.286</h6>
+                            <h6><img src="{{ asset('templates/house/') }}/img/icons/envelope.png" alt=""> danangresidence@gmail.com</h6>
+                            <h6><img src="{{ asset('templates/house/') }}/img/icons/location.png" alt=""> {{ __('message.ADDRESS') }}</h6>
                         </div>
                     </div>
                 </div>
@@ -75,15 +75,15 @@
                         <div class="featured-properties-slides owl-carousel">
                             <!-- Single Slide -->
                             <div class="single-featured-properties-slide">
-                                <a href="#"><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/bg-img/fea-product.jpg" alt=""></a>
+                                <a href="#"><img src="{{ asset('templates/house/') }}/img/bg-img/fea-product.jpg" alt=""></a>
                             </div>
                             <!-- Single Slide -->
                             <div class="single-featured-properties-slide">
-                                <a href="#"><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/bg-img/fea-product.jpg" alt=""></a>
+                                <a href="#"><img src="{{ asset('templates/house/') }}/img/bg-img/fea-product.jpg" alt=""></a>
                             </div>
                             <!-- Single Slide -->
                             <div class="single-featured-properties-slide">
-                                <a href="#"><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/bg-img/fea-product.jpg" alt=""></a>
+                                <a href="#"><img src="{{ asset('templates/house/') }}/img/bg-img/fea-product.jpg" alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -105,16 +105,16 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!-- jQuery (Necessary for All JavaScript Plugins) -->
 
 <!-- Popper js -->
-<script src="{{getenv('URL_TEMPLATES_HOUSE')}}/js/popper.min.js"></script>
+<script src="{{ asset('templates/house/') }}/js/popper.min.js"></script>
 <!-- Bootstrap js -->
-<script src="{{getenv('URL_TEMPLATES_HOUSE')}}/js/bootstrap.min.js"></script>
+<script src="{{ asset('templates/house/') }}/js/bootstrap.min.js"></script>
 <!-- Plugins js -->
-<script src="{{getenv('URL_TEMPLATES_HOUSE')}}/js/plugins.js"></script>
-<script src="{{getenv('URL_TEMPLATES_HOUSE')}}/js/classy-nav.min.js"></script>
-<script src="{{getenv('URL_TEMPLATES_HOUSE')}}/js/jquery-ui.min.js"></script>
+<script src="{{ asset('templates/house/') }}/js/plugins.js"></script>
+<script src="{{ asset('templates/house/') }}/js/classy-nav.min.js"></script>
+<script src="{{ asset('templates/house/') }}/js/jquery-ui.min.js"></script>
 <!-- Active js -->
-<script src="{{getenv('URL_TEMPLATES_HOUSE')}}/js/active.js"></script>
-<script src="{{getenv('URL_TEMPLATES_HOUSE')}}/js/map-active.js"></script>
+<script src="{{ asset('templates/house/') }}/js/active.js"></script>
+<script src="{{ asset('templates/house/') }}/js/map-active.js"></script>
 </body>
 
 </html>

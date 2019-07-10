@@ -197,11 +197,12 @@ class ProductController extends Controller
             
             if($objItem->save()){
                 if($images123){
+                    $url1 = "image/files/show_image";
+                    Helpers::watermark_detail($images123,$name123,$url1);
+                        
                     $oldimage123 = $_SERVER["DOCUMENT_ROOT"]. '/public/image/files/show_image/'.$product['image'];
                     if(file_exists($oldimage123)) {
                         unlink($oldimage123);
-                        $url1 = "image/files/show_image";
-                        Helpers::watermark_detail($images123,$name123,$url1);
                     }
                 }
                 DB::commit();

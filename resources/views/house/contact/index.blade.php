@@ -71,9 +71,9 @@
                         </div>
                         <!-- Address -->
                         <div class="address mt-30">
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/phone-call.png" alt=""> 0798.739.286</h6>
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/envelope.png" alt=""> danangresidence@gmail.com</h6>
-                            <h6><img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/location.png" alt=""> Main Str. no 45-46, b3, 56832,<br>Los Angeles, CA</h6>
+                            <h6><img src="{{ asset('templates/house/') }}/img/icons/phone-call.png" alt=""> 0798.739.286</h6>
+                            <h6><img src="{{ asset('templates/house/') }}/img/icons/envelope.png" alt=""> danangresidence@gmail.com</h6>
+                            <h6><img src="{{ asset('templates/house/') }}/img/icons/location.png" alt=""> Main Str. no 45-46, b3, 56832,<br>Los Angeles, CA</h6>
                         </div>
                     </div>
                 </div>

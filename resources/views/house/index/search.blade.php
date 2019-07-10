@@ -111,17 +111,17 @@
                                     @forelse($configurations as $key=>$value)
                                         @if ($key == 0)
                                             <div class="bathroom">
-                                                <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/bathtub.png" alt="">
+                                                <img src="{{ asset('templates/house/') }}/img/icons/bathtub.png" alt="">
                                                 <span>{{ $key }}</span>
                                             </div>
                                         @elseif($key ==1)
                                             <div class="garage">
-                                                <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/garage.png" alt="">
+                                                <img src="{{ asset('templates/house/') }}/img/icons/garage.png" alt="">
                                                 <span>{{ $key }}</span>
                                             </div>
                                         @elseif($key==2)
                                             <div class="space">
-                                                <img src="{{getenv('URL_TEMPLATES_HOUSE')}}/img/icons/space.png" alt="">
+                                                <img src="{{ asset('templates/house/') }}/img/icons/space.png" alt="">
                                                 <span>{{ $key }} {{ __('message.S') }}</span>
                                             </div> 
                                         @endif
